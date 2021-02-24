@@ -1,0 +1,37 @@
+type,parent_type,name,description,tl_conversion
+n,ROOT,node,,
+rg,obj,reagent,"Reagent. A substance or mixture for use in any kind of reaction, in preparing a product, because of its chemical or biological activity.",rg
+arg,n,argument,,o
+ev,n,event,,ev
+obj,arg,object,,tl_obj
+desc,o,descriptor,,tl_desc
+m,s,measurement,"Measurement. Typically used to provide measurement details of a reagent, device or location. ",tl_m
+s,desc,setting,"Setting. Similar to measurement, but reserved specifically for operations - describes the conditions at which the operation takes place.",tl_s
+op,ev,operation,,opw
+loc,obj,location,Containers for reagents or other physical entities. They lack any operation capabili- ties other than acting as a container.,tl_loc
+d,obj,device,A machine capable of acting as a container as well as performing a specific task on the objects that it holds,tl_d
+sl,obj,seal,Any kind of lid or enclosure for the location or device.,tl_sl
+mod,desc,modifier,A word or a phrase that acts as an additional description of the entity it is modifying.,tl_mod
+mth,desc,method,A word or phrase used to concisely define the procedure to be performed in association with the chosen action verb.,tl_mth
+default_op,op,default_op,General label for operations not matching any of the fine-grained types.,tl_default_enum
+transfer_op,op,transfer_op,Represents input arguments being transferred to a new location.,tl_transfer_enum
+destroy_op,op,destroy_op,"Represents input being discarded, after which it won't be used anymore in the process.",tl_destroy_enum
+convert_op,op,convert_op,"Operations where one entity is converted to another, typically through some reaction.",tl_convert_enum
+create_op,op,create_op,Operation which provisions or prepares a new physical entity.,tl_create_enum
+temp_treat_op,op,temp_treat_op,"Represents an input argument being subject to thermal treatment, such as cooling or incubation.",tl_temp_treat_enum
+spin_op,op,spin_op,Treatment where materials are reacted by spinning at high speed. This often creates pellets (solid) and supernatant (liquid) which can play active roles in procedure.,tl_centrifuge_enum
+measure_op,op,measure_op,Represents various forms of measurement operations conducted as part of an experimental protocol.,tl_measure_enum
+wash_op,op,wash_op,Represents various forms of rinsing or other immersion in liquids. Appllicable to entities as well as locations or devices.,tl_wash_enum
+seal_op,op,seal_op,Operation which seals a container.,tl_cover_enum
+remove_op,op,remove_op,"Operations where an entity is removed from a mixture or container, for later processing.",tl_remove_enum
+time_op,op,time_op,"Operation which involves simply waiting for a specified period of time, for example until a reaction is complete.",tl_time_enum
+mix_op,op,mix_op,Represents operations used to mix together various reactants.,tl_mix_enum
+im_ev,ev,implicit_event,,
+usage_of,im_ev,usage_of,"Any entity that the action verb makes ‘use’ of is linked with this relation. Any entity that
+the action verb utilizes to perform the action",tl_usage_of_enum
+part_of,im_ev,part_of,"Sets some reagent, location or device entity to be a part of another reagent, location or device. For example, a surface is part of a table.",tl_part_of_enum
+setting_of,im_ev,setting_of,Link a setting entity with the operation it is describing.,tl_setting_of_enum
+modifier_of,im_ev,modifier,Links modifier to entity it is attempting to modify.,tl_modifier_of_enum
+measure_of,im_ev,measure,A link that associates the various numerical measures to the entity it is trying to measure.,tl_measure_of_enum
+located_at,im_ev,located_at,Specify the location of a physical entity.,tl_located_at_enum
+co_ref_of,im_ev,co_ref,Links between an entity to another reference to it.,tl_co_ref_of_enum

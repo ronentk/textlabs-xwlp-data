@@ -1,0 +1,7 @@
+penman
+docopt
+tqdm
+git+https://github.com/ronentk/pyvis.git
+dataclasses-json
+pandas
+matplotlib
