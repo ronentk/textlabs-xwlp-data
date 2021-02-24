@@ -41,7 +41,7 @@ pip install -r requirements.txt
 
 This will also install libraries necessary for the visualization and AMR conversion.
 
-See [here](notebooks/demo.ipynb) for a notebook demonstrating data loading and these functionalities.
+See [here](notebooks/demo.ipynb) for a notebook demonstrating data loading and AMR/visualization functionalities.
 
 ### Experiments
 
