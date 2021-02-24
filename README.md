@@ -4,7 +4,7 @@ X-WLP (eXecutable Wet Labs Protocols Dataset) is a new dataset containing proces
 
 To obtain process-level, executable annotations, the dataset was collected using an interactive text-based game interface - annotators were tasked to execute sequences of natural language instructions presented in a text-based "lab simulator". Our executable semantic representation is called a Process Execution Graph (PEG).
 
-This repo contains the collected dataset. For more about the project in general, see our EACL paper, [Process-Level Representation of Scientific Protocols with Interactive Annotation](https://arxiv.org/abs/2101.10244), and the [project web page](https://textlabs.github.io/).
+This repo contains the collected dataset. For more about the project in general, see our EACL 2021 paper, [Process-Level Representation of Scientific Protocols with Interactive Annotation](https://arxiv.org/abs/2101.10244), and the [project web page](https://textlabs.github.io/).
 
 ## Process Execution Graphs
 
