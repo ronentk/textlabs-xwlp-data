@@ -1,0 +1,4 @@
+*.pyc
+*.spyproject
+*.git
+*.ipynb_checkpoints
