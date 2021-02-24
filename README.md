@@ -31,7 +31,7 @@ The `data` folder contains annotations for each protocol, numbered by the origin
 
 For the [modelling experiments](#experiments) you can directly use the [AMR files zip](amr_only/amrs.zip).
 
-For programatically exploration of the data, the easiest way is through the call graph format PEGs which are saved as json files. The most convenient way to work with them is through Python, with the [networkx](https://networkx.org/) graph library. 
+For programmatic exploration of the data, the easiest way is through the call graph format PEGs which are saved as json files. The most convenient way to work with them is through Python, with the [networkx](https://networkx.org/) graph library. 
 
 The necessary requirements can be installed through:
 
