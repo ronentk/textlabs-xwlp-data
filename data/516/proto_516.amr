@@ -1,0 +1,103 @@
+(a23 / temp-treat-op
+     :name (n23 / name
+                :op1 "dried")
+     :site (a2 / d
+               :name (n2 / name
+                         :op1 "oven"))
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :ARG1 a7
+               :succ (a22 / transfer-op
+                          :site a6
+                          :setting-of (a12 / m
+                                           :name (n12 / name
+                                                      :op1 "known-volume"))
+                          :succ (a21 / measure-op
+                                     :name (n21 / name
+                                                :op1 "measure")
+                                     :setting-of (a11 / m
+                                                      :name (n11 / name
+                                                                 :op1 "volume"))
+                                     :succ a20
+                                     :ARG0 a1)
+                          :ARG0 (a1 / d
+                                    :name (n1 / name
+                                              :op1 "dialysis-tubes")
+                                    :site-of (a20 / wash-op
+                                                  :ARG0 (a26 / rg
+                                                             :name (n26 / name
+                                                                        :op1 "humus"))
+                                                  :ARG1 (a27 / rg
+                                                             :name (n27 / name
+                                                                        :op1 "running-tap-water"))
+                                                  :setting-of (a29 / s
+                                                                   :name (n29 / name
+                                                                              :op1 "24-h"))
+                                                  :name (n20 / name
+                                                             :op1 "dialyzed")
+                                                  :succ-of (a3 / located-at
+                                                               :ARG0 a26
+                                                               :name (n3 / name
+                                                                         :op1 "event")
+                                                               :succ (a19 / default-op
+                                                                          :ARG1 (a0 / d
+                                                                                    :name (n0 / name
+                                                                                              :op1 "whatman-filter-paper-no--1"))
+                                                                          :succ a18
+                                                                          :ARG0 a5
+                                                                          :name (n19 / name
+                                                                                     :op1 "filter"))
+                                                               :ARG1 (a5 / loc
+                                                                         :site-of (a15 / transfer-op
+                                                                                       :ARG0 (a24 / rg
+                                                                                                  :measure-of (a8 / m
+                                                                                                                  :name (n8 / name
+                                                                                                                            :op1 "20-g"))
+                                                                                                  :name (n24 / name
+                                                                                                             :op1 "soil"))
+                                                                                       :succ-of (a16 / transfer-op
+                                                                                                     :site a5
+                                                                                                     :ARG0 (a25 / rg
+                                                                                                                :measure-of (a9 / m
+                                                                                                                                :name (n9 / name
+                                                                                                                                          :op1 "s1-w13-100-ml"))
+                                                                                                                :name (n25 / name
+                                                                                                                           :op1 "extractant"))
+                                                                                                     :succ-of (a17 / mix-op
+                                                                                                                   :ARG0 a5
+                                                                                                                   :succ-of (a18 / time-op
+                                                                                                                                 :ARG0 a5
+                                                                                                                                 :setting-of (a28 / s
+                                                                                                                                                  :name (n28 / name
+                                                                                                                                                             :op1 "18-h"))
+                                                                                                                                 :name (n18 / name
+                                                                                                                                            :op1 "standing"))
+                                                                                                                   :name (n17 / name
+                                                                                                                              :op1 "shake")
+                                                                                                                   :modifier-of (a14 / mod
+                                                                                                                                     :name (n14 / name
+                                                                                                                                                :op1 "well")))
+                                                                                                     :name (n16 / name
+                                                                                                                :op1 "add")
+                                                                                                     :setting-of (a10 / m
+                                                                                                                      :name (n10 / name
+                                                                                                                                 :op1 "1-5-ratio")))
+                                                                                       :name (n15 / name
+                                                                                                  :op1 "take"))
+                                                                         :name (n5 / name
+                                                                                   :op1 "conical-flask")))))
+                          :name (n22 / name
+                                     :op1 "weighed"))
+               :ARG0 (a6 / loc
+                         :measure-of (a13 / m
+                                          :name (n13 / name
+                                                     :op1 "s7-w15-100-ml"))
+                         :name (n6 / name
+                                   :op1 "s7-w16-beaker")))
+     :ARG0 (a7 / loc
+               :name (n7 / name
+                         :op1 "s8-w1-beaker"))
+     :setting-of (a30 / s
+                      :name (n30 / name
+                                 :op1 "70-c")))

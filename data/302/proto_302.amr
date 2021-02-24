@@ -1,0 +1,94 @@
+(a18 / measure-op
+     :name (n18 / name
+                :op1 "counted")
+     :succ (a1 / co-ref-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ (a17 / transfer-op
+                          :site a23
+                          :ARG0 (a25 / rg
+                                     :measure-of (a7 / m
+                                                     :name (n7 / name
+                                                               :op1 "2%"))
+                                     :name (n25 / name
+                                                :op1 "s4-w15-glutaraldehyde"))
+                          :name (n17 / name
+                                     :op1 "fixed"))
+               :ARG0 (a23 / rg
+                          :site-of (a15 / transfer-op
+                                        :ARG0 (a24 / rg
+                                                   :measure-of (a6 / m
+                                                                   :name (n6 / name
+                                                                             :op1 "1--g-ml"))
+                                                   :name (n24 / name
+                                                              :op1 "mitomycin-c"))
+                                        :succ-of (a16 / temp-treat-op
+                                                      :ARG0 a23
+                                                      :setting-of (a26 / s
+                                                                       :name (n26 / name
+                                                                                  :op1 "16-24-h"))
+                                                      :setting-of (a27 / s
+                                                                       :name (n27 / name
+                                                                                  :op1 "room-temperature"))
+                                                      :succ-of a17
+                                                      :name (n16 / name
+                                                                 :op1 "incubated"))
+                                        :name (n15 / name
+                                                   :op1 "s3-w4-add")
+                                        :succ a0)
+                          :name (n23 / name
+                                     :op1 "treatment-samples")
+                          :ARG1-of (a0 / co-ref-of
+                                       :name (n0 / name
+                                                 :op1 "event")
+                                       :succ (a13 / transfer-op
+                                                  :ARG0 (a19 / rg
+                                                             :measure-of (a3 / m
+                                                                             :name (n3 / name
+                                                                                       :op1 "s1-w6-25-ml"))
+                                                             :modifier-of (a8 / mod
+                                                                              :name (n8 / name
+                                                                                        :op1 "unconcentrated"))
+                                                             :modifier-of (a9 / mod
+                                                                              :name (n9 / name
+                                                                                        :op1 "each"))
+                                                             :name (n19 / name
+                                                                        :op1 "seawater-samples"))
+                                                  :succ-of (a14 / create-op
+                                                                :ARG1 a19
+                                                                :ARG0 (a21 / rg
+                                                                           :measure-of (a5 / m
+                                                                                           :name (n5 / name
+                                                                                                     :op1 "s2-w5-25-ml"))
+                                                                           :modifier-of (a12 / mod
+                                                                                             :name (n12 / name
+                                                                                                        :op1 "additional"))
+                                                                           :name (n21 / name
+                                                                                      :op1 "sample"))
+                                                                :site (a22 / rg
+                                                                           :name (n22 / name
+                                                                                      :op1 "s2-w12-formalin"))
+                                                                :name (n14 / name
+                                                                           :op1 "fix"))
+                                                  :name (n13 / name
+                                                             :op1 "s1-w4-add"))
+                                       :ARG0 (a2 / loc
+                                                 :measure-of (a4 / m
+                                                                 :name (n4 / name
+                                                                           :op1 "50-ml"))
+                                                 :modifier-of (a10 / mod
+                                                                   :name (n10 / name
+                                                                              :op1 "sterile"))
+                                                 :modifier-of (a11 / mod
+                                                                   :name (n11 / name
+                                                                              :op1 "conical"))
+                                                 :site-of a13
+                                                 :name (n2 / name
+                                                           :op1 "centrifuge-tubes"))))
+               :ARG1 a20)
+     :ARG0 (a20 / rg
+                :name (n20 / name
+                           :op1 "samples"))
+     :setting-of (a28 / s
+                      :name (n28 / name
+                                 :op1 "24-h")))

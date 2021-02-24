@@ -1,0 +1,138 @@
+(a20 / spin-op
+     :name (n20 / name
+                :op1 "s9-w0-collect")
+     :usage-of (a17 / mth
+                    :name (n17 / name
+                               :op1 "s9-w5-centrifugation"))
+     :succ (a27 / transfer-op
+                :succ (a4 / co-ref-of
+                          :name (n4 / name
+                                    :op1 "event")
+                          :succ (a25 / spin-op
+                                     :usage-of (a15 / mth
+                                                    :name (n15 / name
+                                                               :op1 "s7-w5-centrifugation"))
+                                     :succ (a24 / temp-treat-op
+                                                :name (n24 / name
+                                                           :op1 "incubate")
+                                                :ARG0 a6
+                                                :setting-of (a41 / s
+                                                                 :name (n41 / name
+                                                                            :op1 "30-min")))
+                                     :ARG0 (a6 / loc
+                                               :name (n6 / name
+                                                         :op1 "carbonate-buffer")
+                                               :measure-of (a10 / m
+                                                                :name (n10 / name
+                                                                           :op1 "s5-w8-1-ml"))
+                                               :site-of (a23 / default-op
+                                                             :usage-of (a14 / mth
+                                                                            :name (n14 / name
+                                                                                       :op1 "s5-w15-step-2"))
+                                                             :succ (a21 / spin-op
+                                                                        :name (n21 / name
+                                                                                   :op1 "ultracentrifuge")
+                                                                        :site (a1 / d
+                                                                                  :name (n1 / name
+                                                                                            :op1 "beckman-mla-130"))
+                                                                        :succ (a3 / co-ref-of
+                                                                                  :name (n3 / name
+                                                                                            :op1 "event")
+                                                                                  :succ (a19 / default-op
+                                                                                             :usage-of (a0 / d
+                                                                                                           :name (n0 / name
+                                                                                                                     :op1 "ika-ultra-turbax-blender"))
+                                                                                             :succ (a2 / co-ref-of
+                                                                                                       :name (n2 / name
+                                                                                                                 :op1 "event")
+                                                                                                       :succ (a18 / temp-treat-op
+                                                                                                                  :site (a5 / loc
+                                                                                                                            :name (n5 / name
+                                                                                                                                      :op1 "salt-buffer")
+                                                                                                                            :measure-of (a9 / m
+                                                                                                                                            :name (n9 / name
+                                                                                                                                                      :op1 "s1-w11-1-ml"))
+                                                                                                                            :modifier-of (a11 / mod
+                                                                                                                                              :name (n11 / name
+                                                                                                                                                         :op1 "high")))
+                                                                                                                  :ARG0 a28
+                                                                                                                  :name (n18 / name
+                                                                                                                             :op1 "thaw"))
+                                                                                                       :ARG0 (a28 / rg
+                                                                                                                  :measure-of (a8 / m
+                                                                                                                                  :name (n8 / name
+                                                                                                                                            :op1 "20-50-mg"))
+                                                                                                                  :name (n28 / name
+                                                                                                                             :op1 "tissue"))
+                                                                                                       :ARG1 a29)
+                                                                                             :ARG0 a29
+                                                                                             :setting-of (a37 / s
+                                                                                                              :name (n37 / name
+                                                                                                                         :op1 "-25-000rpm"))
+                                                                                             :setting-of (a38 / s
+                                                                                                              :name (n38 / name
+                                                                                                                         :op1 "30-s"))
+                                                                                             :name (n19 / name
+                                                                                                        :op1 "s2-w0-homogenize"))
+                                                                                  :ARG0 (a29 / rg
+                                                                                             :name (n29 / name
+                                                                                                        :op1 "tissues"))
+                                                                                  :ARG1 a30)
+                                                                        :ARG0 (a30 / rg
+                                                                                   :name (n30 / name
+                                                                                              :op1 "suspension"))
+                                                                        :ARG2 (a31 / rg
+                                                                                   :name (n31 / name
+                                                                                              :op1 "s5-w2-supernatant"))
+                                                                        :ARG1 a32
+                                                                        :setting-of (a39 / s
+                                                                                         :name (n39 / name
+                                                                                                    :op1 "100-000-g"))
+                                                                        :setting-of (a40 / s
+                                                                                         :name (n40 / name
+                                                                                                    :op1 "10-min"))
+                                                                        :succ-of (a22 / destroy-op
+                                                                                      :ARG0 a31
+                                                                                      :name (n22 / name
+                                                                                                 :op1 "s5-w0-discard")))
+                                                             :ARG0 (a32 / rg
+                                                                        :name (n32 / name
+                                                                                   :op1 "s5-w5-pellets"))
+                                                             :succ-of a24
+                                                             :name (n23 / name
+                                                                        :op1 "s5-w4-homogenize")))
+                                     :ARG1 a33
+                                     :ARG2 (a34 / rg
+                                                :name (n34 / name
+                                                           :op1 "s8-w1-supernatant"))
+                                     :succ-of (a26 / destroy-op
+                                                   :ARG0 a34
+                                                   :name (n26 / name
+                                                              :op1 "s8-w0-discard"))
+                                     :name (n25 / name
+                                                :op1 "s7-w0-collect"))
+                          :ARG0 (a33 / rg
+                                     :modifier-of (a12 / mod
+                                                       :name (n12 / name
+                                                                  :op1 "non-soluble"))
+                                     :name (n33 / name
+                                                :op1 "material"))
+                          :ARG1 a35)
+                :ARG0 (a35 / rg
+                           :name (n35 / name
+                                      :op1 "s8-w4-pellets"))
+                :site a7
+                :usage-of (a16 / mth
+                               :name (n16 / name
+                                          :op1 "s8-w11-step-2"))
+                :name (n27 / name
+                           :op1 "resuspend"))
+     :ARG0 (a7 / loc
+               :name (n7 / name
+                         :op1 "wash-buffer"))
+     :ARG1 (a36 / rg
+                :modifier-of (a13 / mod
+                                  :name (n13 / name
+                                             :op1 "crude"))
+                :name (n36 / name
+                           :op1 "membranes")))

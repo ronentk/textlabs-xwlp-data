@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s2_w10_10 s bursts", "label": "s2_w10_10 s bursts", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Sonication", "label": "Sonication", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s5_w1_aliquots", "label": "s5_w1_aliquots", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "35 \u00b5L", "label": "35 \u00b5L", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s4_w11_aliquots", "label": "s4_w11_aliquots", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_13", "label": "ev_13", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "sonicated", "label": "sonicated", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "according to those predetermined conditions", "label": "according to those predetermined conditions", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "determine optimal-sized", "label": "determine optimal-sized", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s5_w12_10 s bursts", "label": "s5_w12_10 s bursts", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "subjected to sonication", "label": "subjected to sonication", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_9", "label": "ev_9", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,232.0,0.0)", "border": "black"}, "id": "split", "label": "split", "shape": "square", "title": "convert_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "microcentrifuge tube", "label": "microcentrifuge tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_8", "label": "ev_8", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "from each time point", "label": "from each time point", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Aliquots", "label": "Aliquots", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "run", "label": "run", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "approximately 8 \u00b5g", "label": "approximately 8 \u00b5g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s7_w9_aliquots", "label": "s7_w9_aliquots", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "placing", "label": "placing", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "ice-water bath", "label": "ice-water bath", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DNA fragments", "label": "DNA fragments", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "using maximum output and continuous power", "label": "using maximum output and continuous power", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DNA", "label": "DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "100 \u00b5g", "label": "100 \u00b5g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "cup-horn sonicator", "label": "cup-horn sonicator", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "buffered DNA sample", "label": "buffered DNA sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "agarose gel", "label": "agarose gel", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w10_10 s bursts", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s2_w10_10 s bursts\u0027}", "to": "Sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Sonication", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027buffered DNA sample\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Sonication", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cup-horn sonicator\u0027}", "to": "subjected to sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w1_aliquots", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s5_w1_aliquots\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w1_aliquots\u0027}", "to": "subjected to sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "35 \u00b5L", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002735 \u00b5L\u0027}", "to": "s4_w11_aliquots"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w11_aliquots", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s4_w11_aliquots\u0027}", "to": "split"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_13", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w9_aliquots\u0027}", "to": "sonicated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "according to those predetermined conditions", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027according to those predetermined conditions\u0027}", "to": "sonicated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "determine optimal-sized", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DNA fragments\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w12_10 s bursts", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s5_w12_10 s bursts\u0027}", "to": "subjected to sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "subjected to sonication", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w1_aliquots\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "subjected to sonication", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cup-horn sonicator\u0027}", "to": "sonicated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_9", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DNA\u0027}", "to": "split"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "split", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w11_aliquots\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DNA fragments\u0027}", "to": "determine optimal-sized"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "microcentrifuge tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027microcentrifuge tube\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_8", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027microcentrifuge tube\u0027}", "to": "placing"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "from each time point", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027from each time point\u0027}", "to": "Aliquots"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Aliquots", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Aliquots\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Aliquots\u0027}", "to": "run"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "run", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Aliquots\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "approximately 8 \u00b5g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027approximately 8 \u00b5g\u0027}", "to": "s7_w9_aliquots"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w9_aliquots", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s7_w9_aliquots\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "placing", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027ice-water bath\u0027}", "to": "Sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ice-water bath", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027ice-water bath\u0027}", "to": "placing"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DNA fragments", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027DNA fragments\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "using maximum output and continuous power", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027using maximum output and continuous power\u0027}", "to": "Sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DNA", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027DNA\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "100 \u00b5g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027100 \u00b5g\u0027}", "to": "DNA"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cup-horn sonicator", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cup-horn sonicator\u0027}", "to": "Sonication"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "buffered DNA sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027buffered DNA sample\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "agarose gel", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027agarose gel\u0027}", "to": "run"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

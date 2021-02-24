@@ -1,0 +1,36 @@
+(a6 / measure-op
+    :name (n6 / name
+              :op1 "analyze")
+    :usage-of (a2 / mth
+                  :name (n2 / name
+                            :op1 "method-of-choice"))
+    :succ (a5 / temp-treat-op
+              :name (n5 / name
+                        :op1 "incubate")
+              :ARG0 a8
+              :setting-of (a9 / s
+                              :name (n9 / name
+                                        :op1 "37-c"))
+              :setting-of (a10 / s
+                               :name (n10 / name
+                                          :op1 "4---24-hours")))
+    :ARG0 (a8 / rg
+              :name (n8 / name
+                        :op1 "reaction")
+              :site-of (a3 / transfer-op
+                           :succ-of (a4 / mix-op
+                                        :ARG0 a8
+                                        :succ-of a5
+                                        :name (n4 / name
+                                                  :op1 "mix")
+                                        :modifier-of (a1 / mod
+                                                         :name (n1 / name
+                                                                   :op1 "gently")))
+                           :name (n3 / name
+                                     :op1 "add")
+                           :ARG0 (a7 / rg
+                                     :measure-of (a0 / m
+                                                     :name (n0 / name
+                                                               :op1 "2-5--l"))
+                                     :name (n7 / name
+                                               :op1 "pngase-f")))))

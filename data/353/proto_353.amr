@@ -1,0 +1,71 @@
+(a10 / wash-op
+     :name (n10 / name
+                :op1 "wash")
+     :succ (a9 / temp-treat-op
+               :name (n9 / name
+                         :op1 "fix")
+               :succ a1
+               :ARG0 a17
+               :site (a18 / rg
+                          :name (n18 / name
+                                     :op1 "ice"))
+               :setting-of (a21 / s
+                                :name (n21 / name
+                                           :op1 "15-30-minutes")))
+     :ARG0 (a17 / rg
+                :name (n17 / name
+                           :op1 "cells")
+                :ARG1-of (a1 / co-ref-of
+                             :name (n1 / name
+                                       :op1 "event")
+                             :succ (a8 / transfer-op
+                                       :succ (a0 / co-ref-of
+                                                 :name (n0 / name
+                                                           :op1 "event")
+                                                 :succ (a6 / create-op
+                                                           :ARG0 a11
+                                                           :ARG1 (a12 / rg
+                                                                      :name (n12 / name
+                                                                                 :op1 "powder-dilute"))
+                                                           :site (a13 / rg
+                                                                      :name (n13 / name
+                                                                                 :op1 "s1-w6-pbs"))
+                                                           :name (n6 / name
+                                                                     :op1 "prepare"))
+                                                 :ARG0 (a11 / rg
+                                                            :name (n11 / name
+                                                                       :op1 "pfa"))
+                                                 :ARG1 a15)
+                                       :ARG0 (a15 / rg
+                                                  :measure-of (a2 / m
+                                                                  :name (n2 / name
+                                                                            :op1 "equal-volume"))
+                                                  :measure-of (a3 / m
+                                                                  :name (n3 / name
+                                                                            :op1 "4%"))
+                                                  :measure-of (a4 / m
+                                                                  :name (n4 / name
+                                                                            :op1 "2%"))
+                                                  :name (n15 / name
+                                                             :op1 "s3-w7-stock"))
+                                       :succ (a7 / temp-treat-op
+                                                 :name (n7 / name
+                                                           :op1 "store")
+                                                 :ARG0 (a14 / rg
+                                                            :modifier-of (a5 / mod
+                                                                             :name (n5 / name
+                                                                                       :op1 "undiluted"))
+                                                            :name (n14 / name
+                                                                       :op1 "s2-w3-stock"))
+                                                 :setting-of (a20 / s
+                                                                  :name (n20 / name
+                                                                             :op1 "-20-c")))
+                                       :site a16
+                                       :name (n8 / name
+                                                 :op1 "add"))
+                             :ARG0 (a16 / rg
+                                        :name (n16 / name
+                                                   :op1 "samples"))))
+     :ARG1 (a19 / rg
+                :name (n19 / name
+                           :op1 "s4-w12-pbs")))

@@ -1,0 +1,116 @@
+(a17 / default-op
+     :name (n17 / name
+                :op1 "precipitate")
+     :succ (a15 / transfer-op
+                :name (n15 / name
+                           :op1 "s8-w0-extract")
+                :succ a2
+                :site a30
+                :ARG0 (a31 / rg
+                           :name (n31 / name
+                                      :op1 "s8-w10-chloroform-isoamyl-alcohol")))
+     :ARG0 (a25 / rg
+                :ARG1-of (a19 / spin-op
+                              :ARG2 (a26 / rg
+                                         :name (n26 / name
+                                                    :op1 "aqueous-phase"))
+                              :setting-of (a32 / s
+                                               :name (n32 / name
+                                                          :op1 "top-speed"))
+                              :setting-of (a33 / s
+                                               :name (n33 / name
+                                                          :op1 "1-2-min"))
+                              :succ-of (a20 / transfer-op
+                                            :ARG0 a26
+                                            :name (n20 / name
+                                                       :op1 "s4-w0-remove")
+                                            :site (a6 / loc
+                                                      :name (n6 / name
+                                                                :op1 "s4-w7-tube")
+                                                      :modifier-of (a10 / mod
+                                                                        :name (n10 / name
+                                                                                   :op1 "new")))
+                                            :modifier-of (a11 / mod
+                                                              :name (n11 / name
+                                                                         :op1 "being-careful-not-to-transfer-any-of-the-protein-at-the-phase-interface")))
+                              :name (n19 / name
+                                         :op1 "spin")
+                              :succ-of (a0 / co-ref-of
+                                           :ARG0 (a5 / loc
+                                                     :ARG1-of (a4 / co-ref-of
+                                                                  :succ (a12 / default-op
+                                                                             :setting-of (a7 / m
+                                                                                             :name (n7 / name
+                                                                                                       :op1 "100-700--l"))
+                                                                             :ARG0 a22
+                                                                             :name (n12 / name
+                                                                                        :op1 "dilute"))
+                                                                  :ARG0 (a22 / rg
+                                                                             :name (n22 / name
+                                                                                        :op1 "nucleic-acid-sample"))
+                                                                  :succ-of (a13 / transfer-op
+                                                                                :site a5
+                                                                                :ARG0 (a23 / rg
+                                                                                           :measure-of (a8 / m
+                                                                                                           :name (n8 / name
+                                                                                                                     :op1 "s2-w3-equal-volume"))
+                                                                                           :name (n23 / name
+                                                                                                      :op1 "s2-w5-phenol")
+                                                                                           :ARG0-of (a3 / co-ref-of
+                                                                                                        :ARG1 (a24 / rg
+                                                                                                                   :name (n24 / name
+                                                                                                                              :op1 "s8-w15-phenol"))
+                                                                                                        :succ-of (a16 / remove-op
+                                                                                                                      :ARG0 a24
+                                                                                                                      :name (n16 / name
+                                                                                                                                 :op1 "s8-w12-remove"))
+                                                                                                        :name (n3 / name
+                                                                                                                  :op1 "event")
+                                                                                                        :succ a14))
+                                                                                :succ-of (a18 / mix-op
+                                                                                              :ARG0 a5
+                                                                                              :succ-of a19
+                                                                                              :name (n18 / name
+                                                                                                         :op1 "vortex")
+                                                                                              :modifier-of (a9 / mod
+                                                                                                               :name (n9 / name
+                                                                                                                         :op1 "vigorously")))
+                                                                                :name (n13 / name
+                                                                                           :op1 "add"))
+                                                                  :name (n4 / name
+                                                                            :op1 "event"))
+                                                     :name (n5 / name
+                                                               :op1 "s2-w8-tube"))
+                                           :ARG1 (a27 / rg
+                                                      :ARG0-of (a2 / co-ref-of
+                                                                   :ARG1 (a30 / rg
+                                                                              :name (n30 / name
+                                                                                         :op1 "s8-w2-sample"))
+                                                                   :name (n2 / name
+                                                                             :op1 "event")
+                                                                   :succ a21)
+                                                      :name (n27 / name
+                                                                 :op1 "s7-w2-sample"))
+                                           :succ-of (a21 / transfer-op
+                                                         :site a27
+                                                         :ARG0 (a28 / rg
+                                                                    :name (n28 / name
+                                                                               :op1 "s7-w9-chloroform-isoamyl-alcohol"))
+                                                         :name (n21 / name
+                                                                    :op1 "s7-w0-extract")
+                                                         :succ-of (a1 / co-ref-of
+                                                                      :ARG0 a23
+                                                                      :ARG1 (a29 / rg
+                                                                                 :name (n29 / name
+                                                                                            :op1 "s7-w14-phenol"))
+                                                                      :succ-of (a14 / remove-op
+                                                                                    :ARG0 a29
+                                                                                    :name (n14 / name
+                                                                                               :op1 "s7-w11-remove"))
+                                                                      :name (n1 / name
+                                                                                :op1 "event")))
+                                           :name (n0 / name
+                                                     :op1 "event"))
+                              :ARG0 a5)
+                :name (n25 / name
+                           :op1 "nucleic-acid")))

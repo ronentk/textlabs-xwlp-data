@@ -1,0 +1,80 @@
+(a15 / temp-treat-op
+     :name (n15 / name
+                :op1 "chill")
+     :succ (a14 / temp-treat-op
+                :name (n14 / name
+                           :op1 "incubate")
+                :ARG0 a16
+                :setting-of (a21 / s
+                                 :name (n21 / name
+                                            :op1 "room-temperature"))
+                :setting-of (a22 / s
+                                 :name (n22 / name
+                                            :op1 "5-minutes")))
+     :ARG0 (a16 / rg
+                :measure-of (a0 / m
+                                :name (n0 / name
+                                          :op1 "50-ng"))
+                :name (n16 / name
+                           :op1 "vector")
+                :site-of (a7 / transfer-op
+                             :ARG0 (a17 / rg
+                                        :measure-of (a1 / m
+                                                        :name (n1 / name
+                                                                  :op1 "3-fold-molar-excess"))
+                                        :name (n17 / name
+                                                   :op1 "insert"))
+                             :succ-of (a8 / transfer-op
+                                          :site a16
+                                          :ARG0 (a18 / rg
+                                                     :name (n18 / name
+                                                                :op1 "dh2o"))
+                                          :succ-of (a9 / transfer-op
+                                                       :site a16
+                                                       :ARG0 (a19 / rg
+                                                                  :measure-of (a2 / m
+                                                                                  :name (n2 / name
+                                                                                            :op1 "10--l"))
+                                                                  :measure-of (a3 / m
+                                                                                  :name (n3 / name
+                                                                                            :op1 "2x"))
+                                                                  :name (n19 / name
+                                                                             :op1 "quick-ligation-buffer"))
+                                                       :succ-of (a10 / mix-op
+                                                                     :ARG0 a16
+                                                                     :succ-of (a11 / transfer-op
+                                                                                   :site a16
+                                                                                   :ARG0 (a20 / rg
+                                                                                              :measure-of (a4 / m
+                                                                                                              :name (n4 / name
+                                                                                                                        :op1 "1-l"))
+                                                                                              :name (n20 / name
+                                                                                                         :op1 "quick-t4-dna-ligase"))
+                                                                                   :succ-of (a12 / mix-op
+                                                                                                 :ARG0 a16
+                                                                                                 :succ-of (a13 / spin-op
+                                                                                                               :ARG0 a16
+                                                                                                               :succ-of a14
+                                                                                                               :name (n13 / name
+                                                                                                                          :op1 "centrifuge")
+                                                                                                               :modifier-of (a6 / mod
+                                                                                                                                :name (n6 / name
+                                                                                                                                          :op1 "briefly")))
+                                                                                                 :name (n12 / name
+                                                                                                            :op1 "s4-w8-mix")
+                                                                                                 :modifier-of (a5 / mod
+                                                                                                                  :name (n5 / name
+                                                                                                                            :op1 "thoroughly")))
+                                                                                   :name (n11 / name
+                                                                                              :op1 "s4-w0-add"))
+                                                                     :name (n10 / name
+                                                                                :op1 "s3-w9-mix"))
+                                                       :name (n9 / name
+                                                                 :op1 "s3-w0-add"))
+                                          :name (n8 / name
+                                                    :op1 "adjust"))
+                             :name (n7 / name
+                                       :op1 "combine")))
+     :setting-of (a23 / s
+                      :name (n23 / name
+                                 :op1 "ice")))

@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s2_w5_10 days", "label": "s2_w5_10 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "soaked", "label": "soaked", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "s4_w4_rinsed", "label": "s4_w4_rinsed", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "s3_w33_rotated", "label": "s3_w33_rotated", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "soak", "label": "soak", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "after approximately 5 days", "label": "after approximately 5 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "s2_w12_rotated", "label": "s2_w12_rotated", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "narrow-mouth low density polyethylene bottles", "label": "narrow-mouth low density polyethylene bottles", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Obtain", "label": "Obtain", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s3_w30_10 days", "label": "s3_w30_10 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Milli-Q", "label": "Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "double-bagged", "label": "double-bagged", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "stored", "label": "stored", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "bottle", "label": "bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "Bottles", "label": "Bottles", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "s3_w4_rinsed", "label": "s3_w4_rinsed", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "filled", "label": "filled", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "HCl", "label": "HCl", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Milli-Q water", "label": "Milli-Q water", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "60 mL", "label": "60 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "5 days", "label": "5 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Citranox", "label": "Citranox", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "pH", "label": "pH", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w5_10 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s2_w5_10 days\u0027}", "to": "soaked"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "soaked", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "s2_w12_rotated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027bottle\u0027}", "to": "s4_w4_rinsed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w4_rinsed", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027bottle\u0027}", "to": "double-bagged"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w33_rotated", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "soak", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "s3_w33_rotated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "after approximately 5 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027after approximately 5 days\u0027}", "to": "s2_w12_rotated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w12_rotated", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "s3_w4_rinsed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "narrow-mouth low density polyethylene bottles", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027narrow-mouth low density polyethylene bottles\u0027}", "to": "Obtain"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Obtain", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027narrow-mouth low density polyethylene bottles\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w30_10 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s3_w30_10 days\u0027}", "to": "soak"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Milli-Q", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Milli-Q\u0027}", "to": "s4_w4_rinsed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "double-bagged", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027bottle\u0027}", "to": "stored"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "bottle", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027bottle\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Bottles", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Bottles\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "soaked"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w4_rinsed", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Bottles\u0027}", "to": "filled"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "filled", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Bottles\u0027}", "to": "soak"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "HCl", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027HCl\u0027}", "to": "filled"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Milli-Q water", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Milli-Q water\u0027}", "to": "s3_w4_rinsed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "60 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002760 mL\u0027}", "to": "narrow-mouth low density polyethylene bottles"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00275 days\u0027}", "to": "s3_w33_rotated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Citranox", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Citranox\u0027}", "to": "soaked"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pH", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027pH\u0027}", "to": "Milli-Q"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

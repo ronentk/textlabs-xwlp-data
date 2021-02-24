@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "program", "label": "program", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Set up", "label": "Set up", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "20 \u00b5l", "label": "20 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "sample", "label": "sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "fluorescence", "label": "fluorescence", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Read", "label": "Read", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Plot", "label": "Plot", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "track", "label": "track", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "each\u00a0well", "label": "each\u00a0well", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Aliquot", "label": "Aliquot", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "phage\u00a0infection", "label": "phage\u00a0infection", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Keep a log of your plate layout", "label": "Keep a log of your plate layout", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "Tecan Infinite Pro 200M plate reader", "label": "Tecan Infinite Pro 200M plate reader", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "96-well plate", "label": "96-well plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(249.0,213.0,249.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "part_of", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "ASW", "label": "ASW", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "cell growth", "label": "cell growth", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "well", "label": "well", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "180 \u00b5l", "label": "180 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "seawater medium", "label": "seawater medium", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "pipette", "label": "pipette", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "fluorescence vs. time", "label": "fluorescence vs. time", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10X", "label": "10X", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027ASW\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027ASW\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "program", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027program\u0027}", "to": "Set up"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Set up", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027program\u0027}", "to": "Plot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002720 \u00b5l\u0027}", "to": "sample"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027sample\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fluorescence", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027fluorescence\u0027}", "to": "Read"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Read", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027ASW\u0027}", "to": "Plot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Plot", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027ASW\u0027}", "to": "track"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "each\u00a0well", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027each\\xa0well\u0027}", "to": "Aliquot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Aliquot", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027each\\xa0well\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "phage\u00a0infection", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027phage\\xa0infection\u0027}", "to": "track"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Keep a log of your plate layout", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027seawater medium\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Tecan Infinite Pro 200M plate reader", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027Tecan Infinite Pro 200M plate reader\u0027}", "to": "Read"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "96-well plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u002796-well plate\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u002796-well plate\u0027}", "to": "Keep a log of your plate layout"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027ASW\u0027}", "to": "Read"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ASW", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027ASW\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cell growth", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027cell growth\u0027}", "to": "track"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "well", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027well\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "180 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027180 \u00b5l\u0027}", "to": "seawater medium"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "seawater medium", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027seawater medium\u0027}", "to": "Aliquot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pipette", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027pipette\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fluorescence vs. time", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027fluorescence vs. time\u0027}", "to": "Plot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10X", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710X\u0027}", "to": "Add"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

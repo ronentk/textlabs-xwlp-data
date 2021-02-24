@@ -1,0 +1,108 @@
+(a23 / transfer-op
+     :name (n23 / name
+                :op1 "save")
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :succ (a22 / mix-op
+                          :succ (a21 / transfer-op
+                                     :name (n21 / name
+                                                :op1 "s4-w1-fill")
+                                     :usage-of (a0 / d
+                                                   :name (n0 / name
+                                                             :op1 "squirt-bottle"))
+                                     :succ a3
+                                     :site a6
+                                     :modifier-of (a15 / mod
+                                                       :name (n15 / name
+                                                                  :op1 "carefully"))
+                                     :ARG0 (a30 / rg
+                                                :measure-of (a12 / m
+                                                                 :name (n12 / name
+                                                                            :op1 "s4-w5-100-ml"))
+                                                :name (n30 / name
+                                                           :op1 "s4-w6-milli-q")))
+                          :ARG0 (a6 / loc
+                                    :name (n6 / name
+                                              :op1 "flask")
+                                    :ARG1-of (a1 / co-ref-of
+                                                 :succ (a17 / wash-op
+                                                            :succ (a18 / wash-op
+                                                                       :ARG0 a5
+                                                                       :ARG1 (a24 / rg
+                                                                                  :name (n24 / name
+                                                                                             :op1 "hydrocholoric-acid-cabinet"))
+                                                                       :name (n18 / name
+                                                                                  :op1 "cleaned"))
+                                                            :ARG0 a5
+                                                            :ARG1 (a25 / rg
+                                                                       :name (n25 / name
+                                                                                  :op1 "s1-w18-milli-q"))
+                                                            :usage-of (a26 / rg
+                                                                           :name (n26 / name
+                                                                                      :op1 "s1-w22-milli-q"))
+                                                            :name (n17 / name
+                                                                       :op1 "rinse"))
+                                                 :ARG0 (a5 / loc
+                                                           :measure-of (a8 / m
+                                                                           :name (n8 / name
+                                                                                     :op1 "s1-w3-100-ml"))
+                                                           :name (n5 / name
+                                                                     :op1 "volumetric-flask"))
+                                                 :name (n1 / name
+                                                           :op1 "event")))
+                          :name (n22 / name
+                                     :op1 "invert"))
+               :ARG0 (a27 / rg
+                          :ARG0-of (a19 / transfer-op
+                                        :succ-of (a20 / transfer-op
+                                                      :site a27
+                                                      :name (n20 / name
+                                                                 :op1 "add")
+                                                      :succ (a2 / co-ref-of
+                                                                :name (n2 / name
+                                                                          :op1 "event")
+                                                                :ARG0 (a28 / rg
+                                                                           :measure-of (a10 / m
+                                                                                            :name (n10 / name
+                                                                                                       :op1 "29-5--l"))
+                                                                           :name (n28 / name
+                                                                                      :op1 "cobalt-aa-standard"))
+                                                                :ARG1 a29)
+                                                      :ARG0 (a29 / rg
+                                                                 :measure-of (a11 / m
+                                                                                  :name (n11 / name
+                                                                                             :op1 "1-mg"))
+                                                                 :name (n29 / name
+                                                                            :op1 "l-1")))
+                                        :name (n19 / name
+                                                   :op1 "s2-w0-fill")
+                                        :succ-of (a3 / located-at
+                                                     :ARG1 a6
+                                                     :succ a20
+                                                     :ARG0 a27
+                                                     :name (n3 / name
+                                                               :op1 "event"))
+                                        :succ a1
+                                        :site a6
+                                        :setting-of (a9 / m
+                                                        :name (n9 / name
+                                                                  :op1 "part-way")))
+                          :name (n27 / name
+                                     :op1 "s2-w6-milli-q"))
+               :ARG1 a31)
+     :ARG0 (a31 / rg
+                :measure-of (a13 / m
+                                 :name (n13 / name
+                                            :op1 "small"))
+                :name (n31 / name
+                           :op1 "aliquot"))
+     :site (a7 / loc
+               :name (n7 / name
+                         :op1 "bottle")
+               :measure-of (a14 / m
+                                :name (n14 / name
+                                           :op1 "5-ml"))
+               :modifier-of (a16 / mod
+                                 :name (n16 / name
+                                            :op1 "clean"))))

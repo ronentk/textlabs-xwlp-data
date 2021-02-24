@@ -1,0 +1,183 @@
+(a5 / co-ref-of
+    :name (n5 / name
+              :op1 "event")
+    :succ (a4 / co-ref-of
+              :name (n4 / name
+                        :op1 "event")
+              :succ (a27 / wash-op
+                         :succ (a25 / spin-op
+                                    :name (n25 / name
+                                               :op1 "centrifuge")
+                                    :ARG0 a33
+                                    :ARG2 (a38 / rg
+                                               :name (n38 / name
+                                                          :op1 "s3-w9-supernatant"))
+                                    :setting-of (a47 / s
+                                                     :name (n47 / name
+                                                                :op1 "250-x-g"))
+                                    :setting-of (a48 / s
+                                                     :name (n48 / name
+                                                                :op1 "5-minutes"))
+                                    :succ-of (a26 / destroy-op
+                                                  :ARG0 a38
+                                                  :name (n26 / name
+                                                             :op1 "s3-w8-discard")))
+                         :ARG0 (a33 / rg
+                                    :name (n33 / name
+                                               :op1 "s2-w2-cells")
+                                    :ARG1-of (a1 / co-ref-of
+                                                 :succ-of (a24 / default-op
+                                                               :ARG0 a33
+                                                               :modifier-of (a13 / mod
+                                                                                 :name (n13 / name
+                                                                                            :op1 "s2-w16-in-the-dark"))
+                                                               :setting-of (a45 / s
+                                                                                :name (n45 / name
+                                                                                           :op1 "s2-w13-room-temperature"))
+                                                               :setting-of (a46 / s
+                                                                                :name (n46 / name
+                                                                                           :op1 "s2-w19-20-minutes"))
+                                                               :succ-of a25
+                                                               :name (n24 / name
+                                                                          :op1 "fix"))
+                                                 :name (n1 / name
+                                                           :op1 "event")
+                                                 :succ (a17 / default-op
+                                                            :modifier-of (a12 / mod
+                                                                              :name (n12 / name
+                                                                                         :op1 "as-described-in-biolegends-cell-surface-immunofluorescence-staining-protocol"))
+                                                            :succ a16
+                                                            :ARG0 a32
+                                                            :name (n17 / name
+                                                                       :op1 "perform-surface-staining"))
+                                                 :ARG0 (a32 / rg
+                                                            :ARG0-of (a16 / create-op
+                                                                          :name (n16 / name
+                                                                                     :op1 "prepare"))
+                                                            :name (n32 / name
+                                                                       :op1 "target-cells-of-interest"))))
+                         :ARG1 a39
+                         :name (n27 / name
+                                    :op1 "s4-w0-wash"))
+              :ARG0 (a39 / rg
+                         :name (n39 / name
+                                    :op1 "biolegends-nuclear-factor-permeabilization-buffer"))
+              :succ a29
+              :ARG1 a41)
+    :ARG0 (a41 / rg
+               :site-of (a28 / transfer-op
+                             :succ-of (a29 / temp-treat-op
+                                           :ARG0 a41
+                                           :setting-of (a49 / s
+                                                            :name (n49 / name
+                                                                       :op1 "s5-w14-room-temperature"))
+                                           :setting-of (a50 / s
+                                                            :name (n50 / name
+                                                                       :op1 "s5-w20-20-minutes"))
+                                           :name (n29 / name
+                                                      :op1 "s5-w11-incubate")
+                                           :succ-of (a3 / co-ref-of
+                                                        :ARG0 (a40 / rg
+                                                                   :name (n40 / name
+                                                                              :op1 "s5-w1-cells"))
+                                                        :ARG1 (a42 / rg
+                                                                   :name (n42 / name
+                                                                              :op1 "s5-w23-cells"))
+                                                        :name (n3 / name
+                                                                  :op1 "event"))
+                                           :modifier-of (a14 / mod
+                                                             :name (n14 / name
+                                                                        :op1 "s5-w17-in-the-dark")))
+                             :name (n28 / name
+                                        :op1 "s5-w0-resuspend")
+                             :succ (a2 / co-ref-of
+                                       :name (n2 / name
+                                                 :op1 "event")
+                                       :succ a27
+                                       :ARG0 a33
+                                       :ARG1 a40)
+                             :ARG0 a40)
+               :measure-of (a6 / m
+                               :name (n6 / name
+                                         :op1 "s5-w4-1-ml"))
+               :measure-of (a7 / m
+                               :name (n7 / name
+                                         :op1 "s5-w10-1x"))
+               :name (n41 / name
+                          :op1 "biolegends-nuclear-factor-permabilization-buffer"))
+    :succ (a23 / measure-op
+               :usage-of (a0 / d
+                             :name (n0 / name
+                                       :op1 "flow-cytometer"))
+               :succ a22
+               :ARG0 a34
+               :name (n23 / name
+                          :op1 "analyze"))
+    :ARG1 (a34 / rg
+               :site-of (a18 / transfer-op
+                             :succ-of (a19 / transfer-op
+                                           :site a34
+                                           :ARG0 (a35 / rg
+                                                      :measure-of (a10 / m
+                                                                       :name (n10 / name
+                                                                                  :op1 "appropriate-amount"))
+                                                      :name (n35 / name
+                                                                 :op1 "flurochrome-conjugated-antibodies"))
+                                           :succ-of (a20 / temp-treat-op
+                                                         :ARG0 a34
+                                                         :setting-of (a51 / s
+                                                                          :name (n51 / name
+                                                                                     :op1 "s6-w15-room-temperature"))
+                                                         :setting-of (a52 / s
+                                                                          :name (n52 / name
+                                                                                     :op1 "30-minutes"))
+                                                         :succ-of (a21 / wash-op
+                                                                       :ARG0 a34
+                                                                       :ARG1 (a36 / rg
+                                                                                  :name (n36 / name
+                                                                                             :op1 "s7-w5-cell-staining-buffer"))
+                                                                       :succ-of (a22 / transfer-op
+                                                                                     :ARG0 a34
+                                                                                     :site (a37 / rg
+                                                                                                :measure-of (a11 / m
+                                                                                                                 :name (n11 / name
+                                                                                                                            :op1 "0-5-ml"))
+                                                                                                :name (n37 / name
+                                                                                                           :op1 "s7-w13-cell-staining-buffer"))
+                                                                                     :name (n22 / name
+                                                                                                :op1 "s7-w7-resuspend"))
+                                                                       :name (n21 / name
+                                                                                  :op1 "s7-w0-wash"))
+                                                         :name (n20 / name
+                                                                    :op1 "s6-w12-incubate")
+                                                         :modifier-of (a15 / mod
+                                                                           :name (n15 / name
+                                                                                      :op1 "s6-w18-in-the-dark")))
+                                           :name (n19 / name
+                                                      :op1 "add"))
+                             :name (n18 / name
+                                        :op1 "s5-w29-resuspend")
+                             :succ (a30 / spin-op
+                                        :succ a3
+                                        :ARG0 a42
+                                        :ARG2 (a43 / rg
+                                                   :name (n43 / name
+                                                              :op1 "s5-w27-supernatant"))
+                                        :ARG1 a44
+                                        :succ-of (a31 / destroy-op
+                                                      :ARG0 a43
+                                                      :name (n31 / name
+                                                                 :op1 "s5-w25-discard"))
+                                        :name (n30 / name
+                                                   :op1 "spin-down"))
+                             :ARG0 (a44 / rg
+                                        :name (n44 / name
+                                                   :op1 "pellet")))
+               :measure-of (a8 / m
+                               :name (n8 / name
+                                         :op1 "100-ul"))
+               :measure-of (a9 / m
+                               :name (n9 / name
+                                         :op1 "s5-w41-1x"))
+               :name (n34 / name
+                          :op1 "biolegends-nucelar-factor-permeabilization-buffer")))

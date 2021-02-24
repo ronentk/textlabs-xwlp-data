@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "6 mL", "label": "6 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Glutarandehyde", "label": "Glutarandehyde", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_1", "label": "ev_1", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w0_Add", "label": "s2_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_2", "label": "ev_2", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s2_w5_becker", "label": "s2_w5_becker", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s1_w6_becker", "label": "s1_w6_becker", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Put", "label": "Put", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s3_w8_previous solution", "label": "s3_w8_previous solution", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Milonig\u0027s phosphate buffer", "label": "Milonig\u0027s phosphate buffer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w9_previous solution", "label": "s2_w9_previous solution", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_3", "label": "ev_3", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Tannic Acid", "label": "Tannic Acid", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "6 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00276 mL\u0027}", "to": "Glutarandehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Glutarandehyde", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Glutarandehyde\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_1", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w5_becker\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \"Milonig\u0027s phosphate buffer\"}", "to": "ev_3"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_2", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s3_w8_previous solution\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w9_previous solution\u0027}", "to": "ev_3"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w5_becker", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w5_becker\u0027}", "to": "ev_1"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w6_becker", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s1_w6_becker\u0027}", "to": "Put"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Put", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w6_becker\u0027}", "to": "ev_1"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w8_previous solution", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s3_w8_previous solution\u0027}", "to": "ev_2"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Milonig\u0027s phosphate buffer", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \"Milonig\u0027s phosphate buffer\"}", "to": "Put"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w9_previous solution", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w9_previous solution\u0027}", "to": "ev_2"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Tannic Acid", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Tannic Acid\u0027}", "to": "s2_w0_Add"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

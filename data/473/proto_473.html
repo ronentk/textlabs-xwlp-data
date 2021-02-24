@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "1 minute", "label": "1 minute", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "boil", "label": "boil", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "agar", "label": "agar", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "44g", "label": "44g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "TCBS Agar", "label": "TCBS Agar", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "pour", "label": "pour", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "DO NOT AUTOCLAVE", "label": "DO NOT AUTOCLAVE", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "cool", "label": "cool", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "half way.", "label": "half way.", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "cap", "label": "cap", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Loosen", "label": "Loosen", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "60\u00baC", "label": "60\u00baC", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "run", "label": "run", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(249.0,213.0,249.0)", "border": "black"}, "id": "ev_9", "label": "ev_9", "shape": "square", "title": "part_of", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(212.0,104.0,243.0)", "border": "black"}, "id": "remove", "label": "remove", "shape": "square", "title": "remove_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "Quickly", "label": "Quickly", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "flame", "label": "flame", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "surface", "label": "surface", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "plates", "label": "plates", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "TCBS agar", "label": "TCBS agar", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "sterile", "label": "sterile", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "thoroughly", "label": "thoroughly", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "add", "label": "add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "500ml", "label": "500ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "MilliQ", "label": "MilliQ", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "air bubbles", "label": "air bubbles", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "1 minute", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271 minute\u0027}", "to": "boil"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "boil", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MilliQ\u0027}", "to": "DO NOT AUTOCLAVE"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "agar", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027agar\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027agar\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "44g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002744g\u0027}", "to": "TCBS Agar"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "TCBS Agar", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027TCBS Agar\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pour", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027plates\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plates\u0027}", "to": "remove"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DO NOT AUTOCLAVE", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MilliQ\u0027}", "to": "cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cool", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027TCBS Agar\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "half way.", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027half way.\u0027}", "to": "pour"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cap", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cap\u0027}", "to": "Loosen"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Loosen", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cap\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "60\u00baC", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002760\u00baC\u0027}", "to": "cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "run", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027surface\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_9", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MilliQ\u0027}", "to": "boil"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027TCBS agar\u0027}", "to": "pour"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Quickly", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027Quickly\u0027}", "to": "run"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027MilliQ\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "flame", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027flame\u0027}", "to": "run"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "surface", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027surface\u0027}", "to": "run"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "plates", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plates\u0027}", "to": "pour"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "TCBS agar", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027TCBS agar\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sterile", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027sterile\u0027}", "to": "plates"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "thoroughly", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027thoroughly\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MilliQ\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "500ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027500ml\u0027}", "to": "MilliQ"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "MilliQ", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027MilliQ\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "air bubbles", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027air bubbles\u0027}", "to": "remove"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

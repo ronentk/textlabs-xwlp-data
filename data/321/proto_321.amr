@@ -1,0 +1,63 @@
+(a13 / temp-treat-op
+     :name (n13 / name
+                :op1 "flash-freeze")
+     :site (a3 / loc
+               :name (n3 / name
+                         :op1 "liquid-nitrogen-tank"))
+     :succ (a12 / time-op
+                :name (n12 / name
+                           :op1 "wait")
+                :ARG0 a2
+                :setting-of (a18 / s
+                                 :name (n18 / name
+                                            :op1 "10-min")))
+     :ARG0 (a2 / loc
+               :name (n2 / name
+                         :op1 "cryotube")
+               :measure-of (a6 / m
+                               :name (n6 / name
+                                         :op1 "2-ml"))
+               :site-of (a9 / transfer-op
+                            :succ-of (a10 / transfer-op
+                                          :site a2
+                                          :ARG0 (a16 / rg
+                                                     :name (n16 / name
+                                                                :op1 "dmso"))
+                                          :succ-of (a11 / transfer-op
+                                                        :site a2
+                                                        :ARG0 (a17 / rg
+                                                                   :name (n17 / name
+                                                                              :op1 "pluronic"))
+                                                        :succ-of a12
+                                                        :name (n11 / name
+                                                                   :op1 "s4-w0-add"))
+                                          :name (n10 / name
+                                                     :op1 "s3-w0-add"))
+                            :name (n9 / name
+                                      :op1 "s2-w0-add")
+                            :succ (a1 / co-ref-of
+                                      :name (n1 / name
+                                                :op1 "event")
+                                      :succ (a8 / default-op
+                                                :usage-of (a0 / d
+                                                              :name (n0 / name
+                                                                        :op1 "mesh")
+                                                              :measure-of (a4 / m
+                                                                              :name (n4 / name
+                                                                                        :op1 "200--m")))
+                                                :ARG0 a14
+                                                :name (n8 / name
+                                                          :op1 "prefilter"))
+                                      :ARG0 (a14 / rg
+                                                 :name (n14 / name
+                                                            :op1 "s1-w2-seawater-sample"))
+                                      :ARG1 a15)
+                            :ARG0 (a15 / rg
+                                       :measure-of (a5 / m
+                                                       :name (n5 / name
+                                                                 :op1 "1-5-ml"))
+                                       :modifier-of (a7 / mod
+                                                        :name (n7 / name
+                                                                  :op1 "prefiltered"))
+                                       :name (n15 / name
+                                                  :op1 "s2-w6-seawater-sample")))))

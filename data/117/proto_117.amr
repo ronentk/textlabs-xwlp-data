@@ -1,0 +1,85 @@
+(a14 / transfer-op
+     :name (n14 / name
+                :op1 "transfer")
+     :site (a2 / d
+               :name (n2 / name
+                         :op1 "s7-w10-tubes")
+               :modifier-of (a7 / mod
+                                :name (n7 / name
+                                          :op1 "fresh"))
+               :modifier-of (a8 / mod
+                                :name (n8 / name
+                                          :op1 "pre-labeled"))
+               :modifier-of (a9 / mod
+                                :name (n9 / name
+                                          :op1 "acid-washed"))
+               :modifier-of (a10 / mod
+                                 :name (n10 / name
+                                            :op1 "glass-black-capped")))
+     :succ (a13 / spin-op
+                :name (n13 / name
+                           :op1 "spin")
+                :usage-of (a1 / d
+                              :name (n1 / name
+                                        :op1 "beckman-ja-17-rotor"))
+                :succ (a18 / convert-op
+                           :succ (a3 / located-at
+                                     :name (n3 / name
+                                               :op1 "event")
+                                     :ARG1 a0
+                                     :succ (a17 / mix-op
+                                                :ARG0 a20
+                                                :setting-of (a22 / s
+                                                                 :name (n22 / name
+                                                                            :op1 "low-speed"))
+                                                :name (n17 / name
+                                                           :op1 "vortex"))
+                                     :ARG0 (a20 / rg
+                                                :ARG1-of (a15 / remove-op
+                                                              :succ-of (a16 / measure-op
+                                                                            :ARG0 a20
+                                                                            :succ-of a17
+                                                                            :name (n16 / name
+                                                                                       :op1 "check"))
+                                                              :name (n15 / name
+                                                                         :op1 "pick")
+                                                              :usage-of (a11 / mth
+                                                                             :name (n11 / name
+                                                                                        :op1 "-coring--technique"))
+                                                              :succ (a12 / default-op
+                                                                         :name (n12 / name
+                                                                                    :op1 "plate")
+                                                                         :ARG0 a19)
+                                                              :ARG0 (a19 / rg
+                                                                         :name (n19 / name
+                                                                                    :op1 "s1-w1-cells")))
+                                                :name (n20 / name
+                                                           :op1 "plaques")))
+                           :ARG0 (a0 / d
+                                     :name (n0 / name
+                                               :op1 "s5-w11-tube"))
+                           :ARG1 a4
+                           :name (n18 / name
+                                      :op1 "decant"))
+                :ARG0 (a4 / loc
+                          :name (n4 / name
+                                    :op1 "s5-w18-tubes")
+                          :measure-of (a5 / m
+                                          :name (n5 / name
+                                                    :op1 "50-ml"))
+                          :modifier-of (a6 / mod
+                                           :name (n6 / name
+                                                     :op1 "orange-capped")))
+                :ARG2 a21
+                :setting-of (a23 / s
+                                 :name (n23 / name
+                                            :op1 "10k"))
+                :setting-of (a24 / s
+                                 :name (n24 / name
+                                            :op1 "17-c"))
+                :setting-of (a25 / s
+                                 :name (n25 / name
+                                            :op1 "20-minutes")))
+     :ARG0 (a21 / rg
+                :name (n21 / name
+                           :op1 "supernatant")))

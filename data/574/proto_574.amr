@@ -1,0 +1,157 @@
+(a25 / measure-op
+     :name (n25 / name
+                :op1 "read")
+     :usage-of (a7 / loc
+                   :name (n7 / name
+                             :op1 "path-length")
+                   :measure-of (a15 / m
+                                    :name (n15 / name
+                                               :op1 "1cm")))
+     :modifier-of (a20 / mod
+                       :name (n20 / name
+                                  :op1 "against-deionized-water"))
+     :succ (a24 / temp-treat-op
+                :name (n24 / name
+                           :op1 "incubate")
+                :ARG0 a6
+                :setting-of (a45 / s
+                                 :name (n45 / name
+                                            :op1 "s10-w3-5-minutes"))
+                :setting-of (a46 / s
+                                 :name (n46 / name
+                                            :op1 "room-temperature")))
+     :ARG0 (a6 / loc
+               :site-of (a33 / transfer-op
+                             :name (n33 / name
+                                        :op1 "s9-w10-add")
+                             :succ-of (a23 / mix-op
+                                           :ARG0 a6
+                                           :succ-of a24
+                                           :name (n23 / name
+                                                      :op1 "s9-w19-vortex")
+                                           :modifier-of (a19 / mod
+                                                             :name (n19 / name
+                                                                        :op1 "briefly")))
+                             :succ (a2 / co-ref-of
+                                       :name (n2 / name
+                                                 :op1 "event")
+                                       :succ (a32 / mix-op
+                                                  :ARG0 a41
+                                                  :name (n32 / name
+                                                             :op1 "invert"))
+                                       :ARG0 (a41 / rg
+                                                  :name (n41 / name
+                                                             :op1 "s9-w4-cb-x--assay-dye"))
+                                       :ARG1 a42)
+                             :ARG0 (a42 / rg
+                                        :measure-of (a14 / m
+                                                         :name (n14 / name
+                                                                    :op1 "s9-w11-1ml"))
+                                        :name (n42 / name
+                                                   :op1 "s9-w14-cb-x--assay-dye"))
+                             :succ a3)
+               :name (n6 / name
+                         :op1 "s9-w17-tube")
+               :ARG1-of (a3 / co-ref-of
+                            :succ (a31 / mix-op
+                                       :ARG0 a5
+                                       :name (n31 / name
+                                                  :op1 "s8-w14-vortex"))
+                            :ARG0 (a5 / loc
+                                      :site-of (a30 / transfer-op
+                                                    :ARG0 (a39 / rg
+                                                               :measure-of (a12 / m
+                                                                                :name (n12 / name
+                                                                                           :op1 "s8-w1-50-l"))
+                                                               :name (n39 / name
+                                                                          :op1 "cb-x--solubilization-buffer-i"))
+                                                    :ARG1 (a40 / rg
+                                                               :measure-of (a13 / m
+                                                                                :name (n13 / name
+                                                                                           :op1 "s8-w6-50-l"))
+                                                               :name (n40 / name
+                                                                          :op1 "cb-x--solubilization-buffer-ii"))
+                                                    :succ-of a31
+                                                    :name (n30 / name
+                                                               :op1 "s8-w0-add")
+                                                    :succ a1)
+                                      :name (n5 / name
+                                                :op1 "s8-w12-tube")
+                                      :ARG1-of (a1 / co-ref-of
+                                                   :succ (a28 / spin-op
+                                                              :ARG0 a4
+                                                              :ARG2 (a38 / rg
+                                                                         :name (n38 / name
+                                                                                    :op1 "supernatant"))
+                                                              :setting-of (a43 / s
+                                                                               :name (n43 / name
+                                                                                          :op1 "16-000xg"))
+                                                              :setting-of (a44 / s
+                                                                               :name (n44 / name
+                                                                                          :op1 "s7-w5-5-minutes"))
+                                                              :succ-of (a29 / destroy-op
+                                                                            :ARG0 a38
+                                                                            :name (n29 / name
+                                                                                       :op1 "remove")
+                                                                            :modifier-of (a18 / mod
+                                                                                              :name (n18 / name
+                                                                                                         :op1 "without-disturbing-the-protein-pellet")))
+                                                              :name (n28 / name
+                                                                         :op1 "centrifuge"))
+                                                   :ARG0 (a4 / loc
+                                                             :measure-of (a10 / m
+                                                                              :name (n10 / name
+                                                                                         :op1 "1-5ml"))
+                                                             :site-of (a22 / transfer-op
+                                                                           :succ-of (a26 / transfer-op
+                                                                                         :site a4
+                                                                                         :ARG0 (a37 / rg
+                                                                                                    :measure-of (a11 / m
+                                                                                                                     :name (n11 / name
+                                                                                                                                :op1 "s6-w1-1ml"))
+                                                                                                    :modifier-of (a17 / mod
+                                                                                                                      :name (n17 / name
+                                                                                                                                 :op1 "pre-chilled"))
+                                                                                                    :name (n37 / name
+                                                                                                               :op1 "cb-x-"))
+                                                                                         :succ-of (a27 / mix-op
+                                                                                                       :ARG0 a4
+                                                                                                       :succ-of a28
+                                                                                                       :name (n27 / name
+                                                                                                                  :op1 "s6-w6-vortex"))
+                                                                                         :name (n26 / name
+                                                                                                    :op1 "s6-w0-add"))
+                                                                           :name (n22 / name
+                                                                                      :op1 "transfer")
+                                                                           :succ (a0 / co-ref-of
+                                                                                     :name (n0 / name
+                                                                                               :op1 "event")
+                                                                                     :succ (a21 / create-op
+                                                                                                :ARG0 a34
+                                                                                                :ARG1 (a35 / rg
+                                                                                                           :name (n35 / name
+                                                                                                                      :op1 "buffer-of-choice"))
+                                                                                                :name (n21 / name
+                                                                                                           :op1 "prepare"))
+                                                                                     :ARG0 (a34 / rg
+                                                                                                :measure-of (a8 / m
+                                                                                                                :name (n8 / name
+                                                                                                                          :op1 "0--0-2--0-4--0-6--0-8--1-0-g--l"))
+                                                                                                :modifier-of (a16 / mod
+                                                                                                                  :name (n16 / name
+                                                                                                                             :op1 "duplicate"))
+                                                                                                :name (n34 / name
+                                                                                                           :op1 "standards-of-choice"))
+                                                                                     :ARG1 a36)
+                                                                           :ARG0 (a36 / rg
+                                                                                      :measure-of (a9 / m
+                                                                                                      :name (n9 / name
+                                                                                                                :op1 "s2-w1-50-l"))
+                                                                                      :name (n36 / name
+                                                                                                 :op1 "protein-standard")))
+                                                             :name (n4 / name
+                                                                       :op1 "centrifuge-tubes"))
+                                                   :name (n1 / name
+                                                             :op1 "event")))
+                            :name (n3 / name
+                                      :op1 "event"))))

@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "10 minutes", "label": "10 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "liquid nitrogen", "label": "liquid nitrogen", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Flash-freeze", "label": "Flash-freeze", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1.2 ml", "label": "1.2 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s1_w25_cryovial", "label": "s1_w25_cryovial", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_13", "label": "ev_13", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "caps", "label": "caps", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "lay out", "label": "lay out", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "inverting", "label": "inverting", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "-80\u00b0C", "label": "-80\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "store", "label": "store", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "Cap", "label": "Cap", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w2_add", "label": "s2_w2_add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "aliquot", "label": "aliquot", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "few times", "label": "few times", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "glutaraldehyde", "label": "glutaraldehyde", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s4_w21_add", "label": "s4_w21_add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s2_w8_cryovial", "label": "s2_w8_cryovial", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "tubes", "label": "tubes", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "25%", "label": "25%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "tube", "label": "tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "dark", "label": "dark", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "sample", "label": "sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "900 \u00b5l", "label": "900 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "seawater", "label": "seawater", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "repeator pipet", "label": "repeator pipet", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "5 \u00b5l", "label": "5 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "100 \u00b5l", "label": "100 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "10 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710 minutes\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Incubate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid nitrogen", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid nitrogen\u0027}", "to": "Flash-freeze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Flash-freeze", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tubes\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1.2 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271.2 ml\u0027}", "to": "s1_w25_cryovial"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w25_cryovial", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s1_w25_cryovial\u0027}", "to": "aliquot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_13", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tubes\u0027}", "to": "Flash-freeze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "caps", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027caps\u0027}", "to": "lay out"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "lay out", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027caps\u0027}", "to": "s4_w21_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "inverting", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "-80\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027-80\u00b0C\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "Cap"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Cap", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "inverting"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w8_cryovial\u0027}", "to": "s2_w2_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w2_add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w8_cryovial\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "aliquot", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w25_cryovial\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "few times", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027few times\u0027}", "to": "inverting"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glutaraldehyde", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027glutaraldehyde\u0027}", "to": "s4_w21_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w21_add", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027caps\u0027}", "to": "Cap"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w8_cryovial", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w8_cryovial\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "tubes", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027tubes\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "25%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002725%\u0027}", "to": "glutaraldehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027tube\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dark", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027dark\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027sample\u0027}", "to": "s2_w2_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "900 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027900 \u00b5l\u0027}", "to": "seawater"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "seawater", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027seawater\u0027}", "to": "aliquot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "repeator pipet", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027repeator pipet\u0027}", "to": "s4_w21_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00275 \u00b5l\u0027}", "to": "glutaraldehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "100 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027100 \u00b5l\u0027}", "to": "sample"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

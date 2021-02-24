@@ -1,0 +1,52 @@
+(a10 / transfer-op
+     :name (n10 / name
+                :op1 "s5-w0-fill")
+     :setting-of (a5 / m
+                     :name (n5 / name
+                               :op1 "s5-w2-1l"))
+     :succ (a9 / transfer-op
+               :name (n9 / name
+                         :op1 "s4-w0-add")
+               :site a0
+               :ARG0 (a14 / rg
+                          :measure-of (a4 / m
+                                          :name (n4 / name
+                                                    :op1 "10g"))
+                          :name (n14 / name
+                                     :op1 "sds")))
+     :site (a0 / loc
+               :name (n0 / name
+                         :op1 "pyrex-bottle")
+               :measure-of (a1 / m
+                               :name (n1 / name
+                                         :op1 "s1-w1-1l"))
+               :site-of (a6 / transfer-op
+                            :ARG0 (a11 / rg
+                                       :name (n11 / name
+                                                  :op1 "s1-w6-dh20"))
+                            :succ-of (a7 / transfer-op
+                                         :site a0
+                                         :ARG0 (a12 / rg
+                                                    :measure-of (a2 / m
+                                                                    :name (n2 / name
+                                                                              :op1 "30-2g"))
+                                                    :name (n12 / name
+                                                               :op1 "tris-base"))
+                                         :succ-of (a8 / transfer-op
+                                                      :site a0
+                                                      :ARG0 (a13 / rg
+                                                                 :measure-of (a3 / m
+                                                                                 :name (n3 / name
+                                                                                           :op1 "144-2g"))
+                                                                 :name (n13 / name
+                                                                            :op1 "glycine"))
+                                                      :succ-of a9
+                                                      :name (n8 / name
+                                                                :op1 "s3-w0-add"))
+                                         :name (n7 / name
+                                                   :op1 "s2-w0-add"))
+                            :name (n6 / name
+                                      :op1 "s1-w0-fill")))
+     :ARG0 (a15 / rg
+                :name (n15 / name
+                           :op1 "s5-w4-dh20")))

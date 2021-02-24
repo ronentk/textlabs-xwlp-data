@@ -1,0 +1,128 @@
+(a13 / transfer-op
+     :name (n13 / name
+                :op1 "s8-w2-add")
+     :succ (a0 / co-ref-of
+               :name (n0 / name
+                         :op1 "event")
+               :succ (a17 / default-op
+                          :ARG0 a31
+                          :ARG1 a32
+                          :setting-of (a35 / s
+                                           :name (n35 / name
+                                                      :op1 "4-c"))
+                          :name (n17 / name
+                                     :op1 "s5-w9-stored"))
+               :ARG0 (a32 / rg
+                          :name (n32 / name
+                                     :op1 "s5-w7-fe-edta-sodium-salt-solution"))
+               :ARG1 a26)
+     :ARG1 (a26 / rg
+                :name (n26 / name
+                           :op1 "s8-w13-fe-edta-sodium-salt-solution"))
+     :succ (a1 / co-ref-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ (a18 / temp-treat-op
+                          :ARG0 a33
+                          :setting-of (a36 / s
+                                           :name (n36 / name
+                                                      :op1 "-20-c"))
+                          :name (n18 / name
+                                     :op1 "s5-w23-stored"))
+               :ARG0 (a33 / rg
+                          :name (n33 / name
+                                     :op1 "s5-w21-vitamin-solution"))
+               :ARG1 a27)
+     :ARG2 (a27 / rg
+                :measure-of (a8 / m
+                                :name (n8 / name
+                                          :op1 "1ml"))
+                :measure-of (a9 / m
+                                :name (n9 / name
+                                          :op1 "per-1l-of-media-made"))
+                :name (n27 / name
+                           :op1 "s8-w16-vitamin-solution"))
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :succ a17
+               :ARG0 (a31 / rg
+                          :name (n31 / name
+                                     :op1 "s5-w2-trace-metal-solutions"))
+               :ARG1 a25)
+     :ARG0 (a25 / rg
+                :name (n25 / name
+                           :op1 "s8-w9-trace-metal-solutions"))
+     :succ (a12 / temp-treat-op
+                :name (n12 / name
+                           :op1 "autoclave")
+                :ARG0 a23)
+     :site (a23 / rg
+                :site-of (a19 / transfer-op
+                              :ARG1 (a21 / rg
+                                         :name (n21 / name
+                                                    :op1 "hydrous-salts"))
+                              :ARG2 (a22 / rg
+                                         :name (n22 / name
+                                                    :op1 "macronutrients"))
+                              :ARG0 (a34 / rg
+                                         :name (n34 / name
+                                                    :op1 "anhydrous-salts"))
+                              :succ-of (a20 / mix-op
+                                            :ARG0 a23
+                                            :name (n20 / name
+                                                       :op1 "stirring")
+                                            :succ-of (a11 / transfer-op
+                                                          :site a23
+                                                          :ARG0 (a24 / rg
+                                                                     :name (n24 / name
+                                                                                :op1 "s7-w2-milliq-water"))
+                                                          :succ-of a12
+                                                          :name (n11 / name
+                                                                     :op1 "s7-w0-add")
+                                                          :setting-of (a7 / m
+                                                                          :name (n7 / name
+                                                                                    :op1 "final-volume"))))
+                              :name (n19 / name
+                                         :op1 "s6-w0-add")
+                              :succ a3)
+                :measure-of (a6 / m
+                                :name (n6 / name
+                                          :op1 "75%"))
+                :name (n23 / name
+                           :op1 "s6-w13-milliq-water")
+                :ARG1-of (a3 / co-ref-of
+                             :name (n3 / name
+                                       :op1 "event")
+                             :succ (a16 / default-op
+                                        :ARG0 a30
+                                        :name (n16 / name
+                                                   :op1 "filter-sterilize"))
+                             :ARG0 (a30 / rg
+                                        :ARG0-of (a15 / default-op
+                                                      :setting-of (a5 / m
+                                                                      :name (n5 / name
+                                                                                :op1 "1-0-l"))
+                                                      :succ-of a16
+                                                      :name (n15 / name
+                                                                 :op1 "s3-w0-add")
+                                                      :succ a2)
+                                        :name (n30 / name
+                                                   :op1 "s3-w2-milliq-water")
+                                        :ARG1-of (a2 / co-ref-of
+                                                     :name (n2 / name
+                                                               :op1 "event")
+                                                     :succ (a14 / mix-op
+                                                                :succ a10
+                                                                :ARG0 a29
+                                                                :name (n14 / name
+                                                                           :op1 "shake"))
+                                                     :ARG0 (a29 / rg
+                                                                :site-of (a10 / transfer-op
+                                                                              :name (n10 / name
+                                                                                         :op1 "s2-w0-add")
+                                                                              :ARG0 (a28 / rg
+                                                                                         :name (n28 / name
+                                                                                                    :op1 "constituents")))
+                                                                :name (n29 / name
+                                                                           :op1 "s2-w6-milliq-water")))))))

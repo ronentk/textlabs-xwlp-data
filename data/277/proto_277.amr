@@ -1,0 +1,76 @@
+(a13 / transfer-op
+     :name (n13 / name
+                :op1 "adding")
+     :succ (a0 / co-ref-of
+               :name (n0 / name
+                         :op1 "event")
+               :succ (a10 / temp-treat-op
+                          :succ a9
+                          :ARG0 a15
+                          :setting-of (a21 / s
+                                           :name (n21 / name
+                                                      :op1 "room-temperature"))
+                          :setting-of (a22 / s
+                                           :name (n22 / name
+                                                      :op1 "2hr"))
+                          :name (n10 / name
+                                     :op1 "incubate"))
+               :ARG0 (a15 / rg
+                          :site-of (a9 / transfer-op
+                                       :name (n9 / name
+                                                 :op1 "dilute")
+                                       :setting-of (a3 / m
+                                                       :name (n3 / name
+                                                                 :op1 "1-40"))
+                                       :ARG0 (a14 / rg
+                                                  :name (n14 / name
+                                                             :op1 "stock-solution")))
+                          :measure-of (a4 / m
+                                          :name (n4 / name
+                                                    :op1 "10x"))
+                          :name (n15 / name
+                                     :op1 "reaction-buffer"))
+               :ARG1 a18)
+     :site (a18 / rg
+                :name (n18 / name
+                           :op1 "dnase"))
+     :succ (a1 / co-ref-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ (a11 / create-op
+                          :ARG0 a16
+                          :name (n11 / name
+                                     :op1 "s5-w0-prepare"))
+               :ARG0 (a16 / rg
+                          :measure-of (a6 / m
+                                          :name (n6 / name
+                                                    :op1 "s5-w1-1m"))
+                          :name (n16 / name
+                                     :op1 "edta-disodium-salt-dihydrate"))
+               :ARG1 a19)
+     :ARG0 (a19 / rg
+                :measure-of (a8 / m
+                                :name (n8 / name
+                                          :op1 "s7-w5-100-mm"))
+                :name (n19 / name
+                           :op1 "edta"))
+     :succ (a2 / co-ref-of
+               :name (n2 / name
+                         :op1 "event")
+               :succ (a12 / create-op
+                          :ARG0 a17
+                          :name (n12 / name
+                                     :op1 "s6-w0-prepare"))
+               :ARG0 (a17 / rg
+                          :measure-of (a7 / m
+                                          :name (n7 / name
+                                                    :op1 "s6-w1-1m"))
+                          :name (n17 / name
+                                     :op1 "egta-tetrasodium-salt"))
+               :ARG1 a20)
+     :ARG1 (a20 / rg
+                :measure-of (a5 / m
+                                :name (n5 / name
+                                          :op1 "s7-w7-100-mm"))
+                :name (n20 / name
+                           :op1 "egta")))

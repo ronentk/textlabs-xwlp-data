@@ -1,0 +1,111 @@
+(a17 / temp-treat-op
+     :name (n17 / name
+                :op1 "s10-w0-store")
+     :succ (a19 / seal-op
+                :ARG0 a8
+                :ARG1 (a32 / sl
+                           :name (n32 / name
+                                      :op1 "parafilm"))
+                :name (n19 / name
+                           :op1 "wrapped"))
+     :ARG0 (a8 / loc
+               :ARG0-of (a18 / seal-op
+                             :ARG1 (a31 / sl
+                                        :name (n31 / name
+                                                   :op1 "s10-w10-plate-lid"))
+                             :succ-of a19
+                             :name (n18 / name
+                                        :op1 "s10-w6-covered")
+                             :succ a4)
+               :name (n8 / name
+                         :op1 "filtrate-plate")
+               :ARG1-of (a4 / co-ref-of
+                            :succ (a23 / temp-treat-op
+                                       :succ (a24 / seal-op
+                                                  :succ (a2 / co-ref-of
+                                                            :name (n2 / name
+                                                                      :op1 "event")
+                                                            :ARG1 a11
+                                                            :succ a15
+                                                            :ARG0 a6)
+                                                  :ARG0 a11
+                                                  :ARG1 (a30 / sl
+                                                             :name (n30 / name
+                                                                        :op1 "s7-w12-plate-lid"))
+                                                  :name (n24 / name
+                                                             :op1 "s7-w8-covered"))
+                                       :ARG0 (a11 / loc
+                                                  :name (n11 / name
+                                                             :op1 "filter-filtrate-plates")
+                                                  :modifier-of (a14 / mod
+                                                                    :name (n14 / name
+                                                                               :op1 "s7-w3-stacked")))
+                                       :setting-of (a28 / s
+                                                        :name (n28 / name
+                                                                   :op1 "s7-w7-4-c"))
+                                       :name (n23 / name
+                                                  :op1 "s7-w2-store"))
+                            :ARG0 (a6 / loc
+                                      :site-of (a15 / transfer-op
+                                                    :name (n15 / name
+                                                               :op1 "place")
+                                                    :succ-of (a1 / co-ref-of
+                                                                 :ARG0 (a5 / loc
+                                                                           :name (n5 / name
+                                                                                     :op1 "s1-w2-filter-plate"))
+                                                                 :succ-of (a21 / spin-op
+                                                                               :ARG0 (a10 / loc
+                                                                                          :name (n10 / name
+                                                                                                     :op1 "s3-w17-filter-plate"))
+                                                                               :succ (a20 / transfer-op
+                                                                                          :name (n20 / name
+                                                                                                     :op1 "transfer")
+                                                                                          :site (a9 / loc
+                                                                                                    :name (n9 / name
+                                                                                                              :op1 "wells")
+                                                                                                    :modifier-of (a13 / mod
+                                                                                                                      :name (n13 / name
+                                                                                                                                 :op1 "empty")))
+                                                                                          :ARG0 (a25 / rg
+                                                                                                     :measure-of (a12 / m
+                                                                                                                      :name (n12 / name
+                                                                                                                                 :op1 "250--l"))
+                                                                                                     :name (n25 / name
+                                                                                                                :op1 "sample")))
+                                                                               :setting-of (a26 / s
+                                                                                                :name (n26 / name
+                                                                                                           :op1 "1000-x-g"))
+                                                                               :setting-of (a27 / s
+                                                                                                :name (n27 / name
+                                                                                                           :op1 "3-min"))
+                                                                               :succ-of (a22 / default-op
+                                                                                             :ARG0 (a0 / d
+                                                                                                       :name (n0 / name
+                                                                                                                 :op1 "s6-w5-centrifuge"))
+                                                                                             :name (n22 / name
+                                                                                                        :op1 "balance"))
+                                                                               :name (n21 / name
+                                                                                          :op1 "s5-w0-centrifuge")
+                                                                               :succ-of (a3 / co-ref-of
+                                                                                            :ARG0 a10
+                                                                                            :succ-of (a16 / destroy-op
+                                                                                                          :ARG0 (a7 / loc
+                                                                                                                    :name (n7 / name
+                                                                                                                              :op1 "s9-w8-filter-plate"))
+                                                                                                          :name (n16 / name
+                                                                                                                     :op1 "remove"))
+                                                                                            :name (n3 / name
+                                                                                                      :op1 "event")
+                                                                                            :ARG1 a7)
+                                                                               :usage-of a0)
+                                                                 :name (n1 / name
+                                                                           :op1 "event")
+                                                                 :ARG1 a10)
+                                                    :ARG0 a5)
+                                      :name (n6 / name
+                                                :op1 "receiver-96-well-plate"))
+                            :name (n4 / name
+                                      :op1 "event")))
+     :setting-of (a29 / s
+                      :name (n29 / name
+                                 :op1 "s10-w5-4-c")))

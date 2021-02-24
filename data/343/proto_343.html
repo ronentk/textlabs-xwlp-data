@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "cobalt AA standard", "label": "cobalt AA standard", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_13", "label": "ev_13", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "part way", "label": "part way", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Fill", "label": "Fill", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "add", "label": "add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "invert", "label": "invert", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_15", "label": "ev_15", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "volumetric flask", "label": "volumetric flask", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "cleaned", "label": "cleaned", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "clean", "label": "clean", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "bottle", "label": "bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s4_w5_100 mL", "label": "s4_w5_100 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s4_w6_Milli-Q", "label": "s4_w6_Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w6_Milli-Q", "label": "s2_w6_Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "Rinse", "label": "Rinse", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Save", "label": "Save", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "flask", "label": "flask", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_14", "label": "ev_14", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "small", "label": "small", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "aliquot", "label": "aliquot", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w22_Milli-Q", "label": "s1_w22_Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 mg", "label": "1 mg", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "L-1", "label": "L-1", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "Carefully", "label": "Carefully", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "fill", "label": "fill", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w18_Milli-Q", "label": "s1_w18_Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s1_w3_100 mL", "label": "s1_w3_100 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "squirt bottle", "label": "squirt bottle", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "5 mL", "label": "5 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "29.5 \u03bcl", "label": "29.5 \u03bcl", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "hydrocholoric acid cabinet", "label": "hydrocholoric acid cabinet", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "cobalt AA standard", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cobalt AA standard\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_13", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027L-1\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "part way", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027part way\u0027}", "to": "Fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Fill", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w6_Milli-Q\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Fill", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027flask\u0027}", "to": "ev_14"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_Milli-Q\u0027}", "to": "ev_14"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "invert", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_Milli-Q\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_15", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027aliquot\u0027}", "to": "Save"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "volumetric flask", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027volumetric flask\u0027}", "to": "cleaned"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cleaned", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027volumetric flask\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "clean", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027clean\u0027}", "to": "bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "bottle", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027bottle\u0027}", "to": "Save"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w5_100 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s4_w5_100 mL\u0027}", "to": "s4_w6_Milli-Q"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w6_Milli-Q", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w6_Milli-Q\u0027}", "to": "fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w6_Milli-Q", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_Milli-Q\u0027}", "to": "Fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Rinse", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027volumetric flask\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027flask\u0027}", "to": "Fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "flask", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027flask\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_14", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027flask\u0027}", "to": "fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "small", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027small\u0027}", "to": "aliquot"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "aliquot", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027aliquot\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w22_Milli-Q", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027s1_w22_Milli-Q\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 mg", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271 mg\u0027}", "to": "L-1"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "L-1", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027L-1\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Carefully", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027Carefully\u0027}", "to": "fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fill", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027flask\u0027}", "to": "invert"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w18_Milli-Q", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s1_w18_Milli-Q\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w3_100 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s1_w3_100 mL\u0027}", "to": "volumetric flask"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "squirt bottle", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027squirt bottle\u0027}", "to": "fill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00275 mL\u0027}", "to": "bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "29.5 \u03bcl", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002729.5 \u03bcl\u0027}", "to": "cobalt AA standard"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "hydrocholoric acid cabinet", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027hydrocholoric acid cabinet\u0027}", "to": "cleaned"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

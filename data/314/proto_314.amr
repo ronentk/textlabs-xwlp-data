@@ -1,0 +1,66 @@
+(a14 / transfer-op
+     :name (n14 / name
+                :op1 "add")
+     :succ (a13 / remove-op
+                :name (n13 / name
+                           :op1 "scrape")
+                :site a6
+                :succ (a12 / transfer-op
+                           :name (n12 / name
+                                      :op1 "attach")
+                           :site a0
+                           :succ (a2 / located-at
+                                     :name (n2 / name
+                                               :op1 "event")
+                                     :succ (a11 / transfer-op
+                                                :succ a1
+                                                :ARG0 a4
+                                                :site a5
+                                                :usage-of (a9 / mth
+                                                              :name (n9 / name
+                                                                        :op1 "hand-rotation"))
+                                                :name (n11 / name
+                                                           :op1 "bathing"))
+                                     :ARG1 (a5 / loc
+                                               :name (n5 / name
+                                                         :op1 "bath"))
+                                     :ARG0 (a16 / rg
+                                                :name (n16 / name
+                                                           :op1 "liquid-nitrogen")))
+                           :ARG0 (a4 / loc
+                                     :name (n4 / name
+                                               :op1 "flask")
+                                     :ARG1-of (a1 / co-ref-of
+                                                  :succ (a10 / transfer-op
+                                                             :ARG0 (a15 / rg
+                                                                        :name (n15 / name
+                                                                                   :op1 "cup-of-coffee"))
+                                                             :name (n10 / name
+                                                                        :op1 "place"))
+                                                  :ARG0 (a3 / loc
+                                                            :modifier-of (a7 / mod
+                                                                             :name (n7 / name
+                                                                                       :op1 "s1-w9-clean"))
+                                                            :site-of a10
+                                                            :name (n3 / name
+                                                                      :op1 "lyophilization-flask"))
+                                                  :name (n1 / name
+                                                            :op1 "event")))
+                           :setting-of (a19 / s
+                                            :name (n19 / name
+                                                       :op1 "overnight")))
+                :ARG0 (a0 / d
+                          :name (n0 / name
+                                    :op1 "vacuum-lyophilization-system"))
+                :ARG1 (a17 / rg
+                           :name (n17 / name
+                                      :op1 "lyophilized-crystals")))
+     :site (a6 / loc
+               :name (n6 / name
+                         :op1 "coffee-cup")
+               :modifier-of (a8 / mod
+                                :name (n8 / name
+                                          :op1 "s4-w5-clean")))
+     :ARG0 (a18 / rg
+                :name (n18 / name
+                           :op1 "hot-water")))

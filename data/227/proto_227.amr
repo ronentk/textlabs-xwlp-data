@@ -1,0 +1,112 @@
+(a21 / default-op
+     :name (n21 / name
+                :op1 "sonicated")
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :succ (a20 / measure-op
+                          :succ a3
+                          :ARG0 a28
+                          :name (n20 / name
+                                     :op1 "determine-optimal-sized"))
+               :ARG0 a28
+               :ARG1 a29)
+     :ARG0 (a29 / rg
+                :measure-of (a11 / m
+                                 :name (n11 / name
+                                            :op1 "approximately-8--g"))
+                :name (n29 / name
+                           :op1 "s7-w9-aliquots"))
+     :modifier-of (a14 / mod
+                       :name (n14 / name
+                                  :op1 "according-to-those-predetermined-conditions"))
+     :succ (a18 / default-op
+                :name (n18 / name
+                           :op1 "subjected-to-sonication")
+                :succ-of (a2 / co-ref-of
+                             :ARG0 (a25 / rg
+                                        :name (n25 / name
+                                                   :op1 "s5-w1-aliquots"))
+                             :ARG1 (a26 / rg
+                                        :ARG0-of (a3 / co-ref-of
+                                                     :ARG1 (a28 / rg
+                                                                :name (n28 / name
+                                                                           :op1 "dna-fragments"))
+                                                     :name (n3 / name
+                                                               :op1 "event")
+                                                     :succ a19)
+                                        :modifier-of (a13 / mod
+                                                          :name (n13 / name
+                                                                     :op1 "from-each-time-point"))
+                                        :name (n26 / name
+                                                   :op1 "s6-w0-aliquots"))
+                             :succ-of (a19 / transfer-op
+                                           :ARG0 a26
+                                           :site (a27 / rg
+                                                      :name (n27 / name
+                                                                 :op1 "agarose-gel"))
+                                           :name (n19 / name
+                                                      :op1 "run"))
+                             :name (n2 / name
+                                       :op1 "event"))
+                :succ (a1 / co-ref-of
+                          :name (n1 / name
+                                    :op1 "event")
+                          :succ (a17 / convert-op
+                                     :succ a6
+                                     :ARG0 a23
+                                     :ARG1 a24
+                                     :name (n17 / name
+                                                :op1 "split"))
+                          :ARG0 (a24 / rg
+                                     :measure-of (a10 / m
+                                                      :name (n10 / name
+                                                                 :op1 "35--l"))
+                                     :name (n24 / name
+                                                :op1 "s4-w11-aliquots"))
+                          :ARG1 a25)
+                :ARG0 a25
+                :succ a16
+                :site a0
+                :setting-of (a31 / s
+                                 :name (n31 / name
+                                            :op1 "s5-w12-10-s-bursts")))
+     :site (a0 / d
+               :name (n0 / name
+                         :op1 "cup-horn-sonicator")
+               :site-of (a16 / default-op
+                             :modifier-of (a12 / mod
+                                               :name (n12 / name
+                                                          :op1 "using-maximum-output-and-continuous-power"))
+                             :succ (a15 / transfer-op
+                                        :name (n15 / name
+                                                   :op1 "placing")
+                                        :succ (a5 / located-at
+                                                  :name (n5 / name
+                                                            :op1 "event")
+                                                  :ARG1 a7
+                                                  :ARG0 a22)
+                                        :ARG0 (a7 / loc
+                                                  :name (n7 / name
+                                                            :op1 "microcentrifuge-tube"))
+                                        :site a8)
+                             :ARG0 (a8 / loc
+                                       :name (n8 / name
+                                                 :op1 "ice-water-bath"))
+                             :setting-of (a30 / s
+                                              :name (n30 / name
+                                                         :op1 "s2-w10-10-s-bursts"))
+                             :name (n16 / name
+                                        :op1 "sonication")
+                             :succ-of (a6 / co-ref-of
+                                          :ARG0 (a22 / rg
+                                                     :name (n22 / name
+                                                                :op1 "buffered-dna-sample"))
+                                          :ARG1 (a23 / rg
+                                                     :measure-of (a9 / m
+                                                                     :name (n9 / name
+                                                                               :op1 "100--g"))
+                                                     :name (n23 / name
+                                                                :op1 "dna"))
+                                          :name (n6 / name
+                                                    :op1 "event")))))

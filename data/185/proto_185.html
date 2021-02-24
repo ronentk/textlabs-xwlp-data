@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "-20\u00b0C", "label": "-20\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "kept", "label": "kept", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "EtOH", "label": "EtOH", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "1 year", "label": "1 year", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "completely", "label": "completely", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Dissolve", "label": "Dissolve", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 ml", "label": "10 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Chloramphenicol", "label": "Chloramphenicol", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Weigh", "label": "Weigh", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "95%", "label": "95%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.25-0.5 g", "label": "0.25-0.5 g", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "-20\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027-20\u00b0C\u0027}", "to": "kept"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "EtOH", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027EtOH\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EtOH\u0027}", "to": "Dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 year", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271 year\u0027}", "to": "kept"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "completely", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027completely\u0027}", "to": "Dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Dissolve", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EtOH\u0027}", "to": "kept"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710 ml\u0027}", "to": "EtOH"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Chloramphenicol", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Chloramphenicol\u0027}", "to": "Weigh"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Weigh", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Chloramphenicol\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "95%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002795%\u0027}", "to": "EtOH"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.25-0.5 g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.25-0.5 g\u0027}", "to": "Chloramphenicol"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

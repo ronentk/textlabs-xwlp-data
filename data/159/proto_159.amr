@@ -1,0 +1,65 @@
+(a12 / temp-treat-op
+     :name (n12 / name
+                :op1 "autoclave")
+     :succ (a1 / part-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ a0
+               :ARG1 a2
+               :succ (a11 / seal-op
+                          :succ a0
+                          :ARG0 a3
+                          :ARG1 (a17 / sl
+                                     :name (n17 / name
+                                                :op1 "aluminum-foil"))
+                          :usage-of (a18 / sl
+                                         :name (n18 / name
+                                                    :op1 "autoclave-tape"))
+                          :name (n11 / name
+                                     :op1 "cover"))
+               :ARG0 (a3 / loc
+                         :name (n3 / name
+                                   :op1 "lid")))
+     :ARG0 (a2 / loc
+               :name (n2 / name
+                         :op1 "erlenmeyer")
+               :ARG1-of (a0 / part-of
+                            :name (n0 / name
+                                      :op1 "event")
+                            :ARG0 a3
+                            :succ a10)
+               :measure-of (a5 / m
+                               :name (n5 / name
+                                         :op1 "1l"))
+               :site-of (a8 / transfer-op
+                            :ARG0 (a13 / rg
+                                       :measure-of (a4 / m
+                                                       :name (n4 / name
+                                                                 :op1 "500ml"))
+                                       :modifier-of (a7 / mod
+                                                        :name (n7 / name
+                                                                  :op1 "premade"))
+                                       :name (n13 / name
+                                                  :op1 "s1-w4-tap"))
+                            :succ-of (a9 / transfer-op
+                                         :site a2
+                                         :ARG0 (a14 / rg
+                                                    :measure-of (a6 / m
+                                                                    :name (n6 / name
+                                                                              :op1 "7-5g"))
+                                                    :name (n14 / name
+                                                               :op1 "s2-w5-agar"))
+                                         :succ-of (a10 / mix-op
+                                                       :ARG0 a2
+                                                       :setting-of (a15 / s
+                                                                        :name (n15 / name
+                                                                                   :op1 "10-minutes"))
+                                                       :name (n10 / name
+                                                                  :op1 "stir"))
+                                         :name (n9 / name
+                                                   :op1 "add"))
+                            :name (n8 / name
+                                      :op1 "pour")))
+     :setting-of (a16 / s
+                      :name (n16 / name
+                                 :op1 "90-minutes")))

@@ -1,0 +1,86 @@
+(a15 / temp-treat-op
+     :name (n15 / name
+                :op1 "cool")
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :succ (a14 / measure-op
+                          :setting-of (a6 / m
+                                          :name (n6 / name
+                                                    :op1 "60-80-kv"))
+                          :succ a13
+                          :ARG0 a21
+                          :name (n14 / name
+                                     :op1 "operate"))
+               :ARG0 (a21 / rg
+                          :ARG0-of (a13 / default-op
+                                        :name (n13 / name
+                                                   :op1 "withdraw")
+                                        :succ a3)
+                          :name (n21 / name
+                                     :op1 "liquid")
+                          :ARG1-of (a3 / co-ref-of
+                                       :name (n3 / name
+                                                 :op1 "event")
+                                       :succ (a11 / time-op
+                                                  :succ (a1 / part-of
+                                                            :name (n1 / name
+                                                                      :op1 "event")
+                                                            :succ (a9 / wash-op
+                                                                      :site (a0 / d
+                                                                                :name (n0 / name
+                                                                                          :op1 "ultracentrifuge"))
+                                                                      :succ a8
+                                                                      :ARG0 a18
+                                                                      :ARG1 (a16 / rg
+                                                                                 :name (n16 / name
+                                                                                            :op1 "buffer"))
+                                                                      :name (n9 / name
+                                                                                :op1 "wash"))
+                                                            :ARG1 (a18 / rg
+                                                                       :ARG0-of (a8 / default-op
+                                                                                    :name (n8 / name
+                                                                                              :op1 "filter"))
+                                                                       :name (n18 / name
+                                                                                  :op1 "virus-suspension"))
+                                                            :ARG0 a17
+                                                            :succ-of (a10 / transfer-op
+                                                                          :ARG0 a18
+                                                                          :site (a5 / loc
+                                                                                    :name (n5 / name
+                                                                                              :op1 "grid"))
+                                                                          :succ-of (a12 / transfer-op
+                                                                                        :site a5
+                                                                                        :name (n12 / name
+                                                                                                   :op1 "add")
+                                                                                        :succ (a2 / part-of
+                                                                                                  :name (n2 / name
+                                                                                                            :op1 "event")
+                                                                                                  :ARG0 a19
+                                                                                                  :ARG1 (a20 / rg
+                                                                                                             :name (n20 / name
+                                                                                                                        :op1 "stain")))
+                                                                                        :ARG0 (a19 / rg
+                                                                                                   :name (n19 / name
+                                                                                                              :op1 "s5-w2-drop")))
+                                                                          :name (n10 / name
+                                                                                     :op1 "deposit")))
+                                                  :ARG0 a17
+                                                  :usage-of (a7 / mth
+                                                                :name (n7 / name
+                                                                          :op1 "adsorption-of-viruses"))
+                                                  :setting-of (a24 / s
+                                                                   :name (n24 / name
+                                                                              :op1 "30s"))
+                                                  :name (n11 / name
+                                                             :op1 "leave"))
+                                       :ARG0 (a17 / rg
+                                                  :name (n17 / name
+                                                             :op1 "s4-w2-drop"))))
+               :ARG1 a22)
+     :ARG0 (a22 / rg
+                :name (n22 / name
+                           :op1 "object-stage"))
+     :site (a23 / rg
+                :name (n23 / name
+                           :op1 "liquid-nitrogen")))

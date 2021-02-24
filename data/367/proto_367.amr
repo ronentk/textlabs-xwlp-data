@@ -1,0 +1,30 @@
+(a3 / temp-treat-op
+    :name (n3 / name
+              :op1 "incubating")
+    :succ (a2 / temp-treat-op
+              :name (n2 / name
+                        :op1 "heat-inactivate")
+              :ARG0 a4)
+    :ARG0 (a4 / rg
+              :name (n4 / name
+                        :op1 "reaction")
+              :ARG0-of (a0 / create-op
+                           :succ-of (a1 / temp-treat-op
+                                        :ARG0 a4
+                                        :setting-of (a5 / s
+                                                        :name (n5 / name
+                                                                  :op1 "37-c"))
+                                        :setting-of (a6 / s
+                                                        :name (n6 / name
+                                                                  :op1 "30-minutes"))
+                                        :succ-of a2
+                                        :name (n1 / name
+                                                  :op1 "incubate"))
+                           :name (n0 / name
+                                     :op1 "set-up")))
+    :setting-of (a7 / s
+                    :name (n7 / name
+                              :op1 "65-c"))
+    :setting-of (a8 / s
+                    :name (n8 / name
+                              :op1 "20-minutes")))

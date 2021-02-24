@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "room temperature", "label": "room temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "incubate", "label": "incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Quick T4 DNA Ligase", "label": "Quick T4 DNA Ligase", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s4_w0_Add", "label": "s4_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "3-fold molar excess", "label": "3-fold molar excess", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "insert", "label": "insert", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 \u03bcl", "label": "10 \u03bcl", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Quick Ligation Buffer", "label": "Quick Ligation Buffer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "Centrifuge", "label": "Centrifuge", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "s4_w8_mix", "label": "s4_w8_mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "5 minutes", "label": "5 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "ice", "label": "ice", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Chill", "label": "Chill", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "briefly", "label": "briefly", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Adjust", "label": "Adjust", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "s3_w9_mix", "label": "s3_w9_mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "dH2O", "label": "dH2O", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1\u03bcl", "label": "1\u03bcl", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "thoroughly", "label": "thoroughly", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Combine", "label": "Combine", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "50 ng", "label": "50 ng", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "vector", "label": "vector", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2X", "label": "2X", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "room temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027room temperature\u0027}", "to": "incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "incubate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027vector\u0027}", "to": "Chill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Quick T4 DNA Ligase", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Quick T4 DNA Ligase\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027vector\u0027}", "to": "s4_w8_mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "3-fold molar excess", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00273-fold molar excess\u0027}", "to": "insert"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "insert", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027insert\u0027}", "to": "Combine"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 \u03bcl", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710 \u03bcl\u0027}", "to": "Quick Ligation Buffer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Quick Ligation Buffer", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Quick Ligation Buffer\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Centrifuge", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027vector\u0027}", "to": "incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w8_mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027vector\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00275 minutes\u0027}", "to": "incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ice", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027ice\u0027}", "to": "Chill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "briefly", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027briefly\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027vector\u0027}", "to": "s3_w9_mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Adjust", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027vector\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w9_mix", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027vector\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dH2O", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027dH2O\u0027}", "to": "Adjust"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1\u03bcl", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271\u03bcl\u0027}", "to": "Quick T4 DNA Ligase"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "thoroughly", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027thoroughly\u0027}", "to": "s4_w8_mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Combine", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027vector\u0027}", "to": "Adjust"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "50 ng", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002750 ng\u0027}", "to": "vector"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "vector", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027vector\u0027}", "to": "Combine"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2X", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272X\u0027}", "to": "Quick Ligation Buffer"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

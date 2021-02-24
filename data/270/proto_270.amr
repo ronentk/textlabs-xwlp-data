@@ -1,0 +1,52 @@
+(a7 / temp-treat-op
+    :name (n7 / name
+              :op1 "heat")
+    :succ (a6 / transfer-op
+              :name (n6 / name
+                        :op1 "adding")
+              :site a9
+              :ARG0 (a11 / rg
+                         :measure-of (a2 / m
+                                         :name (n2 / name
+                                                   :op1 "10-mm"))
+                         :name (n11 / name
+                                    :op1 "edta")))
+    :ARG0 (a9 / rg
+              :measure-of (a0 / m
+                              :name (n0 / name
+                                        :op1 "1x"))
+              :name (n9 / name
+                        :op1 "nebuffer")
+              :site-of (a3 / transfer-op
+                           :succ-of (a4 / transfer-op
+                                        :site a9
+                                        :ARG0 (a10 / rg
+                                                   :measure-of (a1 / m
+                                                                   :name (n1 / name
+                                                                             :op1 "1-unit"))
+                                                   :name (n10 / name
+                                                              :op1 "klenow"))
+                                        :succ-of (a5 / temp-treat-op
+                                                     :ARG0 a9
+                                                     :setting-of (a12 / s
+                                                                      :name (n12 / name
+                                                                                 :op1 "15-minutes"))
+                                                     :setting-of (a13 / s
+                                                                      :name (n13 / name
+                                                                                 :op1 "25-c"))
+                                                     :succ-of a6
+                                                     :name (n5 / name
+                                                               :op1 "incubate"))
+                                        :name (n4 / name
+                                                  :op1 "add"))
+                           :name (n3 / name
+                                     :op1 "dissolved")
+                           :ARG0 (a8 / rg
+                                     :name (n8 / name
+                                               :op1 "dna"))))
+    :setting-of (a14 / s
+                     :name (n14 / name
+                                :op1 "20-minutes"))
+    :setting-of (a15 / s
+                     :name (n15 / name
+                                :op1 "75-c")))

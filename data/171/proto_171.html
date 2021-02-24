@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Shake", "label": "Shake", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "toluene", "label": "toluene", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s5_w0_Add", "label": "s5_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.2ml", "label": "0.2ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "cetylpyridium chloride", "label": "cetylpyridium chloride", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 ml", "label": "10 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "Wash", "label": "Wash", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(212.0,104.0,243.0)", "border": "black"}, "id": "removal", "label": "removal", "shape": "square", "title": "remove_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "Centrifuge", "label": "Centrifuge", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_7", "label": "ev_7", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "suspension", "label": "suspension", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "wash", "label": "wash", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Suspend", "label": "Suspend", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s8_w1_pellet", "label": "s8_w1_pellet", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "liquid phenol.", "label": "liquid phenol.", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Pellet", "label": "Pellet", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "15 ml", "label": "15 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "phenol", "label": "phenol", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "your nose", "label": "your nose", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "cells", "label": "cells", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s7_w3_pellet", "label": "s7_w3_pellet", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "5%", "label": "5%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "aqueous buffer", "label": "aqueous buffer", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027suspension\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Shake", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027suspension\u0027}", "to": "s5_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "toluene", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027toluene\u0027}", "to": "s5_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027suspension\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.2ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.2ml\u0027}", "to": "cetylpyridium chloride"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cetylpyridium chloride", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cetylpyridium chloride\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710 ml\u0027}", "to": "toluene"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Wash", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w1_pellet\u0027}", "to": "removal"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027suspension\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Centrifuge", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w3_pellet\u0027}", "to": "wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_7", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w1_pellet\u0027}", "to": "Wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "suspension", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027suspension\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "wash", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w3_pellet\u0027}", "to": "ev_7"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Suspend", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid phenol.\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027liquid phenol.\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s8_w1_pellet", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s8_w1_pellet\u0027}", "to": "ev_7"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid phenol.", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid phenol.\u0027}", "to": "Suspend"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Pellet", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cells\u0027}", "to": "Suspend"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "15 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002715 ml\u0027}", "to": "liquid phenol."}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "phenol", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027phenol\u0027}", "to": "removal"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "your nose", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027your nose\u0027}", "to": "removal"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cells", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cells\u0027}", "to": "Pellet"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w3_pellet", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s7_w3_pellet\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00275%\u0027}", "to": "cetylpyridium chloride"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "aqueous buffer", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027aqueous buffer\u0027}", "to": "wash"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

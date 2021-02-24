@@ -1,0 +1,89 @@
+(a19 / measure-op
+     :name (n19 / name
+                :op1 "examined")
+     :succ (a5 / co-ref-of
+               :name (n5 / name
+                         :op1 "event")
+               :succ (a4 / located-at
+                         :succ-of (a18 / destroy-op
+                                       :ARG0 (a23 / rg
+                                                  :modifier-of (a11 / mod
+                                                                    :name (n11 / name
+                                                                               :op1 "excess"))
+                                                  :name (n23 / name
+                                                             :op1 "stain"))
+                                       :name (n18 / name
+                                                  :op1 "removed")
+                                       :usage-of (a0 / d
+                                                     :name (n0 / name
+                                                               :op1 "filter-paper")))
+                         :name (n4 / name
+                                   :op1 "event")
+                         :succ a17
+                         :ARG1 a8
+                         :ARG0 a23)
+               :ARG0 (a8 / loc
+                         :site-of (a17 / transfer-op
+                                       :ARG0 (a22 / rg
+                                                  :name (n22 / name
+                                                             :op1 "drop"))
+                                       :setting-of (a25 / s
+                                                        :name (n25 / name
+                                                                   :op1 "1-1-5-min"))
+                                       :name (n17 / name
+                                                  :op1 "s2-w4-placed")
+                                       :succ a3)
+                         :name (n8 / name
+                                   :op1 "s2-w1-grid")
+                         :ARG1-of (a3 / co-ref-of
+                                      :succ (a16 / transfer-op
+                                                 :succ (a1 / co-ref-of
+                                                           :name (n1 / name
+                                                                     :op1 "event")
+                                                           :ARG0 a7
+                                                           :ARG1 a21
+                                                           :succ-of a2)
+                                                 :site a7
+                                                 :succ (a2 / co-ref-of
+                                                           :name (n2 / name
+                                                                     :op1 "event")
+                                                           :ARG1 a21
+                                                           :succ (a15 / transfer-op
+                                                                      :site (a6 / loc
+                                                                                :name (n6 / name
+                                                                                          :op1 "surface")
+                                                                                :modifier-of (a10 / mod
+                                                                                                  :name (n10 / name
+                                                                                                             :op1 "sterile")))
+                                                                      :ARG0 a20
+                                                                      :name (n15 / name
+                                                                                 :op1 "s1-w5-placed"))
+                                                           :ARG0 (a20 / rg
+                                                                      :name (n20 / name
+                                                                                 :op1 "sample")))
+                                                 :ARG0 (a21 / rg
+                                                            :name (n21 / name
+                                                                       :op1 "droplet"))
+                                                 :usage-of (a13 / mth
+                                                                :name (n13 / name
+                                                                           :op1 "plastic-coated-side-down"))
+                                                 :setting-of (a24 / s
+                                                                  :name (n24 / name
+                                                                             :op1 "1-5-2-min"))
+                                                 :name (n16 / name
+                                                            :op1 "s1-w16-placed"))
+                                      :ARG0 (a7 / loc
+                                                :name (n7 / name
+                                                          :op1 "s1-w12-grid"))
+                                      :name (n3 / name
+                                                :op1 "event")))
+               :ARG1 a9)
+     :ARG0 (a9 / loc
+               :name (n9 / name
+                         :op1 "grids"))
+     :modifier-of (a12 / mod
+                       :name (n12 / name
+                                  :op1 "may-be"))
+     :usage-of (a14 / mth
+                    :name (n14 / name
+                               :op1 "transmission-electron-microscopy")))

@@ -1,0 +1,104 @@
+(a23 / temp-treat-op
+     :name (n23 / name
+                :op1 "store")
+     :succ (a22 / temp-treat-op
+                :name (n22 / name
+                           :op1 "flash-freeze")
+                :succ a3
+                :ARG0 a7
+                :site (a27 / rg
+                           :name (n27 / name
+                                      :op1 "liquid-nitrogen")))
+     :ARG0 (a7 / loc
+               :name (n7 / name
+                         :op1 "tubes")
+               :ARG1-of (a3 / co-ref-of
+                            :succ (a21 / temp-treat-op
+                                       :usage-of (a14 / mth
+                                                      :name (n14 / name
+                                                                 :op1 "dark"))
+                                       :succ a20
+                                       :ARG0 a6
+                                       :setting-of (a28 / s
+                                                        :name (n28 / name
+                                                                   :op1 "10-minutes"))
+                                       :name (n21 / name
+                                                  :op1 "incubate"))
+                            :ARG0 (a6 / loc
+                                      :ARG0-of (a19 / seal-op
+                                                    :succ (a18 / transfer-op
+                                                               :name (n18 / name
+                                                                          :op1 "s4-w21-add")
+                                                               :usage-of (a0 / d
+                                                                             :name (n0 / name
+                                                                                       :op1 "repeator-pipet"))
+                                                               :succ a17
+                                                               :site a30
+                                                               :ARG0 (a26 / rg
+                                                                          :measure-of (a11 / m
+                                                                                           :name (n11 / name
+                                                                                                      :op1 "5--l"))
+                                                                          :measure-of (a12 / m
+                                                                                           :name (n12 / name
+                                                                                                      :op1 "25%"))
+                                                                          :name (n26 / name
+                                                                                     :op1 "glutaraldehyde")))
+                                                    :ARG1 (a30 / sl
+                                                               :name (n30 / name
+                                                                          :op1 "caps")
+                                                               :ARG0-of (a17 / default-op
+                                                                             :name (n17 / name
+                                                                                        :op1 "lay-out")))
+                                                    :succ-of (a20 / mix-op
+                                                                  :ARG0 a6
+                                                                  :name (n20 / name
+                                                                             :op1 "inverting")
+                                                                  :setting-of (a13 / m
+                                                                                   :name (n13 / name
+                                                                                              :op1 "few-times")))
+                                                    :name (n19 / name
+                                                               :op1 "cap")
+                                                    :succ a2)
+                                      :name (n6 / name
+                                                :op1 "tube")
+                                      :ARG1-of (a2 / co-ref-of
+                                                   :succ (a16 / transfer-op
+                                                              :succ (a1 / co-ref-of
+                                                                        :name (n1 / name
+                                                                                  :op1 "event")
+                                                                        :ARG1 a5
+                                                                        :succ (a15 / transfer-op
+                                                                                   :ARG0 (a24 / rg
+                                                                                              :measure-of (a8 / m
+                                                                                                              :name (n8 / name
+                                                                                                                        :op1 "s1-w10-900--l"))
+                                                                                              :name (n24 / name
+                                                                                                         :op1 "s1-w12-seawater"))
+                                                                                   :name (n15 / name
+                                                                                              :op1 "aliquot"))
+                                                                        :ARG0 (a4 / loc
+                                                                                  :measure-of (a9 / m
+                                                                                                  :name (n9 / name
+                                                                                                            :op1 "1-2-ml"))
+                                                                                  :site-of a15
+                                                                                  :name (n4 / name
+                                                                                            :op1 "s1-w25-cryovial")))
+                                                              :site a5
+                                                              :ARG0 (a25 / rg
+                                                                         :measure-of (a10 / m
+                                                                                          :name (n10 / name
+                                                                                                     :op1 "100--l"))
+                                                                         :name (n25 / name
+                                                                                    :op1 "sample"))
+                                                              :name (n16 / name
+                                                                         :op1 "s2-w2-add"))
+                                                   :ARG0 (a5 / loc
+                                                             :name (n5 / name
+                                                                       :op1 "s2-w8-cryovial"))
+                                                   :name (n2 / name
+                                                             :op1 "event")))
+                            :name (n3 / name
+                                      :op1 "event")))
+     :setting-of (a29 / s
+                      :name (n29 / name
+                                 :op1 "-80-c")))

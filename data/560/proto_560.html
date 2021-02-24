@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "22\u201023h", "label": "22\u201023h", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s5_w9_incubate", "label": "s5_w9_incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "Repair template synthesis", "label": "Repair template synthesis", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Prepare", "label": "Prepare", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "recovered worms", "label": "recovered worms", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Clone", "label": "Clone", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Pool", "label": "Pool", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s5_w14_20 \u00b0C", "label": "s5_w14_20 \u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_9", "label": "ev_9", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Use", "label": "Use", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "plate", "label": "plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s6_w11_20 \u00b0C", "label": "s6_w11_20 \u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s6_w8_incubate", "label": "s6_w8_incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "young adult N2 worms", "label": "young adult N2 worms", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Inject", "label": "Inject", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Make", "label": "Make", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "recover", "label": "recover", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "OP50 plates", "label": "OP50 plates", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "crRNA gtbp\u20101", "label": "crRNA gtbp\u20101", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "as indicated in Reagents for gtbp\u20101 eGFP and mCherry tagging", "label": "as indicated in Reagents for gtbp\u20101 eGFP and mCherry tagging", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "individual", "label": "individual", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "injection mix", "label": "injection mix", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "as described in Worm recovery and handling", "label": "as described in Worm recovery and handling", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "4\u20105 days", "label": "4\u20105 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "repair PCR template", "label": "repair PCR template", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "P0s", "label": "P0s", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "as indicated in injection mixes, part I.", "label": "as indicated in injection mixes, part I.", "shape": "dot", "title": "method", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "22\u201023h", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002722\u201023h\u0027}", "to": "s5_w9_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w9_incubate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027plate\u0027}", "to": "Clone"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Repair template synthesis", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027Repair template synthesis\u0027}", "to": "Prepare"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Prepare", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027repair PCR template\u0027}", "to": "Make"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "recovered worms", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027recovered worms\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027recovered worms\u0027}", "to": "Pool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Clone", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027OP50 plates\u0027}", "to": "s6_w8_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Pool", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plate\u0027}", "to": "s5_w9_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w14_20 \u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s5_w14_20 \u00b0C\u0027}", "to": "s5_w9_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_9", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027crRNA gtbp\u20101\u0027}", "to": "Use"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Use", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027crRNA gtbp\u20101\u0027}", "to": "Inject"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "plate", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plate\u0027}", "to": "Pool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s6_w11_20 \u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s6_w11_20 \u00b0C\u0027}", "to": "s6_w8_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "young adult N2 worms", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027young adult N2 worms\u0027}", "to": "Inject"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Inject", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027young adult N2 worms\u0027}", "to": "recover"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Make", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027injection mix\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "recover", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027young adult N2 worms\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "OP50 plates", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027OP50 plates\u0027}", "to": "Clone"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "crRNA gtbp\u20101", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027crRNA gtbp\u20101\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "as indicated in Reagents for gtbp\u20101 eGFP and mCherry tagging", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027as indicated in Reagents for gtbp\u20101 eGFP and mCherry tagging\u0027}", "to": "Prepare"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "individual", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027individual\u0027}", "to": "OP50 plates"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "injection mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027injection mix\u0027}", "to": "Make"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "as described in Worm recovery and handling", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027as described in Worm recovery and handling\u0027}", "to": "recover"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "4\u20105 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00274\u20105 days\u0027}", "to": "s6_w8_incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "repair PCR template", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027repair PCR template\u0027}", "to": "Prepare"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "P0s", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027P0s\u0027}", "to": "Clone"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "as indicated in injection mixes, part I.", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027as indicated in injection mixes, part I.\u0027}", "to": "Make"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

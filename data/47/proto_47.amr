@@ -1,0 +1,40 @@
+(a8 / temp-treat-op
+    :name (n8 / name
+              :op1 "store")
+    :succ (a7 / convert-op
+              :name (n7 / name
+                        :op1 "divide")
+              :ARG1 a0
+              :succ (a6 / transfer-op
+                        :name (n6 / name
+                                  :op1 "add")
+                        :site a9
+                        :ARG0 (a10 / rg
+                                   :modifier-of (a3 / mod
+                                                    :name (n3 / name
+                                                              :op1 "sterile"))
+                                   :name (n10 / name
+                                              :op1 "dmso")))
+              :ARG0 (a9 / rg
+                        :measure-of (a1 / m
+                                        :name (n1 / name
+                                                  :op1 "2x"))
+                        :name (n9 / name
+                                  :op1 "tss")
+                        :ARG0-of (a4 / create-op
+                                     :succ-of (a5 / temp-treat-op
+                                                  :ARG0 a9
+                                                  :succ-of a6
+                                                  :name (n5 / name
+                                                            :op1 "autoclave"))
+                                     :name (n4 / name
+                                               :op1 "prepare"))))
+    :ARG0 (a0 / loc
+              :name (n0 / name
+                        :op1 "aliquots")
+              :measure-of (a2 / m
+                              :name (n2 / name
+                                        :op1 "10-ml")))
+    :setting-of (a11 / s
+                     :name (n11 / name
+                                :op1 "4--c")))

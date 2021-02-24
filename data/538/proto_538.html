@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "14 days", "label": "14 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "Culture", "label": "Culture", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "media + drug", "label": "media + drug", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 ml", "label": "10 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DMEM", "label": "DMEM", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.5 mL", "label": "0.5 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "cell suspension", "label": "cell suspension", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "every 3 days", "label": "every 3 days", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Replace", "label": "Replace", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_9", "label": "ev_9", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Transfer", "label": "Transfer", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "plate", "label": "plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(249.0,213.0,249.0)", "border": "black"}, "id": "ev_8", "label": "ev_8", "shape": "square", "title": "part_of", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Split", "label": "Split", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "FBS media", "label": "FBS media", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "500 \u00b5l", "label": "500 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1:5", "label": "1:5", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "24-well", "label": "24-well", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "non-transduced, confluent cells", "label": "non-transduced, confluent cells", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "media", "label": "media", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "antibiotic", "label": "antibiotic", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10%", "label": "10%", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "14 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002714 days\u0027}", "to": "Culture"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Culture", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plate\u0027}", "to": "Replace"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "media + drug", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027media + drug\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plate\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710 ml\u0027}", "to": "DMEM"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DMEM", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027DMEM\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.5 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.5 mL\u0027}", "to": "cell suspension"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cell suspension", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027cell suspension\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "every 3 days", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027every 3 days\u0027}", "to": "Replace"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_9", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cell suspension\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Transfer", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plate\u0027}", "to": "Culture"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027plate\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027media\u0027}", "to": "Replace"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_8", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027DMEM\u0027}", "to": "Split"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Split", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DMEM\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "FBS media", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027FBS media\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "500 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027500 \u00b5l\u0027}", "to": "media + drug"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1:5", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271:5\u0027}", "to": "Split"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "24-well", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002724-well\u0027}", "to": "plate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "non-transduced, confluent cells", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027non-transduced, confluent cells\u0027}", "to": "Split"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "media", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027media\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "antibiotic", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027antibiotic\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710%\u0027}", "to": "FBS media"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

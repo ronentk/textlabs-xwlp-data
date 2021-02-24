@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "37\u00b0C", "label": "37\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "reaction", "label": "reaction", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "4 - 24 hours", "label": "4 - 24 hours", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "gently", "label": "gently", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "PNGase F", "label": "PNGase F", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Analyze", "label": "Analyze", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "method of choice", "label": "method of choice", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2-5 \u00b5l", "label": "2-5 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "37\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002737\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Incubate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027reaction\u0027}", "to": "Analyze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "reaction", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027reaction\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027reaction\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "4 - 24 hours", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00274 - 24 hours\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "gently", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027gently\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027reaction\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "PNGase F", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027PNGase F\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "method of choice", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027method of choice\u0027}", "to": "Analyze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2-5 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272-5 \u00b5l\u0027}", "to": "PNGase F"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+(a9 / remove-op
+    :name (n9 / name
+              :op1 "recover")
+    :usage-of (a4 / mth
+                  :name (n4 / name
+                            :op1 "ethanol-precipitation"))
+    :succ (a8 / transfer-op
+              :name (n8 / name
+                        :op1 "addition")
+              :setting-of (a3 / m
+                              :name (n3 / name
+                                        :op1 "0-01%"))
+              :succ a7
+              :site a11
+              :ARG0 (a13 / rg
+                         :name (n13 / name
+                                    :op1 "sds")))
+    :ARG0 (a11 / rg
+               :measure-of (a1 / m
+                               :name (n1 / name
+                                         :op1 "s1-w5-1x"))
+               :name (n11 / name
+                          :op1 "mung-bean-nuclease-buffer")
+               :site-of (a5 / transfer-op
+                            :succ-of (a6 / transfer-op
+                                         :site a11
+                                         :ARG0 (a12 / rg
+                                                    :measure-of (a2 / m
+                                                                    :name (n2 / name
+                                                                              :op1 "1-0-unit"))
+                                                    :name (n12 / name
+                                                               :op1 "mung-bean-nuclease"))
+                                         :succ-of (a7 / temp-treat-op
+                                                      :ARG0 a11
+                                                      :setting-of (a15 / s
+                                                                       :name (n15 / name
+                                                                                  :op1 "30-c"))
+                                                      :setting-of (a16 / s
+                                                                       :name (n16 / name
+                                                                                  :op1 "30-minutes"))
+                                                      :name (n7 / name
+                                                                :op1 "incubate"))
+                                         :name (n6 / name
+                                                   :op1 "add"))
+                            :name (n5 / name
+                                      :op1 "suspend")
+                            :ARG0 (a10 / rg
+                                       :measure-of (a0 / m
+                                                       :name (n0 / name
+                                                                 :op1 "0-1--g--l"))
+                                       :name (n10 / name
+                                                  :op1 "s1-w1-dna"))))
+    :ARG1 (a14 / rg
+               :name (n14 / name
+                          :op1 "s5-w2-dna")))

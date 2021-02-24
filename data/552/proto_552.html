@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "EDTA", "label": "EDTA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w0_Add", "label": "s2_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "MilliQ", "label": "MilliQ", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Adjust to", "label": "Adjust to", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "autoclaved bottle", "label": "autoclaved bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s1_w0_Add", "label": "s1_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.5M", "label": "0.5M", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "250ml", "label": "250ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Tris-HCl", "label": "Tris-HCl", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1M", "label": "1M", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1ml", "label": "1ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "SDS", "label": "SDS", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2.5g", "label": "2.5g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2.5ml", "label": "2.5ml", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "EDTA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EDTA\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027autoclaved bottle\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "MilliQ", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MilliQ\u0027}", "to": "Adjust to"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "autoclaved bottle", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027autoclaved bottle\u0027}", "to": "s1_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027autoclaved bottle\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.5M", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.5M\u0027}", "to": "EDTA"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "250ml", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027250ml\u0027}", "to": "Adjust to"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Tris-HCl", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Tris-HCl\u0027}", "to": "s1_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1M", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271M\u0027}", "to": "Tris-HCl"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271ml\u0027}", "to": "EDTA"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "SDS", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027SDS\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027autoclaved bottle\u0027}", "to": "Adjust to"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2.5g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272.5g\u0027}", "to": "SDS"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2.5ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272.5ml\u0027}", "to": "Tris-HCl"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

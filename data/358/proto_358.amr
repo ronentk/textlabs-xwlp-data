@@ -1,0 +1,87 @@
+(a22 / measure-op
+     :name (n22 / name
+                :op1 "track")
+     :setting-of (a12 / m
+                      :name (n12 / name
+                                 :op1 "cell-growth"))
+     :setting-of (a13 / m
+                      :name (n13 / name
+                                 :op1 "phage-infection"))
+     :succ (a21 / measure-op
+                :name (n21 / name
+                           :op1 "plot")
+                :setting-of (a11 / m
+                                 :name (n11 / name
+                                            :op1 "fluorescence-vs--time"))
+                :succ a19
+                :ARG0 a25
+                :succ (a20 / create-op
+                           :name (n20 / name
+                                      :op1 "set-up")
+                           :ARG0 a2)
+                :usage-of (a2 / d
+                              :name (n2 / name
+                                        :op1 "program")))
+     :ARG0 (a25 / rg
+                :name (n25 / name
+                           :op1 "asw")
+                :ARG1-of (a4 / co-ref-of
+                             :succ-of (a17 / transfer-op
+                                           :site a25
+                                           :setting-of (a9 / m
+                                                           :name (n9 / name
+                                                                     :op1 "10x"))
+                                           :ARG0 (a24 / rg
+                                                      :measure-of (a8 / m
+                                                                      :name (n8 / name
+                                                                                :op1 "20--l"))
+                                                      :name (n24 / name
+                                                                 :op1 "sample"))
+                                           :succ-of (a18 / mix-op
+                                                         :ARG0 a25
+                                                         :succ-of (a19 / measure-op
+                                                                       :ARG0 a25
+                                                                       :name (n19 / name
+                                                                                  :op1 "read")
+                                                                       :usage-of (a1 / d
+                                                                                     :name (n1 / name
+                                                                                               :op1 "tecan-infinite-pro-200m-plate-reader"))
+                                                                       :setting-of (a10 / m
+                                                                                        :name (n10 / name
+                                                                                                   :op1 "fluorescence")))
+                                                         :name (n18 / name
+                                                                    :op1 "mix")
+                                                         :usage-of (a0 / d
+                                                                       :name (n0 / name
+                                                                                 :op1 "pipette"))
+                                                         :modifier-of (a14 / mod
+                                                                           :name (n14 / name
+                                                                                      :op1 "well")))
+                                           :name (n17 / name
+                                                      :op1 "add"))
+                             :name (n4 / name
+                                       :op1 "event")
+                             :succ (a16 / measure-op
+                                        :succ (a3 / part-of
+                                                  :name (n3 / name
+                                                            :op1 "event")
+                                                  :ARG1 a6
+                                                  :succ a15
+                                                  :ARG0 (a5 / loc
+                                                            :name (n5 / name
+                                                                      :op1 "each-well")))
+                                        :ARG0 (a6 / loc
+                                                  :name (n6 / name
+                                                            :op1 "96-well-plate"))
+                                        :name (n16 / name
+                                                   :op1 "keep-a-log-of-your-plate-layout"))
+                             :ARG0 (a23 / rg
+                                        :ARG0-of (a15 / transfer-op
+                                                      :name (n15 / name
+                                                                 :op1 "aliquot")
+                                                      :site a5)
+                                        :measure-of (a7 / m
+                                                        :name (n7 / name
+                                                                  :op1 "180--l"))
+                                        :name (n23 / name
+                                                   :op1 "seawater-medium")))))

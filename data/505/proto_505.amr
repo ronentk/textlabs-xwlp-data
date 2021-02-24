@@ -1,0 +1,35 @@
+(a7 / transfer-op
+    :name (n7 / name
+              :op1 "s3-w0-add")
+    :succ (a6 / transfer-op
+              :name (n6 / name
+                        :op1 "s2-w0-add")
+              :site a0
+              :ARG0 (a9 / rg
+                        :measure-of (a2 / m
+                                        :name (n2 / name
+                                                  :op1 "s2-w1-50ml"))
+                        :name (n9 / name
+                                  :op1 "milliq")))
+    :site (a0 / loc
+              :name (n0 / name
+                        :op1 "autoclaved-bottle")
+              :site-of (a5 / transfer-op
+                           :ARG0 (a8 / rg
+                                     :measure-of (a1 / m
+                                                     :name (n1 / name
+                                                               :op1 "57-318g"))
+                                     :name (n8 / name
+                                               :op1 "guanidine-hydrochloride"))
+                           :succ-of a6
+                           :name (n5 / name
+                                     :op1 "s1-w0-add")))
+    :ARG0 (a10 / rg
+               :measure-of (a3 / m
+                               :name (n3 / name
+                                         :op1 "s3-w1-50ml"))
+               :measure-of (a4 / m
+                               :name (n4 / name
+                                         :op1 "7-5m"))
+               :name (n10 / name
+                          :op1 "ammonium-acetate")))

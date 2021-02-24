@@ -1,0 +1,39 @@
+(a7 / temp-treat-op
+    :name (n7 / name
+              :op1 "kept")
+    :succ (a6 / mix-op
+              :name (n6 / name
+                        :op1 "dissolve")
+              :modifier-of (a3 / mod
+                               :name (n3 / name
+                                         :op1 "completely"))
+              :succ a5
+              :ARG0 a9)
+    :ARG0 (a9 / rg
+              :measure-of (a1 / m
+                              :name (n1 / name
+                                        :op1 "10-ml"))
+              :measure-of (a2 / m
+                              :name (n2 / name
+                                        :op1 "95%"))
+              :name (n9 / name
+                        :op1 "etoh")
+              :site-of (a5 / transfer-op
+                           :name (n5 / name
+                                     :op1 "add")
+                           :succ (a4 / measure-op
+                                     :name (n4 / name
+                                               :op1 "weigh")
+                                     :ARG0 a8)
+                           :ARG0 (a8 / rg
+                                     :measure-of (a0 / m
+                                                     :name (n0 / name
+                                                               :op1 "0-25-0-5-g"))
+                                     :name (n8 / name
+                                               :op1 "chloramphenicol"))))
+    :setting-of (a10 / s
+                     :name (n10 / name
+                                :op1 "-20-c"))
+    :setting-of (a11 / s
+                     :name (n11 / name
+                                :op1 "1-year")))

@@ -1,0 +1,94 @@
+(a17 / temp-treat-op
+     :name (n17 / name
+                :op1 "s6-w8-incubate")
+     :succ (a16 / create-op
+                :name (n16 / name
+                           :op1 "clone")
+                :site a3
+                :succ (a15 / temp-treat-op
+                           :name (n15 / name
+                                      :op1 "s5-w9-incubate")
+                           :succ a14
+                           :ARG0 a2
+                           :setting-of (a24 / s
+                                            :name (n24 / name
+                                                       :op1 "22-23h"))
+                           :setting-of (a25 / s
+                                            :name (n25 / name
+                                                       :op1 "s5-w14-20--c")))
+                :ARG1 (a2 / loc
+                          :name (n2 / name
+                                    :op1 "plate")
+                          :site-of (a14 / transfer-op
+                                        :name (n14 / name
+                                                   :op1 "pool")
+                                        :succ (a0 / co-ref-of
+                                                  :name (n0 / name
+                                                            :op1 "event")
+                                                  :succ (a13 / default-op
+                                                             :usage-of (a8 / mth
+                                                                           :name (n8 / name
+                                                                                     :op1 "as-described-in-worm-recovery-and-handling"))
+                                                             :succ a12
+                                                             :ARG0 a21
+                                                             :name (n13 / name
+                                                                        :op1 "recover"))
+                                                  :ARG0 (a21 / rg
+                                                             :site-of (a12 / transfer-op
+                                                                           :name (n12 / name
+                                                                                      :op1 "inject")
+                                                                           :succ (a11 / default-op
+                                                                                      :name (n11 / name
+                                                                                                 :op1 "use")
+                                                                                      :succ a1
+                                                                                      :ARG0 a20)
+                                                                           :ARG0 (a20 / rg
+                                                                                      :name (n20 / name
+                                                                                                 :op1 "crrna-gtbp-1")
+                                                                                      :ARG1-of (a1 / co-ref-of
+                                                                                                   :name (n1 / name
+                                                                                                             :op1 "event")
+                                                                                                   :succ (a10 / create-op
+                                                                                                              :usage-of (a7 / mth
+                                                                                                                            :name (n7 / name
+                                                                                                                                      :op1 "as-indicated-in-injection-mixes--part-i-"))
+                                                                                                              :succ (a9 / create-op
+                                                                                                                        :name (n9 / name
+                                                                                                                                  :op1 "prepare")
+                                                                                                                        :usage-of (a5 / mth
+                                                                                                                                      :name (n5 / name
+                                                                                                                                                :op1 "as-indicated-in-reagents-for-gtbp-1-egfp-and-mcherry-tagging"))
+                                                                                                                        :usage-of (a6 / mth
+                                                                                                                                      :name (n6 / name
+                                                                                                                                                :op1 "repair-template-synthesis"))
+                                                                                                                        :ARG0 a18)
+                                                                                                              :ARG1 (a18 / rg
+                                                                                                                         :name (n18 / name
+                                                                                                                                    :op1 "repair-pcr-template"))
+                                                                                                              :ARG0 a19
+                                                                                                              :name (n10 / name
+                                                                                                                         :op1 "make"))
+                                                                                                   :ARG0 (a19 / rg
+                                                                                                              :name (n19 / name
+                                                                                                                         :op1 "injection-mix")))))
+                                                             :name (n21 / name
+                                                                        :op1 "young-adult-n2-worms"))
+                                                  :ARG1 a22)
+                                        :ARG0 (a22 / rg
+                                                   :name (n22 / name
+                                                              :op1 "recovered-worms"))))
+                :ARG0 (a23 / rg
+                           :name (n23 / name
+                                      :op1 "s6-w2-p0s")))
+     :ARG0 (a3 / loc
+               :name (n3 / name
+                         :op1 "op50-plates")
+               :modifier-of (a4 / mod
+                                :name (n4 / name
+                                          :op1 "individual")))
+     :setting-of (a26 / s
+                      :name (n26 / name
+                                 :op1 "s6-w11-20--c"))
+     :setting-of (a27 / s
+                      :name (n27 / name
+                                 :op1 "4-5-days")))

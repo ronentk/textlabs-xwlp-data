@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "50\u00b0C", "label": "50\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w3_samples", "label": "s2_w3_samples", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_3", "label": "ev_3", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "15 minutes", "label": "15 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "thermocycler", "label": "thermocycler", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "NEB 5-alpha Competent\u00a0E. coli\u00a0cells", "label": "NEB 5-alpha Competent\u00a0E. coli\u00a0cells", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Transform", "label": "Transform", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "\u201320\u00b0C", "label": "\u201320\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "store", "label": "store", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w1_samples", "label": "s1_w1_samples", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "assembled product", "label": "assembled product", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_4", "label": "ev_4", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "ice", "label": "ice", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "50\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002750\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Incubate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_samples\u0027}", "to": "ev_3"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w3_samples", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w3_samples\u0027}", "to": "ev_3"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_3", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w3_samples\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "15 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002715 minutes\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "thermocycler", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027thermocycler\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "NEB 5-alpha Competent\u00a0E. coli\u00a0cells", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027NEB 5-alpha Competent\\xa0E. coli\\xa0cells\u0027}", "to": "Transform"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "\u201320\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027\u201320\u00b0C\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "store", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w3_samples\u0027}", "to": "ev_4"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w1_samples", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_samples\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "assembled product", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027assembled product\u0027}", "to": "ev_4"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_4", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027assembled product\u0027}", "to": "Transform"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ice", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027ice\u0027}", "to": "store"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

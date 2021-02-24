@@ -1,0 +1,29 @@
+(a6 / mix-op
+    :name (n6 / name
+              :op1 "dissolve")
+    :modifier-of (a3 / mod
+                     :name (n3 / name
+                               :op1 "completely"))
+    :succ (a5 / transfer-op
+              :name (n5 / name
+                        :op1 "add")
+              :succ (a4 / measure-op
+                        :name (n4 / name
+                                  :op1 "weigh")
+                        :ARG0 a7)
+              :ARG0 (a7 / rg
+                        :measure-of (a0 / m
+                                        :name (n0 / name
+                                                  :op1 "0-5-g"))
+                        :name (n7 / name
+                                  :op1 "rifampicin"))
+              :site a8)
+    :ARG0 (a8 / rg
+              :measure-of (a1 / m
+                              :name (n1 / name
+                                        :op1 "10-ml"))
+              :modifier-of (a2 / mod
+                               :name (n2 / name
+                                         :op1 "100%"))
+              :name (n8 / name
+                        :op1 "methanol")))

@@ -1,0 +1,158 @@
+(a17 / measure-op
+     :name (n17 / name
+                :op1 "analyze")
+     :succ (a16 / transfer-op
+                :name (n16 / name
+                           :op1 "s14-w0-resuspend")
+                :succ a2
+                :ARG0 a29
+                :site (a30 / rg
+                           :name (n30 / name
+                                      :op1 "s14-w7-cell-staining-buffer")))
+     :ARG0 (a29 / rg
+                :name (n29 / name
+                           :op1 "cells")
+                :ARG1-of (a2 / co-ref-of
+                             :name (n2 / name
+                                       :op1 "event")
+                             :succ (a15 / wash-op
+                                        :ARG0 a37
+                                        :ARG1 (a28 / rg
+                                                   :name (n28 / name
+                                                              :op1 "s13-w10-cell-staining-buffer"))
+                                        :name (n15 / name
+                                                   :op1 "s13-w0-wash"))
+                             :ARG0 (a37 / rg
+                                        :ARG0-of (a12 / transfer-op
+                                                      :site (a38 / rg
+                                                                 :name (n38 / name
+                                                                            :op1 "residual-buffer"))
+                                                      :succ-of (a13 / transfer-op
+                                                                    :site a37
+                                                                    :ARG0 (a27 / rg
+                                                                               :name (n27 / name
+                                                                                          :op1 "secondary-antibody"))
+                                                                    :succ-of (a14 / temp-treat-op
+                                                                                  :ARG0 a37
+                                                                                  :setting-of (a46 / s
+                                                                                                   :name (n46 / name
+                                                                                                              :op1 "s12-w10-15-20-minutes"))
+                                                                                  :succ-of a15
+                                                                                  :name (n14 / name
+                                                                                             :op1 "s12-w4-incubate")
+                                                                                  :usage-of (a9 / mth
+                                                                                                :name (n9 / name
+                                                                                                          :op1 "s12-w7-dark")))
+                                                                    :name (n13 / name
+                                                                               :op1 "s11-w12-add"))
+                                                      :name (n12 / name
+                                                                 :op1 "s11-w6-resuspend")
+                                                      :succ a24)
+                                        :ARG1-of (a22 / spin-op
+                                                      :setting-of (a44 / s
+                                                                       :name (n44 / name
+                                                                                  :op1 "s9-w4-350-x-g"))
+                                                      :setting-of (a45 / s
+                                                                       :name (n45 / name
+                                                                                  :op1 "s9-w7-5-minutes"))
+                                                      :succ-of (a23 / destroy-op
+                                                                    :ARG0 (a35 / rg
+                                                                               :name (n35 / name
+                                                                                          :op1 "supernatant"))
+                                                                    :name (n23 / name
+                                                                               :op1 "discard"))
+                                                      :succ-of (a24 / wash-op
+                                                                    :ARG0 (a34 / rg
+                                                                               :name (n34 / name
+                                                                                          :op1 "wholeblood-antibody-mixture")
+                                                                               :ARG1-of (a0 / co-ref-of
+                                                                                            :succ-of (a20 / transfer-op
+                                                                                                          :site a34
+                                                                                                          :succ (a1 / co-ref-of
+                                                                                                                    :name (n1 / name
+                                                                                                                              :op1 "event")
+                                                                                                                    :succ (a19 / temp-treat-op
+                                                                                                                               :ARG0 a31
+                                                                                                                               :setting-of (a41 / s
+                                                                                                                                                :name (n41 / name
+                                                                                                                                                           :op1 "s6-w3-room-temperature"))
+                                                                                                                               :name (n19 / name
+                                                                                                                                          :op1 "warm"))
+                                                                                                                    :ARG0 (a31 / rg
+                                                                                                                               :site-of (a18 / transfer-op
+                                                                                                                                             :ARG0 (a32 / rg
+                                                                                                                                                        :name (n32 / name
+                                                                                                                                                                   :op1 "di-water"))
+                                                                                                                                             :succ-of a19
+                                                                                                                                             :name (n18 / name
+                                                                                                                                                        :op1 "dilute")
+                                                                                                                                             :setting-of (a5 / m
+                                                                                                                                                             :name (n5 / name
+                                                                                                                                                                       :op1 "s5-w2-1x")))
+                                                                                                                               :measure-of (a4 / m
+                                                                                                                                               :name (n4 / name
+                                                                                                                                                         :op1 "10x"))
+                                                                                                                               :name (n31 / name
+                                                                                                                                          :op1 "red-blood-cell--rbc--lysis-buffer"))
+                                                                                                                    :ARG1 a33)
+                                                                                                          :ARG0 (a33 / rg
+                                                                                                                     :measure-of (a6 / m
+                                                                                                                                     :name (n6 / name
+                                                                                                                                               :op1 "s7-w2-2-ml"))
+                                                                                                                     :measure-of (a7 / m
+                                                                                                                                     :name (n7 / name
+                                                                                                                                               :op1 "s7-w4-1x"))
+                                                                                                                     :name (n33 / name
+                                                                                                                                :op1 "rbc-lysis-solution"))
+                                                                                                          :succ-of (a21 / temp-treat-op
+                                                                                                                        :ARG0 a34
+                                                                                                                        :setting-of (a42 / s
+                                                                                                                                         :name (n42 / name
+                                                                                                                                                    :op1 "s8-w3-room-temperature"))
+                                                                                                                        :setting-of (a43 / s
+                                                                                                                                         :name (n43 / name
+                                                                                                                                                    :op1 "10-minutes"))
+                                                                                                                        :succ-of a22
+                                                                                                                        :name (n21 / name
+                                                                                                                                   :op1 "s8-w0-incubate"))
+                                                                                                          :name (n20 / name
+                                                                                                                     :op1 "s7-w0-add"))
+                                                                                            :name (n0 / name
+                                                                                                      :op1 "event")
+                                                                                            :succ (a11 / temp-treat-op
+                                                                                                       :usage-of (a8 / mth
+                                                                                                                     :name (n8 / name
+                                                                                                                               :op1 "s2-w9-dark"))
+                                                                                                       :succ a10
+                                                                                                       :ARG0 a26
+                                                                                                       :setting-of (a39 / s
+                                                                                                                        :name (n39 / name
+                                                                                                                                   :op1 "s2-w3-room-temperature"))
+                                                                                                       :setting-of (a40 / s
+                                                                                                                        :name (n40 / name
+                                                                                                                                   :op1 "s2-w6-15-20-minutes"))
+                                                                                                       :name (n11 / name
+                                                                                                                  :op1 "s2-w0-incubate"))
+                                                                                            :ARG0 (a26 / rg
+                                                                                                       :site-of (a10 / transfer-op
+                                                                                                                     :name (n10 / name
+                                                                                                                                :op1 "s1-w0-add")
+                                                                                                                     :ARG0 (a25 / rg
+                                                                                                                                :name (n25 / name
+                                                                                                                                           :op1 "primary-antibodies")))
+                                                                                                       :measure-of (a3 / m
+                                                                                                                       :name (n3 / name
+                                                                                                                                 :op1 "100--l"))
+                                                                                                       :name (n26 / name
+                                                                                                                  :op1 "anti-coagulated-whole-blood"))))
+                                                                    :ARG1 (a36 / rg
+                                                                               :name (n36 / name
+                                                                                          :op1 "s10-w10-cell-staining-buffer"))
+                                                                    :name (n24 / name
+                                                                               :op1 "s10-w0-wash"))
+                                                      :name (n22 / name
+                                                                 :op1 "centrifuge")
+                                                      :ARG0 a34
+                                                      :ARG2 a35)
+                                        :name (n37 / name
+                                                   :op1 "pellet")))))

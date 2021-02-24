@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "10 min", "label": "10 min", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "Wait", "label": "Wait", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w0_Add", "label": "s2_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1.5 mL", "label": "1.5 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w6_seawater sample", "label": "s2_w6_seawater sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Flash freeze", "label": "Flash freeze", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "cryotube", "label": "cryotube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Pluronic", "label": "Pluronic", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s4_w0_Add", "label": "s4_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "liquid nitrogen tank", "label": "liquid nitrogen tank", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DMSO", "label": "DMSO", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "prefiltered", "label": "prefiltered", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Prefilter", "label": "Prefilter", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "200 \u00b5m", "label": "200 \u00b5m", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "mesh", "label": "mesh", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w2_seawater sample", "label": "s1_w2_seawater sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2 mL", "label": "2 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "10 min", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710 min\u0027}", "to": "Wait"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Wait", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cryotube\u0027}", "to": "Flash freeze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_seawater sample\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cryotube\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1.5 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271.5 mL\u0027}", "to": "s2_w6_seawater sample"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w6_seawater sample", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w6_seawater sample\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cryotube", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cryotube\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Pluronic", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Pluronic\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cryotube\u0027}", "to": "Wait"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027cryotube\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid nitrogen tank", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid nitrogen tank\u0027}", "to": "Flash freeze"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DMSO", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DMSO\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "prefiltered", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027prefiltered\u0027}", "to": "s2_w6_seawater sample"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Prefilter", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w2_seawater sample\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "200 \u00b5m", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027200 \u00b5m\u0027}", "to": "mesh"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "mesh", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027mesh\u0027}", "to": "Prefilter"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w2_seawater sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w2_seawater sample\u0027}", "to": "Prefilter"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272 mL\u0027}", "to": "cryotube"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

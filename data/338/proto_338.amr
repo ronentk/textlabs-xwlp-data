@@ -1,0 +1,298 @@
+(a49 / temp-treat-op
+     :name (n49 / name
+                :op1 "incubate")
+     :succ (a48 / transfer-op
+                :name (n48 / name
+                           :op1 "spread")
+                :succ a15
+                :site a21
+                :succ (a16 / co-ref-of
+                           :name (n16 / name
+                                      :op1 "event")
+                           :succ (a47 / default-op
+                                      :usage-of (a34 / mth
+                                                     :name (n34 / name
+                                                                :op1 "10-fold-serial-dilutions"))
+                                      :succ (a45 / mix-op
+                                                 :name (n45 / name
+                                                            :op1 "s15-w0-mix")
+                                                 :succ a14
+                                                 :ARG0 a62
+                                                 :modifier-of (a33 / mod
+                                                                   :name (n33 / name
+                                                                              :op1 "thoroughly")))
+                                      :ARG0 (a62 / rg
+                                                 :name (n62 / name
+                                                            :op1 "s15-w2-cells")
+                                                 :ARG1-of (a14 / co-ref-of
+                                                               :name (n14 / name
+                                                                          :op1 "event")
+                                                               :succ (a43 / mix-op
+                                                                          :ARG0 a61
+                                                                          :setting-of (a79 / s
+                                                                                           :name (n79 / name
+                                                                                                      :op1 "250-rpm"))
+                                                                          :name (n43 / name
+                                                                                     :op1 "rotating"))
+                                                               :ARG0 (a61 / rg
+                                                                          :site-of (a40 / transfer-op
+                                                                                        :succ (a39 / default-op
+                                                                                                   :name (n39 / name
+                                                                                                              :op1 "s11-w2-do-not-mix")
+                                                                                                   :succ-of (a13 / co-ref-of
+                                                                                                                 :ARG0 (a71 / rg
+                                                                                                                            :ARG0-of (a54 / transfer-op
+                                                                                                                                          :site (a72 / rg
+                                                                                                                                                     :name (n72 / name
+                                                                                                                                                                :op1 "s6-w4-ice"))
+                                                                                                                                          :setting-of (a73 / s
+                                                                                                                                                           :name (n73 / name
+                                                                                                                                                                      :op1 "30-minutes"))
+                                                                                                                                          :succ-of (a55 / default-op
+                                                                                                                                                        :ARG0 a72
+                                                                                                                                                        :succ-of (a56 / temp-treat-op
+                                                                                                                                                                      :ARG0 a72
+                                                                                                                                                                      :setting-of (a74 / s
+                                                                                                                                                                                       :name (n74 / name
+                                                                                                                                                                                                  :op1 "42-c"))
+                                                                                                                                                                      :setting-of (a75 / s
+                                                                                                                                                                                       :name (n75 / name
+                                                                                                                                                                                                  :op1 "30-seconds"))
+                                                                                                                                                                      :name (n56 / name
+                                                                                                                                                                                 :op1 "heat-shock"))
+                                                                                                                                                        :name (n55 / name
+                                                                                                                                                                   :op1 "s7-w2-do-not-mix"))
+                                                                                                                                          :name (n54 / name
+                                                                                                                                                     :op1 "s6-w0-place")
+                                                                                                                                          :succ a11)
+                                                                                                                            :name (n71 / name
+                                                                                                                                       :op1 "s6-w2-mixture")
+                                                                                                                            :ARG1-of (a11 / co-ref-of
+                                                                                                                                          :name (n11 / name
+                                                                                                                                                     :op1 "event")
+                                                                                                                                          :succ (a53 / default-op
+                                                                                                                                                     :succ a52
+                                                                                                                                                     :ARG0 a19
+                                                                                                                                                     :name (n53 / name
+                                                                                                                                                                :op1 "do-not-vortex"))
+                                                                                                                                          :ARG0 (a19 / loc
+                                                                                                                                                     :ARG0-of (a51 / mix-op
+                                                                                                                                                                   :modifier-of (a31 / mod
+                                                                                                                                                                                     :name (n31 / name
+                                                                                                                                                                                                :op1 "s4-w0-carefully"))
+                                                                                                                                                                   :name (n51 / name
+                                                                                                                                                                              :op1 "flick")
+                                                                                                                                                                   :succ-of (a7 / co-ref-of
+                                                                                                                                                                                :ARG0 (a65 / rg
+                                                                                                                                                                                           :measure-of (a22 / m
+                                                                                                                                                                                                            :name (n22 / name
+                                                                                                                                                                                                                       :op1 "50--l"))
+                                                                                                                                                                                           :name (n65 / name
+                                                                                                                                                                                                      :op1 "s2-w8-cells"))
+                                                                                                                                                                                :ARG1 (a69 / rg
+                                                                                                                                                                                           :name (n69 / name
+                                                                                                                                                                                                      :op1 "s4-w8-cells"))
+                                                                                                                                                                                :succ-of (a10 / located-at
+                                                                                                                                                                                              :ARG0 a69
+                                                                                                                                                                                              :succ a9
+                                                                                                                                                                                              :ARG1 a19
+                                                                                                                                                                                              :name (n10 / name
+                                                                                                                                                                                                         :op1 "event"))
+                                                                                                                                                                                :name (n7 / name
+                                                                                                                                                                                          :op1 "event"))
+                                                                                                                                                                   :succ a6)
+                                                                                                                                                     :ARG0-of (a52 / mix-op
+                                                                                                                                                                   :name (n52 / name
+                                                                                                                                                                              :op1 "s4-w7-mix")
+                                                                                                                                                                   :succ a10)
+                                                                                                                                                     :name (n19 / name
+                                                                                                                                                                :op1 "s4-w3-tube")
+                                                                                                                                                     :ARG1-of (a6 / co-ref-of
+                                                                                                                                                                  :succ (a50 / transfer-op
+                                                                                                                                                                             :succ-of (a8 / co-ref-of
+                                                                                                                                                                                          :ARG0 (a67 / rg
+                                                                                                                                                                                                     :measure-of (a23 / m
+                                                                                                                                                                                                                      :name (n23 / name
+                                                                                                                                                                                                                                 :op1 "1-5--l"))
+                                                                                                                                                                                                     :measure-of (a24 / m
+                                                                                                                                                                                                                      :name (n24 / name
+                                                                                                                                                                                                                                 :op1 "1-pg-100-ng"))
+                                                                                                                                                                                                     :name (n67 / name
+                                                                                                                                                                                                                :op1 "plasmid-dna"))
+                                                                                                                                                                                          :ARG1 (a70 / rg
+                                                                                                                                                                                                     :name (n70 / name
+                                                                                                                                                                                                                :op1 "dna"))
+                                                                                                                                                                                          :succ-of (a9 / located-at
+                                                                                                                                                                                                       :ARG0 a70
+                                                                                                                                                                                                       :succ a51
+                                                                                                                                                                                                       :ARG1 a19
+                                                                                                                                                                                                       :name (n9 / name
+                                                                                                                                                                                                                 :op1 "event"))
+                                                                                                                                                                                          :name (n8 / name
+                                                                                                                                                                                                    :op1 "event"))
+                                                                                                                                                                             :succ (a5 / co-ref-of
+                                                                                                                                                                                       :name (n5 / name
+                                                                                                                                                                                                 :op1 "event")
+                                                                                                                                                                                       :ARG0 (a66 / rg
+                                                                                                                                                                                                  :name (n66 / name
+                                                                                                                                                                                                             :op1 "s2-w14-ice")
+                                                                                                                                                                                                  :ARG1-of (a1 / co-ref-of
+                                                                                                                                                                                                               :name (n1 / name
+                                                                                                                                                                                                                         :op1 "event")
+                                                                                                                                                                                                               :succ a36
+                                                                                                                                                                                                               :ARG0 a58))
+                                                                                                                                                                                       :ARG1 a68)
+                                                                                                                                                                             :site (a68 / rg
+                                                                                                                                                                                        :name (n68 / name
+                                                                                                                                                                                                   :op1 "cell-mixture"))
+                                                                                                                                                                             :ARG0 a67
+                                                                                                                                                                             :name (n50 / name
+                                                                                                                                                                                        :op1 "add"))
+                                                                                                                                                                  :ARG0 (a18 / loc
+                                                                                                                                                                             :site-of (a46 / transfer-op
+                                                                                                                                                                                           :succ (a3 / co-ref-of
+                                                                                                                                                                                                     :name (n3 / name
+                                                                                                                                                                                                               :op1 "event")
+                                                                                                                                                                                                     :succ a2
+                                                                                                                                                                                                     :ARG0 (a57 / rg
+                                                                                                                                                                                                                :name (n57 / name
+                                                                                                                                                                                                                           :op1 "neb-10-beta-competent-e--coli-cells")
+                                                                                                                                                                                                                :ARG0-of (a0 / located-at
+                                                                                                                                                                                                                             :succ-of (a35 / default-op
+                                                                                                                                                                                                                                           :ARG0 a17
+                                                                                                                                                                                                                                           :site (a58 / rg
+                                                                                                                                                                                                                                                      :name (n58 / name
+                                                                                                                                                                                                                                                                 :op1 "s1-w11-ice"))
+                                                                                                                                                                                                                                           :succ-of (a36 / mix-op
+                                                                                                                                                                                                                                                         :ARG0 a58
+                                                                                                                                                                                                                                                         :name (n36 / name
+                                                                                                                                                                                                                                                                    :op1 "s2-w0-mix")
+                                                                                                                                                                                                                                                         :modifier-of (a29 / mod
+                                                                                                                                                                                                                                                                           :name (n29 / name
+                                                                                                                                                                                                                                                                                      :op1 "gently")))
+                                                                                                                                                                                                                                           :name (n35 / name
+                                                                                                                                                                                                                                                      :op1 "thaw"))
+                                                                                                                                                                                                                             :name (n0 / name
+                                                                                                                                                                                                                                       :op1 "event")
+                                                                                                                                                                                                                             :ARG1 a17))
+                                                                                                                                                                                                     :ARG1 a65)
+                                                                                                                                                                                           :ARG0 a65
+                                                                                                                                                                                           :modifier-of (a30 / mod
+                                                                                                                                                                                                             :name (n30 / name
+                                                                                                                                                                                                                        :op1 "s2-w3-carefully"))
+                                                                                                                                                                                           :name (n46 / name
+                                                                                                                                                                                                      :op1 "s2-w4-pipette")
+                                                                                                                                                                                           :succ-of (a4 / located-at
+                                                                                                                                                                                                        :ARG0 a18
+                                                                                                                                                                                                        :succ-of a5
+                                                                                                                                                                                                        :name (n4 / name
+                                                                                                                                                                                                                  :op1 "event")
+                                                                                                                                                                                                        :succ a1
+                                                                                                                                                                                                        :ARG1 a66)
+                                                                                                                                                                                           :succ a2)
+                                                                                                                                                                             :name (n18 / name
+                                                                                                                                                                                        :op1 "transformation-tube")
+                                                                                                                                                                             :ARG1-of (a2 / co-ref-of
+                                                                                                                                                                                          :name (n2 / name
+                                                                                                                                                                                                    :op1 "event")
+                                                                                                                                                                                          :succ a1
+                                                                                                                                                                                          :ARG0 (a17 / loc
+                                                                                                                                                                                                     :name (n17 / name
+                                                                                                                                                                                                                :op1 "s1-w2-tube"))))
+                                                                                                                                                                  :name (n6 / name
+                                                                                                                                                                            :op1 "event")))))
+                                                                                                                 :ARG1 a61
+                                                                                                                 :name (n13 / name
+                                                                                                                            :op1 "event"))
+                                                                                                   :ARG0 a59)
+                                                                                        :ARG0 (a59 / rg
+                                                                                                   :name (n59 / name
+                                                                                                              :op1 "s10-w2-ice")
+                                                                                                   :ARG1-of (a12 / co-ref-of
+                                                                                                                 :succ-of (a38 / transfer-op
+                                                                                                                               :ARG0 a71
+                                                                                                                               :site a59
+                                                                                                                               :setting-of (a76 / s
+                                                                                                                                                :name (n76 / name
+                                                                                                                                                           :op1 "5-minutes"))
+                                                                                                                               :succ-of a39
+                                                                                                                               :name (n38 / name
+                                                                                                                                          :op1 "s10-w0-place"))
+                                                                                                                 :name (n12 / name
+                                                                                                                            :op1 "event")
+                                                                                                                 :succ (a37 / default-op
+                                                                                                                            :succ a56
+                                                                                                                            :ARG0 a72
+                                                                                                                            :name (n37 / name
+                                                                                                                                       :op1 "s9-w2-do-not-mix"))
+                                                                                                                 :ARG0 a72))
+                                                                                        :ARG1 (a60 / rg
+                                                                                                   :measure-of (a25 / m
+                                                                                                                    :name (n25 / name
+                                                                                                                               :op1 "950--l"))
+                                                                                                   :measure-of (a26 / m
+                                                                                                                    :name (n26 / name
+                                                                                                                               :op1 "room-temperature"))
+                                                                                                   :name (n60 / name
+                                                                                                              :op1 "s12-w6-soc"))
+                                                                                        :succ-of (a41 / time-op
+                                                                                                      :ARG0 a61
+                                                                                                      :setting-of (a77 / s
+                                                                                                                       :name (n77 / name
+                                                                                                                                  :op1 "s13-w2-37-c"))
+                                                                                                      :setting-of (a78 / s
+                                                                                                                       :name (n78 / name
+                                                                                                                                  :op1 "60-minutes"))
+                                                                                                      :succ-of (a42 / mix-op
+                                                                                                                    :ARG0 a61
+                                                                                                                    :succ-of a43
+                                                                                                                    :name (n42 / name
+                                                                                                                               :op1 "shaking")
+                                                                                                                    :modifier-of (a32 / mod
+                                                                                                                                      :name (n32 / name
+                                                                                                                                                 :op1 "vigorously")))
+                                                                                                      :name (n41 / name
+                                                                                                                 :op1 "s13-w0-place"))
+                                                                                        :name (n40 / name
+                                                                                                   :op1 "s12-w0-pipette")
+                                                                                        :succ a13)
+                                                                          :name (n61 / name
+                                                                                     :op1 "s12-w9-mixture"))))
+                                      :site a63
+                                      :name (n47 / name
+                                                 :op1 "perform"))
+                           :ARG0 (a63 / rg
+                                      :name (n63 / name
+                                                 :op1 "s16-w6-soc"))
+                           :ARG1 a64)
+                :ARG0 (a64 / rg
+                           :measure-of (a27 / m
+                                            :name (n27 / name
+                                                       :op1 "50-100--l"))
+                           :measure-of (a28 / m
+                                            :name (n28 / name
+                                                       :op1 "each"))
+                           :name (n64 / name
+                                      :op1 "dilution")))
+     :ARG0 (a21 / loc
+                :name (n21 / name
+                           :op1 "selection-plate")
+                :ARG1-of (a15 / co-ref-of
+                              :succ (a44 / temp-treat-op
+                                         :ARG0 a20
+                                         :setting-of (a80 / s
+                                                          :name (n80 / name
+                                                                     :op1 "s14-w4-37-c"))
+                                         :name (n44 / name
+                                                    :op1 "warm"))
+                              :ARG0 (a20 / loc
+                                         :name (n20 / name
+                                                    :op1 "selection-plates"))
+                              :name (n15 / name
+                                         :op1 "event")))
+     :setting-of (a81 / s
+                      :name (n81 / name
+                                 :op1 "overnight"))
+     :setting-of (a82 / s
+                      :name (n82 / name
+                                 :op1 "s17-w13-37-c")))

@@ -1,0 +1,71 @@
+(a12 / temp-treat-op
+     :name (n12 / name
+                :op1 "incubate")
+     :succ (a11 / default-op
+                :name (n11 / name
+                           :op1 "inoculate")
+                :succ a1
+                :ARG0 a18
+                :ARG1 (a19 / rg
+                           :name (n19 / name
+                                      :op1 "culture")))
+     :ARG0 (a18 / rg
+                :name (n18 / name
+                           :op1 "sterile-mpb")
+                :ARG1-of (a1 / co-ref-of
+                             :name (n1 / name
+                                       :op1 "event")
+                             :succ (a10 / transfer-op
+                                        :site a0
+                                        :setting-of (a7 / m
+                                                        :name (n7 / name
+                                                                  :op1 "2-0"))
+                                        :succ (a9 / transfer-op
+                                                  :name (n9 / name
+                                                            :op1 "add")
+                                                  :site a13
+                                                  :ARG0 (a16 / rg
+                                                             :measure-of (a3 / m
+                                                                             :name (n3 / name
+                                                                                       :op1 "16-ml"))
+                                                             :measure-of (a4 / m
+                                                                             :name (n4 / name
+                                                                                       :op1 "2-m"))
+                                                             :name (n16 / name
+                                                                        :op1 "mgso4"))
+                                                  :ARG1 (a17 / rg
+                                                             :measure-of (a5 / m
+                                                                             :name (n5 / name
+                                                                                       :op1 "10-ml"))
+                                                             :measure-of (a6 / m
+                                                                             :name (n6 / name
+                                                                                       :op1 "1-m"))
+                                                             :name (n17 / name
+                                                                        :op1 "cacl2")))
+                                        :ARG0 (a13 / rg
+                                                   :name (n13 / name
+                                                              :op1 "bd-difco-ac-broth")
+                                                   :ARG0-of (a8 / temp-treat-op
+                                                                :ARG1 (a14 / rg
+                                                                           :name (n14 / name
+                                                                                      :op1 "nacl-qs"))
+                                                                :ARG2 (a15 / rg
+                                                                           :name (n15 / name
+                                                                                      :op1 "distilled-water"))
+                                                                :setting-of (a20 / s
+                                                                                 :name (n20 / name
+                                                                                            :op1 "20-min"))
+                                                                :succ-of a9
+                                                                :name (n8 / name
+                                                                          :op1 "autoclave")
+                                                                :setting-of (a2 / m
+                                                                                :name (n2 / name
+                                                                                          :op1 "1-l"))))
+                                        :name (n10 / name
+                                                   :op1 "dispense"))
+                             :ARG0 (a0 / d
+                                       :name (n0 / name
+                                                 :op1 "sterile-tube"))))
+     :setting-of (a21 / s
+                      :name (n21 / name
+                                 :op1 "22-c")))

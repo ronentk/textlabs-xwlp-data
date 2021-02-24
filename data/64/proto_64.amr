@@ -1,0 +1,61 @@
+(a11 / time-op
+     :name (n11 / name
+                :op1 "kept")
+     :succ (a0 / co-ref-of
+               :name (n0 / name
+                         :op1 "event")
+               :succ (a10 / transfer-op
+                          :site (a1 / loc
+                                    :name (n1 / name
+                                              :op1 "dark"))
+                          :succ a9
+                          :ARG0 a12
+                          :setting-of (a15 / s
+                                           :name (n15 / name
+                                                      :op1 "-20-c"))
+                          :name (n10 / name
+                                     :op1 "store"))
+               :ARG0 (a12 / rg
+                          :ARG0-of (a5 / create-op
+                                       :succ-of (a6 / transfer-op
+                                                    :site a12
+                                                    :ARG0 (a13 / rg
+                                                               :measure-of (a3 / m
+                                                                               :name (n3 / name
+                                                                                         :op1 "1-5-ml"))
+                                                               :name (n13 / name
+                                                                          :op1 "dmf"))
+                                                    :succ-of (a7 / mix-op
+                                                                 :ARG0 a12
+                                                                 :succ-of (a8 / mix-op
+                                                                              :ARG0 a12
+                                                                              :succ-of (a9 / seal-op
+                                                                                           :ARG0 a12
+                                                                                           :ARG1 (a17 / sl
+                                                                                                      :name (n17 / name
+                                                                                                                 :op1 "foil"))
+                                                                                           :name (n9 / name
+                                                                                                     :op1 "wrap"))
+                                                                              :name (n8 / name
+                                                                                        :op1 "dissolve")
+                                                                              :modifier-of (a4 / mod
+                                                                                               :name (n4 / name
+                                                                                                         :op1 "completely")))
+                                                                 :name (n7 / name
+                                                                           :op1 "vortex"))
+                                                    :name (n6 / name
+                                                              :op1 "add"))
+                                       :name (n5 / name
+                                                 :op1 "weigh"))
+                          :measure-of (a2 / m
+                                          :name (n2 / name
+                                                    :op1 "30-mg"))
+                          :name (n12 / name
+                                     :op1 "x-gluc"))
+               :ARG1 a14)
+     :ARG0 (a14 / rg
+                :name (n14 / name
+                           :op1 "stocks"))
+     :setting-of (a16 / s
+                      :name (n16 / name
+                                 :op1 "1-year")))

@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s5_w3_1 hour", "label": "s5_w3_1 hour", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s5_w0_Incubate", "label": "s5_w0_Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s6_w6_reaction", "label": "s6_w6_reaction", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "50\u00a0\u00b5l", "label": "50\u00a0\u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w4_reaction", "label": "s1_w4_reaction", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_13", "label": "ev_13", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "s8_w12_flicking", "label": "s8_w12_flicking", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Adjust", "label": "Adjust", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w0_Quick", "label": "s3_w0_Quick", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "s3_w2_spin-down", "label": "s3_w2_spin-down", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s5_w8_the enzyme-specific appropriate temperature", "label": "s5_w8_the enzyme-specific appropriate temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "s9_w2_spin-down", "label": "s9_w2_spin-down", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s11_w0_Incubate", "label": "s11_w0_Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s2_w15_reaction tube", "label": "s2_w15_reaction tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s11_w3_1 hour", "label": "s11_w3_1 hour", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "s2_w12_flicking", "label": "s2_w12_flicking", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s8_w15_reaction tube", "label": "s8_w15_reaction tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s9_w0_Quick", "label": "s9_w0_Quick", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "restriction endonuclease", "label": "restriction endonuclease", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Set up", "label": "Set up", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s11_w8_the enzyme-specific appropriate temperature", "label": "s11_w8_the enzyme-specific appropriate temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "concentrated salt solution", "label": "concentrated salt solution", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "concentration", "label": "concentration", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "second enzyme", "label": "second enzyme", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w3_1 hour", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s5_w3_1 hour\u0027}", "to": "s5_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w0_Incubate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w15_reaction tube\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s6_w6_reaction", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s6_w6_reaction\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s6_w6_reaction\u0027}", "to": "Adjust"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "50\u00a0\u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002750\\xa0\u00b5l\u0027}", "to": "s1_w4_reaction"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w4_reaction", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w4_reaction\u0027}", "to": "Set up"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_13", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w15_reaction tube\u0027}", "to": "s8_w12_flicking"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s8_w12_flicking", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w15_reaction tube\u0027}", "to": "s9_w2_spin-down"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Adjust", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s6_w6_reaction\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s6_w6_reaction\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Quick", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w0_Quick\u0027}", "to": "s3_w2_spin-down"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w2_spin-down", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w15_reaction tube\u0027}", "to": "s5_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w8_the enzyme-specific appropriate temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s5_w8_the enzyme-specific appropriate temperature\u0027}", "to": "s5_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s9_w2_spin-down", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w15_reaction tube\u0027}", "to": "s11_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w15_reaction tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w15_reaction tube\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w15_reaction tube\u0027}", "to": "s2_w12_flicking"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s11_w3_1 hour", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s11_w3_1 hour\u0027}", "to": "s11_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w12_flicking", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w15_reaction tube\u0027}", "to": "s3_w2_spin-down"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s8_w15_reaction tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s8_w15_reaction tube\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s9_w0_Quick", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s9_w0_Quick\u0027}", "to": "s9_w2_spin-down"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "restriction endonuclease", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027restriction endonuclease\u0027}", "to": "Set up"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Set up", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w4_reaction\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s11_w8_the enzyme-specific appropriate temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s11_w8_the enzyme-specific appropriate temperature\u0027}", "to": "s11_w0_Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "concentrated salt solution", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027concentrated salt solution\u0027}", "to": "Adjust"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "concentration", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027concentration\u0027}", "to": "Adjust"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "second enzyme", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027second enzyme\u0027}", "to": "Add"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+(a3 / co-ref-of
+    :name (n3 / name
+              :op1 "event")
+    :succ (a15 / transfer-op
+               :succ-of (a4 / co-ref-of
+                            :ARG0 (a21 / rg
+                                       :measure-of (a7 / m
+                                                       :name (n7 / name
+                                                                 :op1 "5-10-ml"))
+                                       :modifier-of (a11 / mod
+                                                         :name (n11 / name
+                                                                    :op1 "s4-w12-sterile"))
+                                       :name (n21 / name
+                                                  :op1 "s4-w13-h2o"))
+                            :ARG1 (a22 / rg
+                                       :name (n22 / name
+                                                  :op1 "water"))
+                            :succ-of (a16 / destroy-op
+                                          :ARG0 a22
+                                          :name (n16 / name
+                                                     :op1 "discard"))
+                            :name (n4 / name
+                                      :op1 "event"))
+               :site a0
+               :ARG0 a21
+               :name (n15 / name
+                          :op1 "prewet"))
+    :ARG0 (a0 / d
+              :name (n0 / name
+                        :op1 "s4-w5-syringe-filter"))
+    :succ (a17 / default-op
+               :usage-of a1
+               :succ (a2 / co-ref-of
+                         :name (n2 / name
+                                   :op1 "event")
+                         :succ (a14 / mix-op
+                                    :modifier-of (a10 / mod
+                                                      :name (n10 / name
+                                                                 :op1 "completely"))
+                                    :succ a13
+                                    :ARG0 a19
+                                    :name (n14 / name
+                                               :op1 "dissolve"))
+                         :ARG0 (a19 / rg
+                                    :ARG0-of (a12 / create-op
+                                                  :succ-of (a13 / transfer-op
+                                                                :site a19
+                                                                :ARG0 (a20 / rg
+                                                                           :measure-of (a6 / m
+                                                                                           :name (n6 / name
+                                                                                                     :op1 "10-ml"))
+                                                                           :modifier-of (a9 / mod
+                                                                                            :name (n9 / name
+                                                                                                      :op1 "s2-w3-sterile"))
+                                                                           :name (n20 / name
+                                                                                      :op1 "s2-w4-h2o"))
+                                                                :name (n13 / name
+                                                                           :op1 "add"))
+                                                  :name (n12 / name
+                                                             :op1 "weigh"))
+                                    :measure-of (a5 / m
+                                                    :name (n5 / name
+                                                              :op1 "2-383-g"))
+                                    :name (n19 / name
+                                               :op1 "iptg"))
+                         :ARG1 a23)
+               :ARG0 (a23 / rg
+                          :name (n23 / name
+                                     :op1 "ampicillin-stock"))
+               :succ-of (a18 / convert-op
+                             :ARG0 a23
+                             :ARG1 (a24 / rg
+                                        :measure-of (a8 / m
+                                                        :name (n8 / name
+                                                                  :op1 "1-ml"))
+                                        :name (n24 / name
+                                                   :op1 "aliquots"))
+                             :setting-of (a25 / s
+                                              :name (n25 / name
+                                                         :op1 "-20-c"))
+                             :setting-of (a26 / s
+                                              :name (n26 / name
+                                                         :op1 "1-year"))
+                             :name (n18 / name
+                                        :op1 "store"))
+               :name (n17 / name
+                          :op1 "sterilize"))
+    :ARG1 (a1 / d
+              :name (n1 / name
+                        :op1 "s5-w9-syringe-filter")))

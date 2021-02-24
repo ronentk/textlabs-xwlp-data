@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "95\u00b0C", "label": "95\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "heating", "label": "heating", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "1 hour", "label": "1 hour", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s8_w1_reaction", "label": "s8_w1_reaction", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "5 minutes", "label": "5 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "ice", "label": "ice", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Chill", "label": "Chill", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "10 seconds", "label": "10 seconds", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "Centrifuge", "label": "Centrifuge", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "PNGase F", "label": "PNGase F", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,232.0,0.0)", "border": "black"}, "id": "Denature", "label": "Denature", "shape": "square", "title": "convert_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "denatured glycoprotein", "label": "denatured glycoprotein", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w4_reaction", "label": "s2_w4_reaction", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 \u00b5l", "label": "1 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "37\u00b0C", "label": "37\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "glycoprotein", "label": "glycoprotein", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "95\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002795\u00b0C\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "heating", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027denatured glycoprotein\u0027}", "to": "Chill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 hour", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271 hour\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w1_reaction\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s8_w1_reaction", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s8_w1_reaction\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027denatured glycoprotein\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027denatured glycoprotein\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "5 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00275 minutes\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ice", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027ice\u0027}", "to": "Chill"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Chill", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027denatured glycoprotein\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 seconds", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710 seconds\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Centrifuge", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027denatured glycoprotein\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "PNGase F", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027PNGase F\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Denature", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w4_reaction\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "denatured glycoprotein", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027denatured glycoprotein\u0027}", "to": "Denature"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w4_reaction", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w4_reaction\u0027}", "to": "Denature"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271 \u00b5l\u0027}", "to": "PNGase F"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "37\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002737\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glycoprotein", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027glycoprotein\u0027}", "to": "Denature"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

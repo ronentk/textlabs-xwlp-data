@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(249.0,213.0,249.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "part_of", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s5_w2_drop", "label": "s5_w2_drop", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "60\u201380 kV", "label": "60\u201380 kV", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Operate", "label": "Operate", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_8", "label": "ev_8", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Withdraw", "label": "Withdraw", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "grid", "label": "grid", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Deposit", "label": "Deposit", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_7", "label": "ev_7", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "virus suspension", "label": "virus suspension", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Filter", "label": "Filter", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "Wash", "label": "Wash", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(249.0,213.0,249.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "part_of", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "ultracentrifuge", "label": "ultracentrifuge", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Cool", "label": "Cool", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "Leave", "label": "Leave", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s4_w2_drop", "label": "s4_w2_drop", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "object stage", "label": "object stage", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "adsorption of viruses", "label": "adsorption of viruses", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "liquid nitrogen", "label": "liquid nitrogen", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "30s", "label": "30s", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "buffer", "label": "buffer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "stain", "label": "stain", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "liquid", "label": "liquid", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w2_drop\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w2_drop", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w2_drop\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "60\u201380 kV", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002760\u201380 kV\u0027}", "to": "Operate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Operate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027liquid\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_8", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027object stage\u0027}", "to": "Cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Withdraw", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027liquid\u0027}", "to": "Operate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "grid", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027grid\u0027}", "to": "Deposit"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Deposit", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027grid\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_7", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027liquid\u0027}", "to": "Withdraw"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "virus suspension", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027virus suspension\u0027}", "to": "Filter"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Filter", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027virus suspension\u0027}", "to": "Wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Wash", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027virus suspension\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027virus suspension\u0027}", "to": "Deposit"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w2_drop\u0027}", "to": "Leave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ultracentrifuge", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027ultracentrifuge\u0027}", "to": "Wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Leave", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w2_drop\u0027}", "to": "ev_7"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w2_drop", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w2_drop\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "object stage", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027object stage\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "adsorption of viruses", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027adsorption of viruses\u0027}", "to": "Leave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid nitrogen", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid nitrogen\u0027}", "to": "Cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "30s", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002730s\u0027}", "to": "Leave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "buffer", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027buffer\u0027}", "to": "Wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "stain", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027stain\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027liquid\u0027}", "to": "ev_7"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

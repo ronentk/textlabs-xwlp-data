@@ -1,0 +1,69 @@
+(a8 / default-op
+    :name (n8 / name
+              :op1 "ligation-step")
+    :modifier-of (a3 / mod
+                     :name (n3 / name
+                               :op1 "directly"))
+    :succ (a5 / time-op
+              :name (n5 / name
+                        :op1 "s3-w8-incubated")
+              :succ a0
+              :ARG0 a11
+              :setting-of (a17 / s
+                               :name (n17 / name
+                                          :op1 "s3-w11-room-temperature"))
+              :setting-of (a18 / s
+                               :name (n18 / name
+                                          :op1 "30-minutes")))
+    :ARG1 (a11 / rg
+               :name (n11 / name
+                          :op1 "s3-w0-reactions")
+               :ARG1-of (a0 / located-at
+                            :ARG0 (a12 / rg
+                                       :name (n12 / name
+                                                  :op1 "sheared-nebulized-dna"))
+                            :name (n0 / name
+                                      :op1 "event")))
+    :succ (a7 / temp-treat-op
+              :name (n7 / name
+                        :op1 "heating")
+              :ARG0 a9
+              :setting-of (a19 / s
+                               :name (n19 / name
+                                          :op1 "70-c"))
+              :setting-of (a20 / s
+                               :name (n20 / name
+                                          :op1 "10-minutes")))
+    :ARG0 (a9 / rg
+              :name (n9 / name
+                        :op1 "s2-w0-reactions")
+              :ARG1-of (a1 / located-at
+                           :ARG0 (a10 / rg
+                                      :name (n10 / name
+                                                 :op1 "restriction-enzyme-digested-dna"))
+                           :succ-of (a4 / time-op
+                                        :ARG0 a9
+                                        :setting-of (a15 / s
+                                                         :name (n15 / name
+                                                                    :op1 "s2-w10-room-temperature"))
+                                        :setting-of (a16 / s
+                                                         :name (n16 / name
+                                                                    :op1 "15-minutes"))
+                                        :succ-of (a6 / default-op
+                                                     :site a9
+                                                     :ARG0 (a13 / rg
+                                                                :name (n13 / name
+                                                                           :op1 "enzyme"))
+                                                     :succ-of a7
+                                                     :name (n6 / name
+                                                               :op1 "inactivate")
+                                                     :modifier-of (a2 / mod
+                                                                      :name (n2 / name
+                                                                                :op1 "immediately")))
+                                        :name (n4 / name
+                                                  :op1 "s2-w7-incubated"))
+                           :name (n1 / name
+                                     :op1 "event")))
+    :usage-of (a14 / rg
+                   :name (n14 / name
+                              :op1 "quick-ligation-kit")))

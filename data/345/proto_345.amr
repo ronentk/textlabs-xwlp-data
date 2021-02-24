@@ -1,0 +1,120 @@
+(a15 / measure-op
+     :name (n15 / name
+                :op1 "visualize")
+     :succ (a14 / wash-op
+                :name (n14 / name
+                           :op1 "s9-w0-rinse")
+                :ARG0 a18
+                :ARG1 (a23 / rg
+                           :name (n23 / name
+                                      :op1 "s9-w4-tbst")))
+     :ARG0 (a18 / rg
+                :name (n18 / name
+                           :op1 "s5-w1-membrane")
+                :ARG1-of (a1 / co-ref-of
+                             :succ-of (a10 / wash-op
+                                           :ARG0 a18
+                                           :ARG1 (a19 / rg
+                                                      :measure-of (a3 / m
+                                                                      :name (n3 / name
+                                                                                :op1 "s5-w4-1x"))
+                                                      :name (n19 / name
+                                                                 :op1 "s5-w5-tbst"))
+                                           :setting-of (a34 / s
+                                                            :name (n34 / name
+                                                                       :op1 "s5-w8-30-minutes"))
+                                           :succ-of (a11 / default-op
+                                                         :ARG0 a18
+                                                         :ARG1 (a20 / rg
+                                                                    :name (n20 / name
+                                                                               :op1 "igg-free--protease-free-bovine-serum-albumin"))
+                                                         :ARG2 (a21 / rg
+                                                                    :measure-of (a4 / m
+                                                                                    :name (n4 / name
+                                                                                              :op1 "s6-w9-1x"))
+                                                                    :name (n21 / name
+                                                                               :op1 "s6-w10-tbst"))
+                                                         :setting-of (a35 / s
+                                                                          :name (n35 / name
+                                                                                     :op1 "30-45-minutes"))
+                                                         :setting-of (a36 / s
+                                                                          :name (n36 / name
+                                                                                     :op1 "s6-w15-rt"))
+                                                         :succ-of (a12 / transfer-op
+                                                                       :site a18
+                                                                       :ARG0 (a22 / rg
+                                                                                  :name (n22 / name
+                                                                                             :op1 "hrp-conjugated-goat-anti-mouse-igg--light-chain-specific-antibody"))
+                                                                       :succ-of (a13 / temp-treat-op
+                                                                                     :ARG0 a18
+                                                                                     :succ-of a14
+                                                                                     :name (n13 / name
+                                                                                                :op1 "s8-w0-incubate"))
+                                                                       :name (n12 / name
+                                                                                  :op1 "add")
+                                                                       :setting-of (a5 / m
+                                                                                       :name (n5 / name
+                                                                                                 :op1 "1-10-000")))
+                                                         :name (n11 / name
+                                                                    :op1 "block"))
+                                           :name (n10 / name
+                                                      :op1 "s5-w0-rinse"))
+                             :name (n1 / name
+                                       :op1 "event")
+                             :succ (a9 / temp-treat-op
+                                       :succ (a0 / co-ref-of
+                                                 :name (n0 / name
+                                                           :op1 "event")
+                                                 :succ (a8 / wash-op
+                                                           :succ (a7 / transfer-op
+                                                                     :name (n7 / name
+                                                                               :op1 "transfer")
+                                                                     :succ (a6 / default-op
+                                                                               :name (n6 / name
+                                                                                         :op1 "run")
+                                                                               :ARG0 (a16 / rg
+                                                                                          :name (n16 / name
+                                                                                                     :op1 "tris-glycine-gel")))
+                                                                     :ARG0 (a17 / rg
+                                                                                :name (n17 / name
+                                                                                           :op1 "protein"))
+                                                                     :site (a25 / rg
+                                                                                :name (n25 / name
+                                                                                           :op1 "pvdf")))
+                                                           :ARG0 a26
+                                                           :ARG1 (a27 / rg
+                                                                      :measure-of (a2 / m
+                                                                                      :name (n2 / name
+                                                                                                :op1 "s3-w3-1x"))
+                                                                      :name (n27 / name
+                                                                                 :op1 "tbst-block"))
+                                                           :setting-of (a30 / s
+                                                                            :name (n30 / name
+                                                                                       :op1 "s3-w12-30-minutes"))
+                                                           :setting-of (a31 / s
+                                                                            :name (n31 / name
+                                                                                       :op1 "s3-w14-rt"))
+                                                           :name (n8 / name
+                                                                     :op1 "s3-w0-rinse"))
+                                                 :ARG0 (a26 / rg
+                                                            :name (n26 / name
+                                                                       :op1 "s3-w1-membrane"))
+                                                 :ARG1 a28)
+                                       :ARG0 a28
+                                       :usage-of (a29 / rg
+                                                      :name (n29 / name
+                                                                 :op1 "anti-fmrp-1c3"))
+                                       :setting-of (a32 / s
+                                                        :name (n32 / name
+                                                                   :op1 "s4-w8-rt"))
+                                       :setting-of (a33 / s
+                                                        :name (n33 / name
+                                                                   :op1 "s4-w10-1hr"))
+                                       :name (n9 / name
+                                                 :op1 "s4-w0-incubate"))
+                             :ARG0 (a28 / rg
+                                        :name (n28 / name
+                                                   :op1 "s4-w1-membrane"))))
+     :usage-of (a24 / rg
+                    :name (n24 / name
+                               :op1 "ecl-solution")))

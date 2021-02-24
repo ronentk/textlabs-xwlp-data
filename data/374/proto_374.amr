@@ -1,0 +1,261 @@
+(a50 / measure-op
+     :name (n50 / name
+                :op1 "determine")
+     :usage-of (a2 / d
+                   :name (n2 / name
+                             :op1 "nucleic-dotmetric--scale"))
+     :succ (a18 / co-ref-of
+                :name (n18 / name
+                           :op1 "event")
+                :succ a49
+                :ARG0 (a69 / rg
+                           :ARG0-of (a55 / transfer-op
+                                         :succ (a9 / co-ref-of
+                                                   :name (n9 / name
+                                                             :op1 "event")
+                                                   :ARG1 a25
+                                                   :succ (a54 / transfer-op
+                                                              :usage-of (a1 / d
+                                                                            :name (n1 / name
+                                                                                      :op1 "side-magnets"))
+                                                              :succ (a7 / co-ref-of
+                                                                        :name (n7 / name
+                                                                                  :op1 "event")
+                                                                        :succ (a6 / part-of
+                                                                                  :succ-of (a53 / remove-op
+                                                                                                :ARG0 (a74 / sl
+                                                                                                           :name (n74 / name
+                                                                                                                      :op1 "protective-sheets"))
+                                                                                                :name (n53 / name
+                                                                                                           :op1 "peel-away")
+                                                                                                :usage-of (a0 / d
+                                                                                                              :name (n0 / name
+                                                                                                                        :op1 "forceps")))
+                                                                                  :name (n6 / name
+                                                                                            :op1 "event")
+                                                                                  :succ a52
+                                                                                  :ARG1 a20
+                                                                                  :ARG0 a74)
+                                                                        :ARG0 (a20 / loc
+                                                                                   :ARG0-of (a52 / remove-op
+                                                                                                 :name (n52 / name
+                                                                                                            :op1 "s5-w6-remove")
+                                                                                                 :succ a5)
+                                                                                   :name (n20 / name
+                                                                                              :op1 "s5-w8-strip")
+                                                                                   :ARG0-of (a5 / located-at
+                                                                                                :succ (a51 / default-op
+                                                                                                           :ARG0 a19
+                                                                                                           :name (n51 / name
+                                                                                                                      :op1 "open"))
+                                                                                                :ARG1 (a19 / loc
+                                                                                                           :name (n19 / name
+                                                                                                                      :op1 "nucleic-test-strip-box"))
+                                                                                                :name (n5 / name
+                                                                                                          :op1 "event")))
+                                                                        :ARG1 a23)
+                                                              :ARG0 a23
+                                                              :site (a24 / loc
+                                                                         :name (n24 / name
+                                                                                    :op1 "application-board"))
+                                                              :name (n54 / name
+                                                                         :op1 "attach"))
+                                                   :ARG0 (a23 / loc
+                                                              :name (n23 / name
+                                                                         :op1 "white-nucleic-strip")))
+                                         :site (a25 / loc
+                                                    :name (n25 / name
+                                                               :op1 "s7-w9-test-strip"))
+                                         :name (n55 / name
+                                                    :op1 "s7-w0-apply")
+                                         :succ-of (a10 / co-ref-of
+                                                       :ARG0 a25
+                                                       :ARG1 (a58 / rg
+                                                                  :ARG0-of (a11 / co-ref-of
+                                                                                :succ-of (a42 / transfer-op
+                                                                                              :site a26
+                                                                                              :modifier-of (a36 / mod
+                                                                                                                :name (n36 / name
+                                                                                                                           :op1 "directly"))
+                                                                                              :ARG0 (a59 / rg
+                                                                                                         :measure-of (a32 / m
+                                                                                                                          :name (n32 / name
+                                                                                                                                     :op1 "0-5ml"))
+                                                                                                         :name (n59 / name
+                                                                                                                    :op1 "s21-w3-nucleic-dye"))
+                                                                                              :name (n42 / name
+                                                                                                         :op1 "s21-w0-apply"))
+                                                                                :name (n11 / name
+                                                                                           :op1 "event")
+                                                                                :ARG1 a26
+                                                                                :succ a41)
+                                                                  :name (n58 / name
+                                                                             :op1 "nucleic-strip"))
+                                                       :succ-of (a41 / transfer-op
+                                                                     :ARG0 a58
+                                                                     :name (n41 / name
+                                                                                :op1 "place"))
+                                                       :name (n10 / name
+                                                                  :op1 "event"))
+                                         :succ a8)
+                           :measure-of (a31 / m
+                                            :name (n31 / name
+                                                       :op1 "1-5-l"))
+                           :modifier-of (a35 / mod
+                                             :name (n35 / name
+                                                        :op1 "s7-w4-diluted"))
+                           :name (n69 / name
+                                      :op1 "s7-w5-samples")
+                           :ARG1-of (a8 / co-ref-of
+                                        :name (n8 / name
+                                                  :op1 "event")
+                                        :succ (a46 / transfer-op
+                                                   :succ (a4 / co-ref-of
+                                                             :name (n4 / name
+                                                                       :op1 "event")
+                                                             :succ (a40 / transfer-op
+                                                                        :succ (a3 / co-ref-of
+                                                                                  :name (n3 / name
+                                                                                            :op1 "event")
+                                                                                  :succ (a39 / default-op
+                                                                                             :setting-of (a27 / m
+                                                                                                              :name (n27 / name
+                                                                                                                         :op1 "100-fold"))
+                                                                                             :ARG0 a56
+                                                                                             :name (n39 / name
+                                                                                                        :op1 "s2-w4-dilute"))
+                                                                                  :ARG0 (a56 / rg
+                                                                                             :name (n56 / name
+                                                                                                        :op1 "s2-w9-nucleic-acid-dilution-buffer"))
+                                                                                  :ARG1 a57)
+                                                                        :ARG0 (a57 / rg
+                                                                                   :measure-of (a28 / m
+                                                                                                    :name (n28 / name
+                                                                                                               :op1 "1-l"))
+                                                                                   :name (n57 / name
+                                                                                              :op1 "s3-w6-nucleic-acid-dilution-buffer"))
+                                                                        :site a66
+                                                                        :name (n40 / name
+                                                                                   :op1 "use"))
+                                                             :ARG0 (a66 / rg
+                                                                        :measure-of (a29 / m
+                                                                                         :name (n29 / name
+                                                                                                    :op1 "99-l"))
+                                                                        :name (n66 / name
+                                                                                   :op1 "ultrapure-water-"))
+                                                             :ARG1 a68)
+                                                   :site a68
+                                                   :setting-of (a30 / m
+                                                                    :name (n30 / name
+                                                                               :op1 "1-1")
+                                                                    :modifier-of (a34 / mod
+                                                                                      :name (n34 / name
+                                                                                                 :op1 "at-least")))
+                                                   :ARG0 (a67 / rg
+                                                              :name (n67 / name
+                                                                         :op1 "s4-w1-samples"))
+                                                   :name (n46 / name
+                                                              :op1 "s4-w0-dilute"))
+                                        :ARG0 (a68 / rg
+                                                   :name (n68 / name
+                                                              :op1 "dilution-buffer"))))
+                :ARG1 a65)
+     :ARG0 (a65 / rg
+                :modifier-of (a37 / mod
+                                  :name (n37 / name
+                                             :op1 "s27-w14-diluted"))
+                :name (n65 / name
+                           :op1 "s27-w15-sample"))
+     :setting-of (a33 / m
+                      :name (n33 / name
+                                 :op1 "concentration"))
+     :succ (a49 / remove-op
+                :name (n49 / name
+                           :op1 "s25-w0-remove")
+                :succ a17
+                :ARG0 a22)
+     :site (a22 / loc
+                :name (n22 / name
+                           :op1 "s25-w2-strip")
+                :ARG1-of (a15 / co-ref-of
+                              :succ (a48 / wash-op
+                                         :succ-of (a16 / co-ref-of
+                                                       :ARG0 (a63 / rg
+                                                                  :name (n63 / name
+                                                                             :op1 "s24-w9-ultra-pure-water"))
+                                                       :ARG1 (a64 / rg
+                                                                  :name (n64 / name
+                                                                             :op1 "second-wash"))
+                                                       :name (n16 / name
+                                                                  :op1 "event"))
+                                         :succ a45
+                                         :ARG0 a21
+                                         :ARG1 a63
+                                         :setting-of (a73 / s
+                                                          :name (n73 / name
+                                                                     :op1 "30-60-seconds"))
+                                         :name (n48 / name
+                                                    :op1 "wash"))
+                              :ARG0 (a21 / loc
+                                         :ARG0-of (a45 / wash-op
+                                                       :ARG1 (a61 / rg
+                                                                  :name (n61 / name
+                                                                             :op1 "s23-w15-ultra-pure-water"))
+                                                       :setting-of (a72 / s
+                                                                        :name (n72 / name
+                                                                                   :op1 "10-seconds"))
+                                                       :name (n45 / name
+                                                                  :op1 "s23-w5-rinse")
+                                                       :succ-of (a14 / co-ref-of
+                                                                     :ARG0 a61
+                                                                     :ARG1 (a62 / rg
+                                                                                :name (n62 / name
+                                                                                           :op1 "s24-w2-rinse"))
+                                                                     :succ-of (a47 / destroy-op
+                                                                                   :ARG0 a62
+                                                                                   :name (n47 / name
+                                                                                              :op1 "s24-w0-discard"))
+                                                                     :name (n14 / name
+                                                                                :op1 "event"))
+                                                       :succ a13)
+                                         :name (n21 / name
+                                                    :op1 "s23-w7-strip")
+                                         :ARG1-of (a13 / co-ref-of
+                                                       :succ (a43 / time-op
+                                                                  :usage-of (a38 / mth
+                                                                                 :name (n38 / name
+                                                                                            :op1 "without-shaking-or-rocking"))
+                                                                  :succ a42
+                                                                  :ARG0 a26
+                                                                  :setting-of (a70 / s
+                                                                                   :name (n70 / name
+                                                                                              :op1 "room-temperature"))
+                                                                  :setting-of (a71 / s
+                                                                                   :name (n71 / name
+                                                                                              :op1 "1-minute"))
+                                                                  :name (n43 / name
+                                                                             :op1 "incubate")
+                                                                  :succ-of (a12 / co-ref-of
+                                                                                :ARG0 a59
+                                                                                :ARG1 (a60 / rg
+                                                                                           :name (n60 / name
+                                                                                                      :op1 "s23-w3-nucleic-dye"))
+                                                                                :succ-of (a44 / destroy-op
+                                                                                              :ARG0 a60
+                                                                                              :name (n44 / name
+                                                                                                         :op1 "s23-w0-discard"))
+                                                                                :name (n12 / name
+                                                                                           :op1 "event")))
+                                                       :ARG0 (a26 / loc
+                                                                  :name (n26 / name
+                                                                             :op1 "s21-w7-strip"))
+                                                       :name (n13 / name
+                                                                  :op1 "event")))
+                              :succ-of (a17 / located-at
+                                            :ARG0 a22
+                                            :succ a16
+                                            :ARG1 a64
+                                            :name (n17 / name
+                                                       :op1 "event"))
+                              :name (n15 / name
+                                         :op1 "event"))))

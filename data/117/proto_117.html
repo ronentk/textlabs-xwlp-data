@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "LOW-SPEED", "label": "LOW-SPEED", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "vortex", "label": "vortex", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "17\u00b0C", "label": "17\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "Spin", "label": "Spin", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "s7_w10_tubes", "label": "s7_w10_tubes", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Transfer", "label": "Transfer", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_13", "label": "ev_13", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,232.0,0.0)", "border": "black"}, "id": "decant", "label": "decant", "shape": "square", "title": "convert_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "glass black-capped", "label": "glass black-capped", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "pre-labeled", "label": "pre-labeled", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "fresh", "label": "fresh", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "10K", "label": "10K", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "orange capped", "label": "orange capped", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s5_w18_tubes", "label": "s5_w18_tubes", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "Beckman JA-17 rotor", "label": "Beckman JA-17 rotor", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "check", "label": "check", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "20 minutes", "label": "20 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "supernatant", "label": "supernatant", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "\u201ccoring\u201d technique", "label": "\u201ccoring\u201d technique", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(212.0,104.0,243.0)", "border": "black"}, "id": "pick", "label": "pick", "shape": "square", "title": "remove_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "acid-washed", "label": "acid-washed", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Plate", "label": "Plate", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "50 ml", "label": "50 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "tube", "label": "tube", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "cells", "label": "cells", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "plaques", "label": "plaques", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "LOW-SPEED", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027LOW-SPEED\u0027}", "to": "vortex"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "vortex", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plaques\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "17\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002717\u00b0C\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Spin", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027supernatant\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w10_tubes", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s7_w10_tubes\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_13", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "decant"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "decant", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w18_tubes\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glass black-capped", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027glass black-capped\u0027}", "to": "s7_w10_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pre-labeled", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027pre-labeled\u0027}", "to": "s7_w10_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fresh", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027fresh\u0027}", "to": "s7_w10_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10K", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710K\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "orange capped", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027orange capped\u0027}", "to": "s5_w18_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w18_tubes", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s5_w18_tubes\u0027}", "to": "decant"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Beckman JA-17 rotor", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027Beckman JA-17 rotor\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "check", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plaques\u0027}", "to": "vortex"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002720 minutes\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "supernatant", "label": "[\u0027c\u0027]", "title": "{\u0027c\u0027: \u0027supernatant\u0027}", "to": "Spin"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "\u201ccoring\u201d technique", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027\u201ccoring\u201d technique\u0027}", "to": "pick"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pick", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plaques\u0027}", "to": "check"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "acid-washed", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027acid-washed\u0027}", "to": "s7_w10_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Plate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cells\u0027}", "to": "pick"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "50 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002750 ml\u0027}", "to": "s5_w18_tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027tube\u0027}", "to": "ev_13"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cells", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027cells\u0027}", "to": "Plate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "plaques", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027plaques\u0027}", "to": "pick"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

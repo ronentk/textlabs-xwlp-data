@@ -1,0 +1,132 @@
+(a17 / temp-treat-op
+     :name (n17 / name
+                :op1 "store")
+     :succ (a24 / transfer-op
+                :succ (a3 / co-ref-of
+                          :name (n3 / name
+                                    :op1 "event")
+                          :succ (a21 / create-op
+                                     :site a6
+                                     :ARG0 (a32 / rg
+                                                :measure-of (a9 / m
+                                                                :name (n9 / name
+                                                                          :op1 "0-025m"))
+                                                :name (n32 / name
+                                                           :op1 "nah2po4-h2o-solution"))
+                                     :name (n21 / name
+                                                :op1 "s6-w0-prepare"))
+                          :ARG0 (a6 / loc
+                                    :measure-of (a7 / m
+                                                    :name (n7 / name
+                                                              :op1 "2l"))
+                                    :site-of (a18 / temp-treat-op
+                                                  :setting-of (a36 / s
+                                                                   :name (n36 / name
+                                                                              :op1 "60-minutes"))
+                                                  :succ-of (a19 / temp-treat-op
+                                                                :ARG0 a6
+                                                                :setting-of (a37 / s
+                                                                                 :name (n37 / name
+                                                                                            :op1 "overnight"))
+                                                                :succ-of (a20 / create-op
+                                                                              :site a6
+                                                                              :ARG0 (a31 / rg
+                                                                                         :measure-of (a8 / m
+                                                                                                         :name (n8 / name
+                                                                                                                   :op1 "0-5m"))
+                                                                                         :name (n31 / name
+                                                                                                    :op1 "nh4cl-solution"))
+                                                                              :succ-of a21
+                                                                              :name (n20 / name
+                                                                                         :op1 "s5-w0-prepare"))
+                                                                :name (n19 / name
+                                                                           :op1 "cool"))
+                                                  :name (n18 / name
+                                                             :op1 "autoclave")
+                                                  :succ (a2 / co-ref-of
+                                                            :name (n2 / name
+                                                                      :op1 "event")
+                                                            :succ (a16 / default-op
+                                                                       :usage-of (a1 / d
+                                                                                     :name (n1 / name
+                                                                                               :op1 "whatman-gf-f"))
+                                                                       :succ (a15 / wash-op
+                                                                                  :name (n15 / name
+                                                                                             :op1 "cleaning")
+                                                                                  :ARG0 a0
+                                                                                  :ARG2 (a5 / loc
+                                                                                            :name (n5 / name
+                                                                                                      :op1 "flask"))
+                                                                                  :ARG1 (a25 / rg
+                                                                                             :name (n25 / name
+                                                                                                        :op1 "acid"))
+                                                                                  :usage-of (a26 / rg
+                                                                                                 :name (n26 / name
+                                                                                                            :op1 "milli-q-water")))
+                                                                       :ARG1 (a0 / d
+                                                                                 :name (n0 / name
+                                                                                           :op1 "glass-filter-funnel"))
+                                                                       :ARG0 a29
+                                                                       :name (n16 / name
+                                                                                  :op1 "filter"))
+                                                            :ARG0 (a29 / rg
+                                                                       :modifier-of (a12 / mod
+                                                                                         :name (n12 / name
+                                                                                                    :op1 "raw"))
+                                                                       :name (n29 / name
+                                                                                  :op1 "s2-w2-seawater"))
+                                                            :ARG1 a30)
+                                                  :ARG0 (a30 / rg
+                                                             :name (n30 / name
+                                                                        :op1 "s3-w1-seawater")))
+                                    :name (n6 / name
+                                              :op1 "teflon-bottle"))
+                          :ARG1 a28)
+                :site a28
+                :succ (a4 / co-ref-of
+                          :name (n4 / name
+                                    :op1 "event")
+                          :succ (a23 / create-op
+                                     :succ (a22 / create-op
+                                                :name (n22 / name
+                                                           :op1 "s7-w0-prepare")
+                                                :ARG0 a33)
+                                     :ARG1 (a33 / rg
+                                                :name (n33 / name
+                                                           :op1 "primary-trace-metal-stocks-"))
+                                     :ARG0 a34
+                                     :name (n23 / name
+                                                :op1 "s8-w0-prepare"))
+                          :ARG0 (a34 / rg
+                                     :name (n34 / name
+                                                :op1 "trace-metal-working-stock-"))
+                          :ARG1 a27)
+                :ARG1 (a27 / rg
+                           :name (n27 / name
+                                      :op1 "trace-metal-stock"))
+                :ARG0 (a35 / rg
+                           :measure-of (a10 / m
+                                            :name (n10 / name
+                                                       :op1 "following-volumes"))
+                           :modifier-of (a13 / mod
+                                             :name (n13 / name
+                                                        :op1 "sterile"))
+                           :name (n35 / name
+                                      :op1 "nutrients"))
+                :name (n24 / name
+                           :op1 "add"))
+     :ARG0 (a28 / rg
+                :measure-of (a11 / m
+                                 :name (n11 / name
+                                            :op1 "one-liter"))
+                :modifier-of (a14 / mod
+                                  :name (n14 / name
+                                             :op1 "autoclaved"))
+                :name (n28 / name
+                           :op1 "s9-w21-seawater"))
+     :setting-of (a38 / s
+                      :name (n38 / name
+                                 :op1 "room-temperature"))
+     :setting-of (a39 / s
+                      :name (n39 / name
+                                 :op1 "one-month")))

@@ -1,0 +1,73 @@
+(a7 / temp-treat-op
+    :name (n7 / name
+              :op1 "heat-inactivate")
+    :succ (a6 / temp-treat-op
+              :name (n6 / name
+                        :op1 "incubate")
+              :succ a2
+              :ARG0 a17
+              :setting-of (a18 / s
+                               :name (n18 / name
+                                          :op1 "37-c"))
+              :setting-of (a19 / s
+                               :name (n19 / name
+                                          :op1 "10-minutes")))
+    :ARG0 (a17 / rg
+               :name (n17 / name
+                          :op1 "restriction-digest-reactions")
+               :ARG1-of (a0 / part-of
+                            :succ-of (a1 / part-of
+                                         :ARG1 a17
+                                         :succ (a4 / default-op
+                                                   :ARG0 a11
+                                                   :usage-of (a12 / rg
+                                                                  :name (n12 / name
+                                                                             :op1 "xbai"))
+                                                   :usage-of (a13 / rg
+                                                                  :name (n13 / name
+                                                                             :op1 "s2-w6-psti"))
+                                                   :name (n4 / name
+                                                             :op1 "s2-w0-digest"))
+                                         :ARG0 (a11 / rg
+                                                    :name (n11 / name
+                                                               :op1 "downstream-part"))
+                                         :succ-of (a2 / part-of
+                                                      :ARG1 a17
+                                                      :succ (a3 / default-op
+                                                                :ARG0 a8
+                                                                :usage-of (a9 / rg
+                                                                              :name (n9 / name
+                                                                                        :op1 "s1-w4-ecori-hf-"))
+                                                                :usage-of (a10 / rg
+                                                                               :name (n10 / name
+                                                                                          :op1 "spei"))
+                                                                :name (n3 / name
+                                                                          :op1 "s1-w0-digest"))
+                                                      :ARG0 (a8 / rg
+                                                                :name (n8 / name
+                                                                          :op1 "upstream-part"))
+                                                      :name (n2 / name
+                                                                :op1 "event"))
+                                         :name (n1 / name
+                                                   :op1 "event"))
+                            :name (n0 / name
+                                      :op1 "event")
+                            :succ (a5 / default-op
+                                      :ARG0 a14
+                                      :usage-of (a15 / rg
+                                                     :name (n15 / name
+                                                                :op1 "s3-w5-ecori-hf-"))
+                                      :usage-of (a16 / rg
+                                                     :name (n16 / name
+                                                                :op1 "s3-w7-psti"))
+                                      :name (n5 / name
+                                                :op1 "s3-w0-digest"))
+                            :ARG0 (a14 / rg
+                                       :name (n14 / name
+                                                  :op1 "destination-plasmid"))))
+    :setting-of (a20 / s
+                     :name (n20 / name
+                                :op1 "80-c"))
+    :setting-of (a21 / s
+                     :name (n21 / name
+                                :op1 "20-minutes")))

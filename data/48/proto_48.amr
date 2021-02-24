@@ -1,0 +1,202 @@
+(a37 / seal-op
+     :name (n37 / name
+                :op1 "sealed")
+     :succ (a36 / transfer-op
+                :name (n36 / name
+                           :op1 "store")
+                :succ a8
+                :ARG0 a16
+                :site (a17 / loc
+                           :name (n17 / name
+                                      :op1 "plastic-bags")))
+     :ARG0 (a16 / loc
+                :name (n16 / name
+                           :op1 "s14-w4-plates")
+                :ARG1-of (a7 / co-ref-of
+                             :succ (a34 / time-op
+                                        :succ a33
+                                        :ARG0 a14
+                                        :setting-of (a53 / s
+                                                         :name (n53 / name
+                                                                    :op1 "several-more-hours"))
+                                        :name (n34 / name
+                                                   :op1 "sit"))
+                             :ARG0 (a14 / loc
+                                        :ARG0-of (a33 / default-op
+                                                      :name (n33 / name
+                                                                 :op1 "invert")
+                                                      :succ a6)
+                                        :name (n14 / name
+                                                   :op1 "s13-w2-plates")
+                                        :ARG1-of (a6 / co-ref-of
+                                                     :succ (a32 / temp-treat-op
+                                                                :ARG0 a13
+                                                                :setting-of (a52 / s
+                                                                                 :name (n52 / name
+                                                                                            :op1 "30-60-minutes"))
+                                                                :name (n32 / name
+                                                                           :op1 "s12-w10-cool"))
+                                                     :ARG0 (a13 / loc
+                                                                :ARG0-of (a31 / seal-op
+                                                                              :ARG1 (a57 / sl
+                                                                                         :name (n57 / name
+                                                                                                    :op1 "lids"))
+                                                                              :succ-of a32
+                                                                              :name (n31 / name
+                                                                                         :op1 "place")
+                                                                              :succ a5)
+                                                                :name (n13 / name
+                                                                           :op1 "s12-w5-plates")
+                                                                :ARG1-of (a5 / co-ref-of
+                                                                             :succ (a30 / transfer-op
+                                                                                        :succ (a4 / co-ref-of
+                                                                                                  :name (n4 / name
+                                                                                                            :op1 "event")
+                                                                                                  :succ (a29 / mix-op
+                                                                                                             :succ (a43 / transfer-op
+                                                                                                                        :succ (a3 / co-ref-of
+                                                                                                                                  :name (n3 / name
+                                                                                                                                            :op1 "event")
+                                                                                                                                  :succ (a42 / temp-treat-op
+                                                                                                                                             :succ (a2 / co-ref-of
+                                                                                                                                                       :name (n2 / name
+                                                                                                                                                                 :op1 "event")
+                                                                                                                                                       :succ (a41 / temp-treat-op
+                                                                                                                                                                  :setting-of (a21 / m
+                                                                                                                                                                                   :name (n21 / name
+                                                                                                                                                                                              :op1 "liquid-setting"))
+                                                                                                                                                                  :succ a40
+                                                                                                                                                                  :ARG0 a11
+                                                                                                                                                                  :setting-of (a50 / s
+                                                                                                                                                                                   :name (n50 / name
+                                                                                                                                                                                              :op1 "20-minutes"))
+                                                                                                                                                                  :name (n41 / name
+                                                                                                                                                                             :op1 "s8-w0-autoclave"))
+                                                                                                                                                       :ARG0 (a11 / loc
+                                                                                                                                                                  :ARG0-of (a40 / seal-op
+                                                                                                                                                                                :ARG1 (a56 / sl
+                                                                                                                                                                                           :name (n56 / name
+                                                                                                                                                                                                      :op1 "autoclave-tape"))
+                                                                                                                                                                                :name (n40 / name
+                                                                                                                                                                                           :op1 "s7-w10-label")
+                                                                                                                                                                                :succ a1)
+                                                                                                                                                                  :name (n11 / name
+                                                                                                                                                                             :op1 "flask")
+                                                                                                                                                                  :ARG1-of (a0 / co-ref-of
+                                                                                                                                                                               :succ (a38 / mix-op
+                                                                                                                                                                                          :ARG0 a9
+                                                                                                                                                                                          :name (n38 / name
+                                                                                                                                                                                                     :op1 "s6-w0-swirl"))
+                                                                                                                                                                               :ARG0 (a9 / loc
+                                                                                                                                                                                         :measure-of (a18 / m
+                                                                                                                                                                                                          :name (n18 / name
+                                                                                                                                                                                                                     :op1 "1l"))
+                                                                                                                                                                                         :site-of (a27 / transfer-op
+                                                                                                                                                                                                       :ARG0 (a44 / rg
+                                                                                                                                                                                                                  :measure-of (a19 / m
+                                                                                                                                                                                                                                   :name (n19 / name
+                                                                                                                                                                                                                                              :op1 "5g"))
+                                                                                                                                                                                                                  :name (n44 / name
+                                                                                                                                                                                                                             :op1 "nacl"))
+                                                                                                                                                                                                       :succ-of (a28 / transfer-op
+                                                                                                                                                                                                                     :site a9
+                                                                                                                                                                                                                     :ARG0 (a45 / rg
+                                                                                                                                                                                                                                :name (n45 / name
+                                                                                                                                                                                                                                           :op1 "dh2o"))
+                                                                                                                                                                                                                     :succ-of a38
+                                                                                                                                                                                                                     :name (n28 / name
+                                                                                                                                                                                                                                :op1 "s5-w0-add")
+                                                                                                                                                                                                                     :setting-of (a20 / m
+                                                                                                                                                                                                                                      :name (n20 / name
+                                                                                                                                                                                                                                                 :op1 "500ml")))
+                                                                                                                                                                                                       :name (n27 / name
+                                                                                                                                                                                                                  :op1 "weigh"))
+                                                                                                                                                                                         :name (n9 / name
+                                                                                                                                                                                                   :op1 "erlenmeyer-flask"))
+                                                                                                                                                                               :succ-of (a1 / part-of
+                                                                                                                                                                                            :ARG1 a11
+                                                                                                                                                                                            :ARG0 (a10 / loc
+                                                                                                                                                                                                       :name (n10 / name
+                                                                                                                                                                                                                  :op1 "top"))
+                                                                                                                                                                                            :succ-of (a39 / seal-op
+                                                                                                                                                                                                          :ARG0 a10
+                                                                                                                                                                                                          :ARG1 (a55 / sl
+                                                                                                                                                                                                                     :name (n55 / name
+                                                                                                                                                                                                                                :op1 "aluminum-foil"))
+                                                                                                                                                                                                          :name (n39 / name
+                                                                                                                                                                                                                     :op1 "cover"))
+                                                                                                                                                                                            :name (n1 / name
+                                                                                                                                                                                                      :op1 "event"))
+                                                                                                                                                                               :name (n0 / name
+                                                                                                                                                                                         :op1 "event")))
+                                                                                                                                                       :ARG1 a46)
+                                                                                                                                             :ARG0 a46
+                                                                                                                                             :setting-of (a51 / s
+                                                                                                                                                              :name (n51 / name
+                                                                                                                                                                         :op1 "55-c"))
+                                                                                                                                             :name (n42 / name
+                                                                                                                                                        :op1 "s9-w12-cool"))
+                                                                                                                                  :ARG0 (a46 / rg
+                                                                                                                                             :name (n46 / name
+                                                                                                                                                        :op1 "agar-solution"))
+                                                                                                                                  :ARG1 a48)
+                                                                                                                        :site a48
+                                                                                                                        :ARG0 (a47 / rg
+                                                                                                                                   :measure-of (a22 / m
+                                                                                                                                                    :name (n22 / name
+                                                                                                                                                               :op1 "appropriate-amount"))
+                                                                                                                                   :modifier-of (a26 / mod
+                                                                                                                                                     :name (n26 / name
+                                                                                                                                                                :op1 "desired"))
+                                                                                                                                   :name (n47 / name
+                                                                                                                                              :op1 "s10-w6-antibiotic"))
+                                                                                                                        :name (n43 / name
+                                                                                                                                   :op1 "s10-w0-add"))
+                                                                                                             :ARG0 a48
+                                                                                                             :name (n29 / name
+                                                                                                                        :op1 "s10-w20-swirl"))
+                                                                                                  :ARG0 (a48 / rg
+                                                                                                             :measure-of (a23 / m
+                                                                                                                              :name (n23 / name
+                                                                                                                                         :op1 "500-l"))
+                                                                                                             :name (n48 / name
+                                                                                                                        :op1 "s10-w9-solution"))
+                                                                                                  :ARG1 a49)
+                                                                                        :ARG0 (a49 / rg
+                                                                                                   :measure-of (a24 / m
+                                                                                                                    :name (n24 / name
+                                                                                                                               :op1 "~20ml"))
+                                                                                                   :name (n49 / name
+                                                                                                              :op1 "lb-agar"))
+                                                                                        :site a12
+                                                                                        :name (n30 / name
+                                                                                                   :op1 "pour"))
+                                                                             :ARG0 (a12 / loc
+                                                                                        :measure-of (a25 / m
+                                                                                                         :name (n25 / name
+                                                                                                                    :op1 "10cm"))
+                                                                                        :name (n12 / name
+                                                                                                   :op1 "polystyrene-petri-dish"))
+                                                                             :name (n5 / name
+                                                                                       :op1 "event")))
+                                                     :name (n6 / name
+                                                               :op1 "event")))
+                             :succ-of (a8 / part-of
+                                          :ARG1 a16
+                                          :ARG0 (a15 / loc
+                                                     :name (n15 / name
+                                                                :op1 "bottom"))
+                                          :succ-of (a35 / default-op
+                                                        :ARG0 a15
+                                                        :name (n35 / name
+                                                                   :op1 "s14-w0-label"))
+                                          :name (n8 / name
+                                                    :op1 "event"))
+                             :name (n7 / name
+                                       :op1 "event")))
+     :setting-of (a54 / s
+                      :name (n54 / name
+                                 :op1 "4-c"))
+     :ARG1 (a58 / sl
+                :name (n58 / name
+                           :op1 "parafilm")))

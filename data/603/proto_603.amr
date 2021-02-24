@@ -1,0 +1,40 @@
+(a8 / create-op
+    :name (n8 / name
+              :op1 "prepare")
+    :succ (a0 / co-ref-of
+              :name (n0 / name
+                        :op1 "event")
+              :succ (a7 / default-op
+                        :usage-of (a3 / mth
+                                      :name (n3 / name
+                                                :op1 "plaque-purification-procedure-again"))
+                        :succ a6
+                        :ARG0 a9
+                        :name (n7 / name
+                                  :op1 "s3-w0-repeat"))
+              :ARG0 (a9 / rg
+                        :ARG0-of (a5 / create-op
+                                     :succ-of (a6 / default-op
+                                                  :ARG0 a9
+                                                  :name (n6 / name
+                                                            :op1 "s2-w0-repeat")
+                                                  :usage-of (a2 / mth
+                                                                :name (n2 / name
+                                                                          :op1 "plaque-purification-procedure")))
+                                     :name (n5 / name
+                                               :op1 "make"))
+                        :modifier-of (a1 / mod
+                                         :name (n1 / name
+                                                   :op1 "dilution-series"))
+                        :name (n9 / name
+                                  :op1 "s1-w6-lysate"))
+              :ARG1 a11)
+    :usage-of (a11 / rg
+                   :name (n11 / name
+                              :op1 "s4-w7-lysate"))
+    :usage-of (a4 / mth
+                  :name (n4 / name
+                            :op1 "method-a-liquid-amplification"))
+    :ARG0 (a10 / rg
+               :name (n10 / name
+                          :op1 "primary-cyanophage-stock")))

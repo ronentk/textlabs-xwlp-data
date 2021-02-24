@@ -1,0 +1,124 @@
+(a20 / default-op
+     :name (n20 / name
+                :op1 "ready")
+     :succ (a5 / co-ref-of
+               :name (n5 / name
+                         :op1 "event")
+               :succ (a27 / temp-treat-op
+                          :ARG0 (a10 / loc
+                                     :name (n10 / name
+                                                :op1 "ice"))
+                          :setting-of (a35 / s
+                                           :name (n35 / name
+                                                      :op1 "-80-"))
+                          :name (n27 / name
+                                     :op1 "frozen"))
+               :ARG0 (a33 / rg
+                          :ARG0-of (a25 / transfer-op
+                                        :site (a9 / loc
+                                                  :name (n9 / name
+                                                            :op1 "screw-cap-tube")
+                                                  :modifier-of (a14 / mod
+                                                                    :name (n14 / name
+                                                                               :op1 "labeled"))
+                                                  :modifier-of (a15 / mod
+                                                                    :name (n15 / name
+                                                                               :op1 "s8-w8-sterile")))
+                                        :succ-of (a26 / transfer-op
+                                                      :ARG0 a9
+                                                      :succ-of a27
+                                                      :name (n26 / name
+                                                                 :op1 "kept")
+                                                      :site a10)
+                                        :name (n25 / name
+                                                   :op1 "placed")
+                                        :succ a4)
+                          :name (n33 / name
+                                     :op1 "s8-w1-swab")
+                          :ARG1-of (a4 / co-ref-of
+                                       :name (n4 / name
+                                                 :op1 "event")
+                                       :succ (a24 / default-op
+                                                  :succ (a2 / co-ref-of
+                                                            :name (n2 / name
+                                                                      :op1 "event")
+                                                            :succ (a22 / remove-op
+                                                                       :succ (a0 / co-ref-of
+                                                                                 :name (n0 / name
+                                                                                           :op1 "event")
+                                                                                 :ARG1 a6
+                                                                                 :succ (a21 / remove-op
+                                                                                            :succ a19
+                                                                                            :ARG0 a28
+                                                                                            :ARG1 (a29 / rg
+                                                                                                       :modifier-of (a11 / mod
+                                                                                                                         :name (n11 / name
+                                                                                                                                    :op1 "any"))
+                                                                                                       :name (n29 / name
+                                                                                                                  :op1 "transient-microbes"))
+                                                                                            :name (n21 / name
+                                                                                                       :op1 "s2-w12-remove"))
+                                                                                 :ARG0 (a28 / rg
+                                                                                            :ARG0-of (a19 / default-op
+                                                                                                          :name (n19 / name
+                                                                                                                     :op1 "collect")
+                                                                                                          :usage-of (a16 / mth
+                                                                                                                         :name (n16 / name
+                                                                                                                                    :op1 "by-hand")))
+                                                                                            :name (n28 / name
+                                                                                                       :op1 "sea-stars")))
+                                                                       :ARG0 (a6 / loc
+                                                                                 :name (n6 / name
+                                                                                           :op1 "wrapping"))
+                                                                       :ARG1 a30
+                                                                       :name (n22 / name
+                                                                                  :op1 "s5-w0-remove"))
+                                                            :ARG0 (a30 / rg
+                                                                       :modifier-of (a12 / mod
+                                                                                         :name (n12 / name
+                                                                                                    :op1 "clean"))
+                                                                       :name (n30 / name
+                                                                                  :op1 "sterile-swab"))
+                                                            :ARG1 a32)
+                                                  :ARG0 a32
+                                                  :succ (a3 / co-ref-of
+                                                            :name (n3 / name
+                                                                      :op1 "event")
+                                                            :ARG1 a8
+                                                            :succ (a23 / default-op
+                                                                       :succ (a1 / co-ref-of
+                                                                                 :name (n1 / name
+                                                                                           :op1 "event")
+                                                                                 :ARG1 a7
+                                                                                 :succ a22
+                                                                                 :ARG0 a6)
+                                                                       :site a7
+                                                                       :ARG0 (a31 / rg
+                                                                                  :name (n31 / name
+                                                                                             :op1 "cotton-tip"))
+                                                                       :name (n23 / name
+                                                                                  :op1 "applied"))
+                                                            :ARG0 (a7 / loc
+                                                                      :modifier-of (a13 / mod
+                                                                                        :name (n13 / name
+                                                                                                   :op1 "previously-rinsed"))
+                                                                      :name (n7 / name
+                                                                                :op1 "s5-w20-sample-location")))
+                                                  :site (a8 / loc
+                                                            :name (n8 / name
+                                                                      :op1 "s6-w8-sample-location"))
+                                                  :usage-of (a17 / mth
+                                                                 :name (n17 / name
+                                                                            :op1 "moderate-pressure"))
+                                                  :name (n24 / name
+                                                             :op1 "pulled-across"))
+                                       :ARG0 (a32 / rg
+                                                  :name (n32 / name
+                                                             :op1 "s6-w1-swab"))))
+               :ARG1 a34)
+     :ARG0 (a34 / rg
+                :name (n34 / name
+                           :op1 "swabs"))
+     :usage-of (a18 / mth
+                    :name (n18 / name
+                               :op1 "dna-extraction")))

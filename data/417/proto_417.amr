@@ -1,0 +1,56 @@
+(a9 / temp-treat-op
+    :name (n9 / name
+              :op1 "store")
+    :succ (a8 / convert-op
+              :name (n8 / name
+                        :op1 "transform")
+              :modifier-of (a3 / mod
+                               :name (n3 / name
+                                         :op1 "immediately"))
+              :succ (a7 / temp-treat-op
+                        :name (n7 / name
+                                  :op1 "s4-w0-incubate")
+                        :ARG0 a10
+                        :setting-of (a15 / s
+                                         :name (n15 / name
+                                                    :op1 "2-minutes")))
+              :ARG0 (a10 / rg
+                         :modifier-of (a2 / mod
+                                          :name (n2 / name
+                                                    :op1 "first"))
+                         :name (n10 / name
+                                    :op1 "components")
+                         :ARG0-of (a4 / mix-op
+                                      :succ-of (a5 / transfer-op
+                                                   :site a10
+                                                   :ARG0 (a11 / rg
+                                                              :measure-of (a0 / m
+                                                                              :name (n0 / name
+                                                                                        :op1 "2x"))
+                                                              :measure-of (a1 / m
+                                                                              :name (n1 / name
+                                                                                        :op1 "5--l"))
+                                                              :name (n11 / name
+                                                                         :op1 "cloning-master-mix"))
+                                                   :succ-of (a6 / temp-treat-op
+                                                                :ARG0 a10
+                                                                :setting-of (a13 / s
+                                                                                 :name (n13 / name
+                                                                                            :op1 "room-temperature"))
+                                                                :setting-of (a14 / s
+                                                                                 :name (n14 / name
+                                                                                            :op1 "5-15-minutes"))
+                                                                :succ-of a7
+                                                                :name (n6 / name
+                                                                          :op1 "s3-w0-incubate"))
+                                                   :name (n5 / name
+                                                             :op1 "add"))
+                                      :name (n4 / name
+                                                :op1 "mix")))
+              :ARG1 a12)
+    :ARG0 (a12 / rg
+               :name (n12 / name
+                          :op1 "neb-10-beta-competent-e--coli"))
+    :setting-of (a16 / s
+                     :name (n16 / name
+                                :op1 "-20-c")))

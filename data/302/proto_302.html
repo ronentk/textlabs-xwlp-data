@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "16\u201324 h", "label": "16\u201324 h", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "incubated", "label": "incubated", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "formalin", "label": "formalin", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "fix", "label": "fix", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "50-mL", "label": "50-mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "centrifuge tubes", "label": "centrifuge tubes", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "conical", "label": "conical", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "sterile", "label": "sterile", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "room temperature", "label": "room temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Samples", "label": "Samples", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_16", "label": "ev_16", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s1_w4_add", "label": "s1_w4_add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "24 h", "label": "24 h", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "counted", "label": "counted", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "each", "label": "each", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "seawater samples", "label": "seawater samples", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "sample", "label": "sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "fixed", "label": "fixed", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2%", "label": "2%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "glutaraldehyde", "label": "glutaraldehyde", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 \u00b5g/mL", "label": "1 \u00b5g/mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "mitomycin C", "label": "mitomycin C", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "additional", "label": "additional", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "unconcentrated", "label": "unconcentrated", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_15", "label": "ev_15", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s1_w6_25 mL", "label": "s1_w6_25 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w4_add", "label": "s3_w4_add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "treatment samples", "label": "treatment samples", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s2_w5_25 mL", "label": "s2_w5_25 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "16\u201324 h", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002716\u201324 h\u0027}", "to": "incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "incubated", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027treatment samples\u0027}", "to": "fixed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "formalin", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027formalin\u0027}", "to": "fix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "50-mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002750-mL\u0027}", "to": "centrifuge tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "centrifuge tubes", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027centrifuge tubes\u0027}", "to": "s1_w4_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "conical", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027conical\u0027}", "to": "centrifuge tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sterile", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027sterile\u0027}", "to": "centrifuge tubes"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "room temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027room temperature\u0027}", "to": "incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Samples", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Samples\u0027}", "to": "ev_16"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_16", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Samples\u0027}", "to": "counted"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w4_add", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027seawater samples\u0027}", "to": "fix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w4_add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027centrifuge tubes\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "24 h", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002724 h\u0027}", "to": "counted"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "each", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027each\u0027}", "to": "seawater samples"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "seawater samples", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027seawater samples\u0027}", "to": "s1_w4_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027sample\u0027}", "to": "fix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fixed", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027treatment samples\u0027}", "to": "ev_16"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272%\u0027}", "to": "glutaraldehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glutaraldehyde", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027glutaraldehyde\u0027}", "to": "fixed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 \u00b5g/mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271 \u00b5g/mL\u0027}", "to": "mitomycin C"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "mitomycin C", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027mitomycin C\u0027}", "to": "s3_w4_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "additional", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027additional\u0027}", "to": "sample"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "unconcentrated", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027unconcentrated\u0027}", "to": "seawater samples"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_15", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027treatment samples\u0027}", "to": "s3_w4_add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w6_25 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s1_w6_25 mL\u0027}", "to": "seawater samples"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w4_add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027treatment samples\u0027}", "to": "incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "treatment samples", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027treatment samples\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w5_25 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s2_w5_25 mL\u0027}", "to": "sample"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

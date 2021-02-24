@@ -1,0 +1,102 @@
+(a15 / remove-op
+     :name (n15 / name
+                :op1 "remove")
+     :succ (a2 / located-at
+               :name (n2 / name
+                         :op1 "event")
+               :succ (a1 / located-at
+                         :name (n1 / name
+                                   :op1 "event")
+                         :succ (a14 / default-op
+                                    :site a5
+                                    :modifier-of (a11 / mod
+                                                      :name (n11 / name
+                                                                 :op1 "quickly"))
+                                    :ARG0 (a24 / rg
+                                               :name (n24 / name
+                                                          :op1 "flame"))
+                                    :name (n14 / name
+                                               :op1 "run"))
+                         :ARG0 (a5 / loc
+                                   :name (n5 / name
+                                             :op1 "surface"))
+                         :ARG1 a25)
+               :ARG0 (a25 / rg
+                          :name (n25 / name
+                                     :op1 "agar"))
+               :succ a20
+               :ARG1 a4)
+     :ARG0 (a4 / loc
+               :site-of (a20 / transfer-op
+                             :modifier-of (a10 / mod
+                                               :name (n10 / name
+                                                          :op1 "half-way-"))
+                             :name (n20 / name
+                                        :op1 "pour")
+                             :succ (a0 / co-ref-of
+                                       :name (n0 / name
+                                                 :op1 "event")
+                                       :succ (a19 / temp-treat-op
+                                                  :ARG0 a21
+                                                  :setting-of (a28 / s
+                                                                   :name (n28 / name
+                                                                              :op1 "60-c"))
+                                                  :name (n19 / name
+                                                             :op1 "cool"))
+                                       :ARG0 (a22 / rg
+                                                  :ARG0-of (a12 / transfer-op
+                                                                :succ-of (a13 / mix-op
+                                                                              :ARG0 (a21 / rg
+                                                                                         :ARG0-of (a17 / temp-treat-op
+                                                                                                       :setting-of (a27 / s
+                                                                                                                        :name (n27 / name
+                                                                                                                                   :op1 "1-minute"))
+                                                                                                       :succ-of (a18 / default-op
+                                                                                                                     :ARG0 a21
+                                                                                                                     :succ-of a19
+                                                                                                                     :name (n18 / name
+                                                                                                                                :op1 "do-not-autoclave"))
+                                                                                                       :name (n17 / name
+                                                                                                                  :op1 "s3-w10-boil")
+                                                                                                       :succ a3)
+                                                                                         :measure-of (a6 / m
+                                                                                                         :name (n6 / name
+                                                                                                                   :op1 "500ml"))
+                                                                                         :name (n21 / name
+                                                                                                    :op1 "milliq"))
+                                                                              :name (n13 / name
+                                                                                         :op1 "mix")
+                                                                              :succ-of (a3 / part-of
+                                                                                           :ARG1 a21
+                                                                                           :succ (a16 / default-op
+                                                                                                      :ARG0 a29
+                                                                                                      :name (n16 / name
+                                                                                                                 :op1 "loosen"))
+                                                                                           :ARG0 (a29 / sl
+                                                                                                      :name (n29 / name
+                                                                                                                 :op1 "cap"))
+                                                                                           :name (n3 / name
+                                                                                                     :op1 "event"))
+                                                                              :modifier-of (a8 / mod
+                                                                                               :name (n8 / name
+                                                                                                         :op1 "thoroughly")))
+                                                                :name (n12 / name
+                                                                           :op1 "add")
+                                                                :site a21)
+                                                  :measure-of (a7 / m
+                                                                  :name (n7 / name
+                                                                            :op1 "44g"))
+                                                  :name (n22 / name
+                                                             :op1 "s1-w6-tcbs-agar"))
+                                       :ARG1 a23)
+                             :ARG0 (a23 / rg
+                                        :name (n23 / name
+                                                   :op1 "s5-w16-tcbs-agar")))
+               :name (n4 / name
+                         :op1 "plates")
+               :modifier-of (a9 / mod
+                                :name (n9 / name
+                                          :op1 "sterile")))
+     :ARG1 (a26 / rg
+                :name (n26 / name
+                           :op1 "air-bubbles")))

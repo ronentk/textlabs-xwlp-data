@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "20 min", "label": "20 min", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Autoclave", "label": "Autoclave", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "MgSO4", "label": "MgSO4", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "add", "label": "add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "16 ml", "label": "16 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 ml", "label": "10 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "CaCl2", "label": "CaCl2", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "22\u00b0C", "label": "22\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Inoculate", "label": "Inoculate", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "tube", "label": "tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Dispense", "label": "Dispense", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s4_w1_sterile", "label": "s4_w1_sterile", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "MPB", "label": "MPB", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "distilled water", "label": "distilled water", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "NaCl Qs", "label": "NaCl Qs", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "culture", "label": "culture", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2.0 or 4.5 ml", "label": "2.0 or 4.5 ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w6_sterile", "label": "s3_w6_sterile", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "AC Broth", "label": "AC Broth", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 L", "label": "1 L", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 M", "label": "1 M", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "BD Difco", "label": "BD Difco", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2 M", "label": "2 M", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "20 min", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002720 min\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Autoclave", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027distilled water\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "MgSO4", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MgSO4\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027distilled water\u0027}", "to": "Dispense"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "16 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002716 ml\u0027}", "to": "MgSO4"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002710 ml\u0027}", "to": "CaCl2"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "CaCl2", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027CaCl2\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "22\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002722\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027MPB\u0027}", "to": "Inoculate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Inoculate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027MPB\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "tube", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027tube\u0027}", "to": "Dispense"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Dispense", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w1_sterile", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s4_w1_sterile\u0027}", "to": "MPB"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "MPB", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027MPB\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "distilled water", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027distilled water\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "NaCl Qs", "label": "[\u0027c\u0027]", "title": "{\u0027c\u0027: \u0027NaCl Qs\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "culture", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027culture\u0027}", "to": "Inoculate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2.0 or 4.5 ml", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00272.0 or 4.5 ml\u0027}", "to": "Dispense"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w6_sterile", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w6_sterile\u0027}", "to": "tube"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "AC Broth", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027AC Broth\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 L", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271 L\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 M", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271 M\u0027}", "to": "CaCl2"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "BD Difco", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027BD Difco\u0027}", "to": "Autoclave"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2 M", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272 M\u0027}", "to": "MgSO4"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

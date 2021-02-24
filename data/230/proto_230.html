@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "30\u00b0C", "label": "30\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Mung Bean Nuclease Buffer", "label": "Mung Bean Nuclease Buffer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Suspend", "label": "Suspend", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "30 minutes", "label": "30 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.01%", "label": "0.01%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "addition", "label": "addition", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "SDS", "label": "SDS", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1X", "label": "1X", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w1_DNA", "label": "s1_w1_DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1.0 unit", "label": "1.0 unit", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Mung Bean Nuclease", "label": "Mung Bean Nuclease", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(212.0,104.0,243.0)", "border": "black"}, "id": "Recover", "label": "Recover", "shape": "square", "title": "remove_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s5_w2_DNA", "label": "s5_w2_DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "ethanol precipitation", "label": "ethanol precipitation", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.1 \u03bcg/\u03bcl", "label": "0.1 \u03bcg/\u03bcl", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "30\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002730\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Incubate", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Mung Bean Nuclease Buffer\u0027}", "to": "addition"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mung Bean Nuclease Buffer", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Mung Bean Nuclease Buffer\u0027}", "to": "Suspend"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Suspend", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Mung Bean Nuclease Buffer\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "30 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002730 minutes\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.01%", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00270.01%\u0027}", "to": "addition"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "addition", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Mung Bean Nuclease Buffer\u0027}", "to": "Recover"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "SDS", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027SDS\u0027}", "to": "addition"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1X", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271X\u0027}", "to": "Mung Bean Nuclease Buffer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w1_DNA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_DNA\u0027}", "to": "Suspend"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1.0 unit", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271.0 unit\u0027}", "to": "Mung Bean Nuclease"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mung Bean Nuclease", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Mung Bean Nuclease\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Mung Bean Nuclease Buffer\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w2_DNA", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s5_w2_DNA\u0027}", "to": "Recover"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ethanol precipitation", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027ethanol precipitation\u0027}", "to": "Recover"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.1 \u03bcg/\u03bcl", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.1 \u03bcg/\u03bcl\u0027}", "to": "s1_w1_DNA"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

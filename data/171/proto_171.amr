@@ -1,0 +1,89 @@
+(a9 / remove-op
+    :name (n9 / name
+              :op1 "removal")
+    :usage-of (a0 / d
+                  :name (n0 / name
+                            :op1 "your-nose"))
+    :succ (a16 / wash-op
+               :succ (a2 / co-ref-of
+                         :name (n2 / name
+                                   :op1 "event")
+                         :succ (a15 / wash-op
+                                    :succ a14
+                                    :ARG0 a22
+                                    :ARG1 (a23 / rg
+                                               :name (n23 / name
+                                                          :op1 "aqueous-buffer"))
+                                    :name (n15 / name
+                                               :op1 "s7-w2-wash"))
+                         :ARG0 (a22 / rg
+                                    :ARG1-of (a14 / spin-op
+                                                  :name (n14 / name
+                                                             :op1 "centrifuge")
+                                                  :succ (a13 / mix-op
+                                                             :name (n13 / name
+                                                                        :op1 "mix")
+                                                             :ARG0 a20)
+                                                  :ARG0 (a20 / rg
+                                                             :name (n20 / name
+                                                                        :op1 "suspension")
+                                                             :ARG1-of (a1 / co-ref-of
+                                                                          :succ-of (a11 / mix-op
+                                                                                        :ARG0 a20
+                                                                                        :succ-of (a12 / transfer-op
+                                                                                                      :site a20
+                                                                                                      :ARG0 (a21 / rg
+                                                                                                                 :measure-of (a6 / m
+                                                                                                                                 :name (n6 / name
+                                                                                                                                           :op1 "10-ml"))
+                                                                                                                 :name (n21 / name
+                                                                                                                            :op1 "toluene"))
+                                                                                                      :succ-of a13
+                                                                                                      :name (n12 / name
+                                                                                                                 :op1 "s5-w0-add"))
+                                                                                        :name (n11 / name
+                                                                                                   :op1 "shake"))
+                                                                          :name (n1 / name
+                                                                                    :op1 "event")
+                                                                          :succ (a10 / transfer-op
+                                                                                     :succ a8
+                                                                                     :site a18
+                                                                                     :ARG0 (a19 / rg
+                                                                                                :measure-of (a4 / m
+                                                                                                                :name (n4 / name
+                                                                                                                          :op1 "0-2ml"))
+                                                                                                :measure-of (a5 / m
+                                                                                                                :name (n5 / name
+                                                                                                                          :op1 "5%"))
+                                                                                                :name (n19 / name
+                                                                                                           :op1 "cetylpyridium-chloride"))
+                                                                                     :name (n10 / name
+                                                                                                :op1 "s3-w0-add"))
+                                                                          :ARG0 (a18 / rg
+                                                                                     :site-of (a8 / transfer-op
+                                                                                                  :name (n8 / name
+                                                                                                            :op1 "suspend")
+                                                                                                  :succ (a7 / create-op
+                                                                                                            :name (n7 / name
+                                                                                                                      :op1 "s1-w0-pellet")
+                                                                                                            :ARG0 a17)
+                                                                                                  :ARG0 (a17 / rg
+                                                                                                             :name (n17 / name
+                                                                                                                        :op1 "cells")))
+                                                                                     :measure-of (a3 / m
+                                                                                                     :name (n3 / name
+                                                                                                               :op1 "15-ml"))
+                                                                                     :name (n18 / name
+                                                                                                :op1 "liquid-phenol-")))))
+                                    :name (n22 / name
+                                               :op1 "s7-w3-pellet"))
+                         :ARG1 a24)
+               :ARG0 a24
+               :name (n16 / name
+                          :op1 "s8-w0-wash"))
+    :ARG0 (a24 / rg
+               :name (n24 / name
+                          :op1 "s8-w1-pellet"))
+    :ARG1 (a25 / rg
+               :name (n25 / name
+                          :op1 "phenol")))

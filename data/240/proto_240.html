@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "-80 C", "label": "-80 C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Place", "label": "Place", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "2 mL", "label": "2 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s1_w14_screw top tube", "label": "s1_w14_screw top tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s3_w2_200 uL", "label": "s3_w2_200 uL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "glycerol", "label": "glycerol", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "top", "label": "top", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "Screw", "label": "Screw", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s1_w0_Add", "label": "s1_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_7", "label": "ev_7", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w0_Add", "label": "s2_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "screw top tub", "label": "screw top tub", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_8", "label": "ev_8", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s2_w9_screw top tube", "label": "s2_w9_screw top tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "mix", "label": "mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "mixed screw top tube", "label": "mixed screw top tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "tube", "label": "tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "inversion", "label": "inversion", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "autoclaved water", "label": "autoclaved water", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "600 uL", "label": "600 uL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "inoculated liquid culture", "label": "inoculated liquid culture", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "Freezer", "label": "Freezer", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s2_w2_200 uL", "label": "s2_w2_200 uL", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "-80 C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027-80 C\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027screw top tub\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027screw top tub\u0027}", "to": "ev_7"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "2 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00272 mL\u0027}", "to": "s1_w14_screw top tube"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w14_screw top tube", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s1_w14_screw top tube\u0027}", "to": "s1_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w2_200 uL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s3_w2_200 uL\u0027}", "to": "glycerol"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glycerol", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027glycerol\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "top", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027top\u0027}", "to": "Screw"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Screw", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w14_screw top tube\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_7", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "Screw"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w9_screw top tube\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "screw top tub", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027screw top tub\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_8", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027mixed screw top tube\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w9_screw top tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w9_screw top tube\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w9_screw top tube\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "mix", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027tube\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "mixed screw top tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027mixed screw top tube\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "tube", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027tube\u0027}", "to": "ev_7"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "inversion", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027inversion\u0027}", "to": "mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "autoclaved water", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027autoclaved water\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "600 uL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027600 uL\u0027}", "to": "inoculated liquid culture"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "inoculated liquid culture", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027inoculated liquid culture\u0027}", "to": "s1_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Freezer", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027Freezer\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w2_200 uL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s2_w2_200 uL\u0027}", "to": "autoclaved water"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

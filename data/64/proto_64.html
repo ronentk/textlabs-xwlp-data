@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "-20\u00b0C", "label": "-20\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "store", "label": "store", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DMF", "label": "DMF", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "1 year", "label": "1 year", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "kept", "label": "kept", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "completely", "label": "completely", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "dissolve", "label": "dissolve", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "Wrap", "label": "Wrap", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "dark", "label": "dark", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1.5 mL", "label": "1.5 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "X-Gluc", "label": "X-Gluc", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,148.0,255.0)", "border": "black"}, "id": "Weigh", "label": "Weigh", "shape": "square", "title": "create_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Vortex", "label": "Vortex", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Stocks", "label": "Stocks", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "foil", "label": "foil", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "30 mg", "label": "30 mg", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "-20\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027-20\u00b0C\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "store", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DMF", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DMF\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "Vortex"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Stocks\u0027}", "to": "kept"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 year", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271 year\u0027}", "to": "kept"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "completely", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027completely\u0027}", "to": "dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dissolve", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "Wrap"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Wrap", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dark", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027dark\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1.5 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271.5 mL\u0027}", "to": "DMF"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "X-Gluc", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "Weigh"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Weigh", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027X-Gluc\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Vortex", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gluc\u0027}", "to": "dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Stocks", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Stocks\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "foil", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027foil\u0027}", "to": "Wrap"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "30 mg", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002730 mg\u0027}", "to": "X-Gluc"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

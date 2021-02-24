@@ -1,0 +1,90 @@
+(a24 / default-op
+     :name (n24 / name
+                :op1 "image")
+     :usage-of (a6 / d
+                   :name (n6 / name
+                             :op1 "andor-ixon-ultra-897-camera"))
+     :usage-of (a16 / mth
+                    :name (n16 / name
+                               :op1 "in-droplets"))
+     :succ (a23 / default-op
+                :name (n23 / name
+                           :op1 "record")
+                :ARG0 (a3 / d
+                          :name (n3 / name
+                                    :op1 "encapsulation-videos"))
+                :usage-of (a4 / d
+                              :name (n4 / name
+                                        :op1 "fast-camera"))
+                :usage-of (a5 / d
+                              :name (n5 / name
+                                        :op1 "manufacturers-software"))
+                :succ (a22 / default-op
+                           :name (n22 / name
+                                      :op1 "start-infusing")
+                           :succ (a21 / transfer-op
+                                      :name (n21 / name
+                                                 :op1 "s5-w0-load")
+                                      :site a2
+                                      :succ (a20 / transfer-op
+                                                 :name (n20 / name
+                                                            :op1 "connect")
+                                                 :succ (a7 / co-ref-of
+                                                           :name (n7 / name
+                                                                     :op1 "event")
+                                                           :ARG0 (a1 / d
+                                                                     :name (n1 / name
+                                                                               :op1 "syringes"))
+                                                           :succ (a18 / transfer-op
+                                                                      :site a9
+                                                                      :ARG0 (a26 / rg
+                                                                                 :measure-of (a10 / m
+                                                                                                  :name (n10 / name
+                                                                                                             :op1 "2-5%"))
+                                                                                 :measure-of (a11 / m
+                                                                                                  :name (n11 / name
+                                                                                                             :op1 "wt%"))
+                                                                                 :name (n26 / name
+                                                                                            :op1 "pico-surf-tm--1in-novec-7500"))
+                                                                      :name (n18 / name
+                                                                                 :op1 "s2-w0-load"))
+                                                           :ARG1 a9)
+                                                 :ARG1 (a9 / loc
+                                                           :name (n9 / name
+                                                                     :op1 "s2-w10-hamilton-gas-tight-syringe"))
+                                                 :usage-of (a15 / mth
+                                                                :name (n15 / name
+                                                                           :op1 "ptfe-microtubing"))
+                                                 :succ (a17 / transfer-op
+                                                            :name (n17 / name
+                                                                       :op1 "s1-w1-load")
+                                                            :site a8
+                                                            :ARG0 (a25 / rg
+                                                                       :name (n25 / name
+                                                                                  :op1 "plant-protoplast-suspensions")))
+                                                 :ARG0 (a8 / loc
+                                                           :name (n8 / name
+                                                                     :op1 "s1-w8-hamilton-gas-tight-syringe"))
+                                                 :succ a19
+                                                 :site a0)
+                                      :ARG0 (a0 / d
+                                                :name (n0 / name
+                                                          :op1 "microfluidic-device")
+                                                :modifier-of (a12 / mod
+                                                                  :name (n12 / name
+                                                                             :op1 "corresponding-inlets"))
+                                                :ARG0-of (a19 / default-op
+                                                              :usage-of (a14 / mth
+                                                                             :name (n14 / name
+                                                                                        :op1 "stage-of-bright-field-inverted-microscope"))
+                                                              :name (n19 / name
+                                                                         :op1 "place"))))
+                           :ARG0 (a2 / d
+                                     :name (n2 / name
+                                               :op1 "phd-2000-syringe-pump")
+                                     :modifier-of (a13 / mod
+                                                       :name (n13 / name
+                                                                  :op1 "harvard-apparatus")))))
+     :ARG0 (a27 / rg
+                :name (n27 / name
+                           :op1 "plant-protoplasts")))

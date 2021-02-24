@@ -1,0 +1,65 @@
+(a10 / temp-treat-op
+     :name (n10 / name
+                :op1 "heat")
+     :succ (a9 / transfer-op
+               :name (n9 / name
+                         :op1 "adding")
+               :setting-of (a3 / m
+                               :name (n3 / name
+                                         :op1 "10-mm"))
+               :succ a8
+               :site a12
+               :ARG0 (a15 / rg
+                          :name (n15 / name
+                                     :op1 "edta")))
+     :ARG0 (a12 / rg
+                :measure-of (a0 / m
+                                :name (n0 / name
+                                          :op1 "1x"))
+                :name (n12 / name
+                           :op1 "nebuffer")
+                :site-of (a5 / transfer-op
+                             :succ-of (a6 / transfer-op
+                                          :site a12
+                                          :usage-of (a13 / rg
+                                                         :measure-of (a1 / m
+                                                                         :name (n1 / name
+                                                                                   :op1 "100--m"))
+                                                         :modifier-of (a4 / mod
+                                                                          :name (n4 / name
+                                                                                    :op1 "each"))
+                                                         :name (n13 / name
+                                                                    :op1 "dntp"))
+                                          :succ-of (a7 / transfer-op
+                                                       :site a12
+                                                       :ARG0 (a14 / rg
+                                                                  :measure-of (a2 / m
+                                                                                  :name (n2 / name
+                                                                                            :op1 "1-unit"))
+                                                                  :name (n14 / name
+                                                                             :op1 "t4-dna-polymerase"))
+                                                       :succ-of (a8 / temp-treat-op
+                                                                    :ARG0 a12
+                                                                    :setting-of (a16 / s
+                                                                                     :name (n16 / name
+                                                                                                :op1 "15-minutes"))
+                                                                    :setting-of (a17 / s
+                                                                                     :name (n17 / name
+                                                                                                :op1 "12-c"))
+                                                                    :name (n8 / name
+                                                                              :op1 "incubate"))
+                                                       :name (n7 / name
+                                                                 :op1 "add"))
+                                          :name (n6 / name
+                                                    :op1 "supplement"))
+                             :name (n5 / name
+                                       :op1 "dissolve")
+                             :ARG0 (a11 / rg
+                                        :name (n11 / name
+                                                   :op1 "dna"))))
+     :setting-of (a18 / s
+                      :name (n18 / name
+                                 :op1 "20-minutes"))
+     :setting-of (a19 / s
+                      :name (n19 / name
+                                 :op1 "75-c")))

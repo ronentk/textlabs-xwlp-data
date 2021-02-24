@@ -1,0 +1,79 @@
+(a12 / default-op
+     :name (n12 / name
+                :op1 "proceed")
+     :modifier-of (a4 / mod
+                      :name (n4 / name
+                                :op1 "directly"))
+     :usage-of (a6 / mth
+                   :name (n6 / name
+                             :op1 "ligation-step"))
+     :succ (a11 / temp-treat-op
+                :name (n11 / name
+                           :op1 "heating")
+                :succ a0
+                :ARG0 a1
+                :setting-of (a22 / s
+                                 :name (n22 / name
+                                            :op1 "70-c"))
+                :setting-of (a23 / s
+                                 :name (n23 / name
+                                            :op1 "10-minutes")))
+     :ARG0 (a1 / loc
+               :name (n1 / name
+                         :op1 "microfuge-tube")
+               :ARG1-of (a0 / located-at
+                            :ARG0 (a16 / rg
+                                       :name (n16 / name
+                                                  :op1 "enzyme"))
+                            :succ-of (a10 / default-op
+                                          :ARG0 a16
+                                          :modifier-of (a3 / mod
+                                                           :name (n3 / name
+                                                                     :op1 "immediately"))
+                                          :usage-of (a5 / mth
+                                                        :name (n5 / name
+                                                                  :op1 "blunting-reaction"))
+                                          :name (n10 / name
+                                                     :op1 "inactivate"))
+                            :name (n0 / name
+                                      :op1 "event")
+                            :succ a7)
+               :modifier-of (a2 / mod
+                                :name (n2 / name
+                                          :op1 "sterile"))
+               :site-of (a7 / mix-op
+                            :succ (a8 / temp-treat-op
+                                      :ARG0 a13
+                                      :setting-of (a18 / s
+                                                       :name (n18 / name
+                                                                  :op1 "s1-w19-room-temperature"))
+                                      :setting-of (a19 / s
+                                                       :name (n19 / name
+                                                                  :op1 "15-minutes"))
+                                      :name (n8 / name
+                                                :op1 "s1-w16-incubated"))
+                            :ARG0 (a13 / rg
+                                       :name (n13 / name
+                                                  :op1 "restriction-enzyme-digested-dna"))
+                            :succ (a9 / temp-treat-op
+                                      :ARG0 a14
+                                      :ARG1 a15
+                                      :setting-of (a20 / s
+                                                       :name (n20 / name
+                                                                  :op1 "s2-w11-room-temperature"))
+                                      :setting-of (a21 / s
+                                                       :name (n21 / name
+                                                                  :op1 "30-minutes"))
+                                      :name (n9 / name
+                                                :op1 "s2-w8-incubated"))
+                            :ARG1 (a14 / rg
+                                       :name (n14 / name
+                                                  :op1 "sheared-nebulized-dna"))
+                            :ARG2 (a15 / rg
+                                       :name (n15 / name
+                                                  :op1 "pcr-products"))
+                            :name (n7 / name
+                                      :op1 "mix")))
+     :usage-of (a17 / rg
+                    :name (n17 / name
+                               :op1 "quick-ligation-kit")))

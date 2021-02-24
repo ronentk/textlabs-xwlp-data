@@ -1,0 +1,43 @@
+(a6 / default-op
+    :name (n6 / name
+              :op1 "transform")
+    :succ (a2 / co-ref-of
+              :name (n2 / name
+                        :op1 "event")
+              :succ (a5 / temp-treat-op
+                        :succ (a1 / co-ref-of
+                                  :name (n1 / name
+                                            :op1 "event")
+                                  :succ (a4 / temp-treat-op
+                                            :site (a0 / d
+                                                      :name (n0 / name
+                                                                :op1 "thermocycler"))
+                                            :ARG0 a7
+                                            :setting-of (a11 / s
+                                                             :name (n11 / name
+                                                                        :op1 "50-c"))
+                                            :setting-of (a12 / s
+                                                             :name (n12 / name
+                                                                        :op1 "15-minutes"))
+                                            :name (n4 / name
+                                                      :op1 "incubate"))
+                                  :ARG0 (a7 / rg
+                                            :name (n7 / name
+                                                      :op1 "s2-w1-samples"))
+                                  :ARG1 a8)
+                        :ARG0 a8
+                        :site (a3 / loc
+                                  :name (n3 / name
+                                            :op1 "ice"))
+                        :name (n5 / name
+                                  :op1 "store"))
+              :ARG0 (a8 / rg
+                        :name (n8 / name
+                                  :op1 "s3-w3-samples"))
+              :ARG1 a10)
+    :usage-of (a10 / rg
+                   :name (n10 / name
+                              :op1 "assembled-product"))
+    :ARG0 (a9 / rg
+              :name (n9 / name
+                        :op1 "neb-5-alpha-competent-e--coli-cells")))

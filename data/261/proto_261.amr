@@ -1,0 +1,79 @@
+(a16 / default-op
+     :name (n16 / name
+                :op1 "thermocycling")
+     :succ (a15 / transfer-op
+                :name (n15 / name
+                           :op1 "transfer")
+                :succ-of (a5 / co-ref-of
+                             :ARG1 (a22 / rg
+                                        :name (n22 / name
+                                                   :op1 "pcr-tubes"))
+                             :name (n5 / name
+                                       :op1 "event")
+                             :succ (a4 / co-ref-of
+                                       :name (n4 / name
+                                                 :op1 "event")
+                                       :succ (a12 / mix-op
+                                                  :succ (a1 / co-ref-of
+                                                            :name (n1 / name
+                                                                      :op1 "event")
+                                                            :succ (a11 / create-op
+                                                                       :succ-of (a3 / located-at
+                                                                                    :ARG1 (a6 / loc
+                                                                                              :name (n6 / name
+                                                                                                        :op1 "s1-w6-ice"))
+                                                                                    :name (n3 / name
+                                                                                              :op1 "event")
+                                                                                    :succ (a2 / located-at
+                                                                                              :name (n2 / name
+                                                                                                        :op1 "event")
+                                                                                              :ARG1 a8
+                                                                                              :succ (a13 / transfer-op
+                                                                                                         :site a7
+                                                                                                         :ARG0 (a19 / rg
+                                                                                                                    :name (n19 / name
+                                                                                                                               :op1 "liquid"))
+                                                                                                         :name (n13 / name
+                                                                                                                    :op1 "collect"))
+                                                                                              :ARG0 (a7 / loc
+                                                                                                        :name (n7 / name
+                                                                                                                  :op1 "bottom")))
+                                                                                    :ARG0 (a8 / loc
+                                                                                              :name (n8 / name
+                                                                                                        :op1 "tube")))
+                                                                       :site a6
+                                                                       :ARG0 a17
+                                                                       :name (n11 / name
+                                                                                  :op1 "set-up"))
+                                                            :ARG0 (a17 / rg
+                                                                       :modifier-of (a9 / mod
+                                                                                        :name (n9 / name
+                                                                                                  :op1 "following"))
+                                                                       :name (n17 / name
+                                                                                  :op1 "s1-w4-reaction"))
+                                                            :ARG1 a18)
+                                                  :ARG0 a18
+                                                  :modifier-of (a10 / mod
+                                                                    :name (n10 / name
+                                                                               :op1 "gently"))
+                                                  :name (n12 / name
+                                                             :op1 "mix"))
+                                       :ARG0 (a18 / rg
+                                                  :name (n18 / name
+                                                             :op1 "s2-w3-reaction"))
+                                       :succ a14
+                                       :ARG1 a20)
+                             :ARG0 (a20 / rg
+                                        :ARG0-of (a14 / seal-op
+                                                      :usage-of (a21 / rg
+                                                                     :name (n21 / name
+                                                                                :op1 "mineral-oil"))
+                                                      :name (n14 / name
+                                                                 :op1 "overlay"))
+                                        :name (n20 / name
+                                                   :op1 "sample")))
+                :site a0
+                :ARG0 a22)
+     :ARG0 (a0 / d
+               :name (n0 / name
+                         :op1 "pcr-machine")))

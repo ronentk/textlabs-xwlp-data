@@ -1,0 +1,71 @@
+(a10 / temp-treat-op
+     :name (n10 / name
+                :op1 "heat-inactivation")
+     :succ (a0 / located-at
+               :name (n0 / name
+                         :op1 "event")
+               :succ (a1 / co-ref-of
+                         :succ (a9 / temp-treat-op
+                                   :ARG0 a12
+                                   :setting-of (a18 / s
+                                                    :name (n18 / name
+                                                               :op1 "s3-w2-37-c"))
+                                   :setting-of (a19 / s
+                                                    :name (n19 / name
+                                                               :op1 "30-60-minutes"))
+                                   :name (n9 / name
+                                             :op1 "s3-w0-incubate"))
+                         :ARG0 (a13 / rg
+                                    :measure-of (a5 / m
+                                                    :name (n5 / name
+                                                              :op1 "1-unit"))
+                                    :name (n13 / name
+                                               :op1 "s2-w4-rsap"))
+                         :ARG1 a14
+                         :name (n1 / name
+                                   :op1 "event"))
+               :ARG0 a14
+               :succ (a2 / located-at
+                         :succ a9
+                         :ARG1 a12
+                         :ARG0 a15
+                         :name (n2 / name
+                                   :op1 "event"))
+               :ARG1 a12)
+     :ARG0 (a14 / rg
+                :name (n14 / name
+                           :op1 "s4-w5-rsap"))
+     :ARG1 (a15 / rg
+                :name (n15 / name
+                           :op1 "restriction-enzyme"))
+     :site (a12 / rg
+                :measure-of (a4 / m
+                                :name (n4 / name
+                                          :op1 "20--l"))
+                :name (n12 / name
+                           :op1 "s1-w10-reaction")
+                :site-of (a6 / default-op
+                             :succ-of (a7 / temp-treat-op
+                                          :ARG0 a12
+                                          :setting-of (a16 / s
+                                                           :name (n16 / name
+                                                                      :op1 "s1-w15-37-c"))
+                                          :setting-of (a17 / s
+                                                           :name (n17 / name
+                                                                      :op1 "60-minutes"))
+                                          :succ-of (a8 / transfer-op
+                                                       :site a12
+                                                       :ARG0 a13
+                                                       :succ-of a9
+                                                       :name (n8 / name
+                                                                 :op1 "add"))
+                                          :name (n7 / name
+                                                    :op1 "s1-w13-incubate"))
+                             :name (n6 / name
+                                       :op1 "digest")
+                             :ARG0 (a11 / rg
+                                        :measure-of (a3 / m
+                                                        :name (n3 / name
+                                                                  :op1 "1-5--g"))
+                                        :name (n11 / name
+                                                   :op1 "plasmid-dna")))))

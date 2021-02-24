@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "50\u00b0C", "label": "50\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Cool", "label": "Cool", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "IPTG", "label": "IPTG", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s3_w0_Add", "label": "s3_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "20 mg/ml", "label": "20 mg/ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "X-Gal Solution", "label": "X-Gal Solution", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_19", "label": "ev_19", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "screening", "label": "screening", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "antibiotic of choice", "label": "antibiotic of choice", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w5_per", "label": "s3_w5_per", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s3_w9_Media", "label": "s3_w9_Media", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "cool", "label": "cool", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Spread", "label": "Spread", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "room temperature", "label": "room temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "competent cells", "label": "competent cells", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "plates", "label": "plates", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Pour", "label": "Pour", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "30 minutes", "label": "30 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s2_w7_per", "label": "s2_w7_per", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w11_Media", "label": "s2_w11_Media", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "100mM", "label": "100mM", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s2_w0_Add", "label": "s2_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_18", "label": "ev_18", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "s4_w0_Add", "label": "s4_w0_Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s3_w7_1 mL", "label": "s3_w7_1 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s3_w2_10 \u00b5l", "label": "s3_w2_10 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "transformed", "label": "transformed", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "autoclaved", "label": "autoclaved", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "growth media agar", "label": "growth media agar", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "as desired", "label": "as desired", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s2_w2_10 \u00b5l", "label": "s2_w2_10 \u00b5l", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1mM", "label": "1mM", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s2_w9_1 mL", "label": "s2_w9_1 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "50\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002750\u00b0C\u0027}", "to": "Cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Cool", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027growth media agar\u0027}", "to": "ev_18"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "IPTG", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027IPTG\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w0_Add", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s3_w9_Media\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 mg/ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002720 mg/ml\u0027}", "to": "X-Gal Solution"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "X-Gal Solution", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027X-Gal Solution\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_19", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s3_w9_Media\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "screening", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027screening\u0027}", "to": "antibiotic of choice"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "antibiotic of choice", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027antibiotic of choice\u0027}", "to": "s4_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w5_per", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w5_per\u0027}", "to": "s3_w9_Media"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w9_Media", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s3_w9_Media\u0027}", "to": "ev_19"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "cool", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plates\u0027}", "to": "Spread"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "room temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027room temperature\u0027}", "to": "cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "competent cells", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027competent cells\u0027}", "to": "Spread"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "plates", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027plates\u0027}", "to": "Pour"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Pour", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027plates\u0027}", "to": "cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "30 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002730 minutes\u0027}", "to": "cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w7_per", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s2_w7_per\u0027}", "to": "s2_w11_Media"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w11_Media", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w11_Media\u0027}", "to": "ev_18"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "100mM", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027100mM\u0027}", "to": "IPTG"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w11_Media\u0027}", "to": "ev_19"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_18", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w11_Media\u0027}", "to": "s2_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w0_Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w9_Media\u0027}", "to": "Pour"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w7_1 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s3_w7_1 mL\u0027}", "to": "s3_w9_Media"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w2_10 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s3_w2_10 \u00b5l\u0027}", "to": "IPTG"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "transformed", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027transformed\u0027}", "to": "competent cells"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "autoclaved", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027autoclaved\u0027}", "to": "growth media agar"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "growth media agar", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027growth media agar\u0027}", "to": "Cool"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "as desired", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027as desired\u0027}", "to": "Spread"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w2_10 \u00b5l", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s2_w2_10 \u00b5l\u0027}", "to": "X-Gal Solution"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1mM", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271mM\u0027}", "to": "s3_w0_Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w9_1 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s2_w9_1 mL\u0027}", "to": "s2_w11_Media"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

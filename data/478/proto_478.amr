@@ -1,0 +1,37 @@
+(a6 / temp-treat-op
+    :name (n6 / name
+              :op1 "incubate")
+    :succ (a5 / default-op
+              :name (n5 / name
+                        :op1 "do-not-vortex")
+              :succ a0
+              :ARG0 a8)
+    :ARG0 (a8 / rg
+              :name (n8 / name
+                        :op1 "reaction")
+              :ARG1-of (a0 / co-ref-of
+                           :name (n0 / name
+                                     :op1 "event")
+                           :succ (a4 / spin-op
+                                     :usage-of (a1 / loc
+                                                   :name (n1 / name
+                                                             :op1 "microcentrifuge"))
+                                     :modifier-of (a2 / mod
+                                                      :name (n2 / name
+                                                                :op1 "quick"))
+                                     :succ a3
+                                     :ARG0 a7
+                                     :name (n4 / name
+                                               :op1 "-touch--spin-down"))
+                           :ARG0 (a7 / rg
+                                     :ARG0-of (a3 / mix-op
+                                                  :name (n3 / name
+                                                            :op1 "mix"))
+                                     :name (n7 / name
+                                               :op1 "components"))))
+    :setting-of (a9 / s
+                    :name (n9 / name
+                              :op1 "1-hour"))
+    :setting-of (a10 / s
+                     :name (n10 / name
+                                :op1 "temperature")))

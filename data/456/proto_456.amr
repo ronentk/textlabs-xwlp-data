@@ -1,0 +1,64 @@
+(a12 / time-op
+     :name (n12 / name
+                :op1 "kept")
+     :succ (a0 / co-ref-of
+               :name (n0 / name
+                         :op1 "event")
+               :succ (a11 / transfer-op
+                          :site (a1 / loc
+                                    :name (n1 / name
+                                              :op1 "dark"))
+                          :succ a10
+                          :ARG0 a14
+                          :setting-of (a16 / s
+                                           :name (n16 / name
+                                                      :op1 "-20-c"))
+                          :name (n11 / name
+                                     :op1 "store"))
+               :ARG0 (a14 / rg
+                          :site-of (a7 / transfer-op
+                                       :succ-of (a8 / mix-op
+                                                    :ARG0 a14
+                                                    :succ-of (a9 / mix-op
+                                                                 :ARG0 a14
+                                                                 :succ-of (a10 / seal-op
+                                                                               :ARG0 a14
+                                                                               :ARG1 (a18 / sl
+                                                                                          :name (n18 / name
+                                                                                                     :op1 "foil"))
+                                                                               :name (n10 / name
+                                                                                          :op1 "wrap"))
+                                                                 :name (n9 / name
+                                                                           :op1 "dissolve")
+                                                                 :modifier-of (a4 / mod
+                                                                                  :name (n4 / name
+                                                                                            :op1 "completely")))
+                                                    :name (n8 / name
+                                                              :op1 "vortex"))
+                                       :name (n7 / name
+                                                 :op1 "add")
+                                       :succ (a6 / measure-op
+                                                 :name (n6 / name
+                                                           :op1 "weigh")
+                                                 :ARG0 a13)
+                                       :ARG0 (a13 / rg
+                                                  :measure-of (a2 / m
+                                                                  :name (n2 / name
+                                                                            :op1 "30-mg"))
+                                                  :name (n13 / name
+                                                             :op1 "x-gluc")))
+                          :measure-of (a3 / m
+                                          :name (n3 / name
+                                                    :op1 "1-5-ml"))
+                          :name (n14 / name
+                                     :op1 "dmf"))
+               :ARG1 a15)
+     :ARG0 (a15 / rg
+                :name (n15 / name
+                           :op1 "stocks"))
+     :modifier-of (a5 / mod
+                      :name (n5 / name
+                                :op1 "may-be"))
+     :setting-of (a17 / s
+                      :name (n17 / name
+                                 :op1 "1-year")))

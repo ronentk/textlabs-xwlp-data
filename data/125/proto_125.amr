@@ -1,0 +1,96 @@
+(a14 / temp-treat-op
+     :name (n14 / name
+                :op1 "store")
+     :succ (a13 / create-op
+                :name (n13 / name
+                           :op1 "make")
+                :succ (a12 / measure-op
+                           :name (n12 / name
+                                      :op1 "determine")
+                           :succ a10
+                           :ARG0 a19)
+                :ARG1 (a19 / rg
+                           :name (n19 / name
+                                      :op1 "samples")
+                           :ARG1-of (a3 / co-ref-of
+                                        :succ-of (a9 / mix-op
+                                                     :ARG0 a19
+                                                     :setting-of (a22 / s
+                                                                      :name (n22 / name
+                                                                                 :op1 "4--c"))
+                                                     :setting-of (a23 / s
+                                                                      :name (n23 / name
+                                                                                 :op1 "2h"))
+                                                     :succ-of (a10 / spin-op
+                                                                   :ARG0 a19
+                                                                   :ARG2 (a20 / rg
+                                                                              :name (n20 / name
+                                                                                         :op1 "supernatant"))
+                                                                   :setting-of (a24 / s
+                                                                                    :name (n24 / name
+                                                                                               :op1 "16-000g"))
+                                                                   :setting-of (a25 / s
+                                                                                    :name (n25 / name
+                                                                                               :op1 "10min"))
+                                                                   :setting-of (a26 / s
+                                                                                    :name (n26 / name
+                                                                                               :op1 "4-c"))
+                                                                   :succ-of (a11 / default-op
+                                                                                 :ARG0 a20
+                                                                                 :name (n11 / name
+                                                                                            :op1 "save"))
+                                                                   :name (n10 / name
+                                                                              :op1 "spin"))
+                                                     :name (n9 / name
+                                                               :op1 "mix"))
+                                        :name (n3 / name
+                                                  :op1 "event")
+                                        :succ (a8 / default-op
+                                                  :usage-of (a0 / d
+                                                                :name (n0 / name
+                                                                          :op1 "dispenser"))
+                                                  :succ (a2 / co-ref-of
+                                                            :name (n2 / name
+                                                                      :op1 "event")
+                                                            :succ (a7 / transfer-op
+                                                                      :succ (a1 / co-ref-of
+                                                                                :name (n1 / name
+                                                                                          :op1 "event")
+                                                                                :succ (a6 / transfer-op
+                                                                                          :succ a5
+                                                                                          :site a15
+                                                                                          :ARG0 (a16 / rg
+                                                                                                     :name (n16 / name
+                                                                                                                :op1 "protease-inhibitors"))
+                                                                                          :name (n6 / name
+                                                                                                    :op1 "s2-w0-add"))
+                                                                                :ARG0 (a15 / rg
+                                                                                           :ARG0-of (a5 / temp-treat-op
+                                                                                                        :name (n5 / name
+                                                                                                                  :op1 "pre-cool"))
+                                                                                           :name (n15 / name
+                                                                                                      :op1 "ysis-buffer"))
+                                                                                :ARG1 a17)
+                                                                      :ARG0 (a17 / rg
+                                                                                 :name (n17 / name
+                                                                                            :op1 "10-fold-lysis-buffer"))
+                                                                      :site a4
+                                                                      :name (n7 / name
+                                                                                :op1 "s3-w0-add"))
+                                                            :ARG0 (a4 / loc
+                                                                      :name (n4 / name
+                                                                                :op1 "s3-w6-tissues"))
+                                                            :ARG1 a18)
+                                                  :ARG0 a18
+                                                  :name (n8 / name
+                                                            :op1 "homogenize"))
+                                        :ARG0 (a18 / rg
+                                                   :name (n18 / name
+                                                              :op1 "s4-w1-tissues"))))
+                :ARG0 a21)
+     :ARG0 (a21 / rg
+                :name (n21 / name
+                           :op1 "aliquots"))
+     :setting-of (a27 / s
+                      :name (n27 / name
+                                 :op1 "-80-c")))

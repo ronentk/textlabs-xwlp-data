@@ -1,0 +1,59 @@
+(a10 / temp-treat-op
+     :name (n10 / name
+                :op1 "incubate")
+     :succ (a9 / default-op
+               :name (n9 / name
+                         :op1 "do-not-vortex")
+               :succ a3
+               :ARG0 a14)
+     :ARG0 (a14 / rg
+                :name (n14 / name
+                           :op1 "s4-w4-reaction")
+                :ARG1-of (a3 / co-ref-of
+                             :name (n3 / name
+                                       :op1 "event")
+                             :succ (a8 / spin-op
+                                       :usage-of (a0 / d
+                                                     :name (n0 / name
+                                                               :op1 "microcentrifuge"))
+                                       :modifier-of (a4 / mod
+                                                        :name (n4 / name
+                                                                  :op1 "quick"))
+                                       :succ a7
+                                       :ARG0 a13
+                                       :name (n8 / name
+                                                 :op1 "spin-down"))
+                             :ARG0 (a13 / rg
+                                        :ARG0-of (a7 / default-op
+                                                     :name (n7 / name
+                                                               :op1 "pipetting")
+                                                     :succ a2)
+                                        :name (n13 / name
+                                                   :op1 "s2-w5-reaction")
+                                        :ARG1-of (a2 / co-ref-of
+                                                     :name (n2 / name
+                                                               :op1 "event")
+                                                     :succ (a6 / mix-op
+                                                               :succ (a1 / co-ref-of
+                                                                         :name (n1 / name
+                                                                                   :op1 "event")
+                                                                         :succ (a5 / create-op
+                                                                                   :ARG0 a11
+                                                                                   :name (n5 / name
+                                                                                             :op1 "set-up"))
+                                                                         :ARG0 (a11 / rg
+                                                                                    :name (n11 / name
+                                                                                               :op1 "s1-w4-reaction"))
+                                                                         :ARG1 a12)
+                                                               :ARG0 a12
+                                                               :name (n6 / name
+                                                                         :op1 "mix"))
+                                                     :ARG0 (a12 / rg
+                                                                :name (n12 / name
+                                                                           :op1 "components"))))))
+     :setting-of (a15 / s
+                      :name (n15 / name
+                                 :op1 "1-hour"))
+     :setting-of (a16 / s
+                      :name (n16 / name
+                                 :op1 "enzyme-specific-appropriate-temperature")))

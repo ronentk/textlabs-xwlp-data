@@ -1,0 +1,107 @@
+(a22 / default-op
+     :name (n22 / name
+                :op1 "spread")
+     :usage-of (a15 / mth
+                    :name (n15 / name
+                               :op1 "as-desired"))
+     :succ (a21 / temp-treat-op
+                :name (n21 / name
+                           :op1 "s5-w5-cool")
+                :ARG0 a2
+                :setting-of (a31 / s
+                                 :name (n31 / name
+                                            :op1 "room-temperature"))
+                :setting-of (a32 / s
+                                 :name (n32 / name
+                                            :op1 "30-minutes")))
+     :site (a2 / loc
+               :name (n2 / name
+                         :op1 "plates")
+               :site-of (a20 / transfer-op
+                             :succ (a19 / transfer-op
+                                        :name (n19 / name
+                                                   :op1 "s4-w0-add")
+                                        :site a28
+                                        :ARG0 (a29 / rg
+                                                   :modifier-of (a13 / mod
+                                                                     :name (n13 / name
+                                                                                :op1 "screening"))
+                                                   :name (n29 / name
+                                                              :op1 "antibiotic-of-choice")))
+                             :ARG0 (a28 / rg
+                                        :measure-of (a8 / m
+                                                        :name (n8 / name
+                                                                  :op1 "s3-w7-1-ml"))
+                                        :modifier-of (a12 / mod
+                                                          :name (n12 / name
+                                                                     :op1 "s3-w5-per"))
+                                        :name (n28 / name
+                                                   :op1 "s3-w9-media")
+                                        :ARG1-of (a1 / co-ref-of
+                                                     :succ-of (a18 / transfer-op
+                                                                   :site a28
+                                                                   :setting-of (a9 / m
+                                                                                   :name (n9 / name
+                                                                                             :op1 "1mm"))
+                                                                   :ARG0 (a27 / rg
+                                                                              :measure-of (a6 / m
+                                                                                              :name (n6 / name
+                                                                                                        :op1 "s3-w2-10--l"))
+                                                                              :measure-of (a7 / m
+                                                                                              :name (n7 / name
+                                                                                                        :op1 "100mm"))
+                                                                              :name (n27 / name
+                                                                                         :op1 "iptg"))
+                                                                   :succ-of a19
+                                                                   :name (n18 / name
+                                                                              :op1 "s3-w0-add"))
+                                                     :name (n1 / name
+                                                               :op1 "event")
+                                                     :succ (a17 / transfer-op
+                                                                :succ (a0 / co-ref-of
+                                                                          :name (n0 / name
+                                                                                    :op1 "event")
+                                                                          :succ (a16 / temp-treat-op
+                                                                                     :ARG0 a23
+                                                                                     :setting-of (a30 / s
+                                                                                                      :name (n30 / name
+                                                                                                                 :op1 "50-c"))
+                                                                                     :name (n16 / name
+                                                                                                :op1 "s1-w0-cool"))
+                                                                          :ARG0 (a23 / rg
+                                                                                     :modifier-of (a10 / mod
+                                                                                                       :name (n10 / name
+                                                                                                                  :op1 "autoclaved"))
+                                                                                     :name (n23 / name
+                                                                                                :op1 "growth-media-agar"))
+                                                                          :ARG1 a26)
+                                                                :site a26
+                                                                :ARG0 (a24 / rg
+                                                                           :measure-of (a3 / m
+                                                                                           :name (n3 / name
+                                                                                                     :op1 "s2-w2-10--l"))
+                                                                           :measure-of (a4 / m
+                                                                                           :name (n4 / name
+                                                                                                     :op1 "20-mg-ml"))
+                                                                           :name (n24 / name
+                                                                                      :op1 "s2-w4-x-gal-solution"))
+                                                                :name (n17 / name
+                                                                           :op1 "s2-w0-add"))
+                                                     :ARG0 (a26 / rg
+                                                                :measure-of (a5 / m
+                                                                                :name (n5 / name
+                                                                                          :op1 "s2-w9-1-ml"))
+                                                                :modifier-of (a11 / mod
+                                                                                  :name (n11 / name
+                                                                                             :op1 "s2-w7-per"))
+                                                                :name (n26 / name
+                                                                           :op1 "s2-w11-media"))))
+                             :succ-of a21
+                             :name (n20 / name
+                                        :op1 "pour")))
+     :ARG0 (a25 / rg
+                :modifier-of (a14 / mod
+                                  :name (n14 / name
+                                             :op1 "transformed"))
+                :name (n25 / name
+                           :op1 "competent-cells")))

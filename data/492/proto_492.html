@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "200 mL", "label": "200 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s1_w14_bottle", "label": "s1_w14_bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w25_clean", "label": "s3_w25_clean", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s3_w26_bottle", "label": "s3_w26_bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w23_trace", "label": "s3_w23_trace", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s1_w13_clean", "label": "s1_w13_clean", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Weigh out", "label": "Weigh out", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s1_w12_metal", "label": "s1_w12_metal", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "pass", "label": "pass", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s2_w7_bottle", "label": "s2_w7_bottle", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "EPPS solution", "label": "EPPS solution", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "analytical balance", "label": "analytical balance", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s1_w11_trace", "label": "s1_w11_trace", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Milli-Q", "label": "Milli-Q", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "s3_w24_metal", "label": "s3_w24_metal", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "22 g", "label": "22 g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "EPPS", "label": "EPPS", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "173 mL", "label": "173 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "200 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027200 mL\u0027}", "to": "s1_w14_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w14_bottle", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s1_w14_bottle\u0027}", "to": "Weigh out"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w25_clean", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w25_clean\u0027}", "to": "s3_w26_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w26_bottle", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s3_w26_bottle\u0027}", "to": "pass"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w23_trace", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w23_trace\u0027}", "to": "s3_w26_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w13_clean", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s1_w13_clean\u0027}", "to": "s1_w14_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s2_w7_bottle\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w14_bottle\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Weigh out", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w14_bottle\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w12_metal", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s1_w12_metal\u0027}", "to": "s1_w14_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EPPS solution\u0027}", "to": "pass"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w7_bottle", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w7_bottle\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "EPPS solution", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027EPPS solution\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "analytical balance", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027analytical balance\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w11_trace", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s1_w11_trace\u0027}", "to": "s1_w14_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Milli-Q", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Milli-Q\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w24_metal", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027s3_w24_metal\u0027}", "to": "s3_w26_bottle"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "22 g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002722 g\u0027}", "to": "EPPS"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "EPPS", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EPPS\u0027}", "to": "Weigh out"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "173 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027173 mL\u0027}", "to": "Milli-Q"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

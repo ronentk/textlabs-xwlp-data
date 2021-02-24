@@ -1,0 +1,87 @@
+(a14 / default-op
+     :name (n14 / name
+                :op1 "s8-w0-post-stain")
+     :succ (a1 / co-ref-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ (a12 / transfer-op
+                          :succ (a0 / co-ref-of
+                                    :name (n0 / name
+                                              :op1 "event")
+                                    :succ (a9 / default-op
+                                              :succ a8
+                                              :ARG0 a15
+                                              :ARG1 (a16 / rg
+                                                         :name (n16 / name
+                                                                    :op1 "sybr-gold"))
+                                              :name (n9 / name
+                                                        :op1 "s2-w0-post-stain"))
+                                    :ARG0 (a15 / rg
+                                               :ARG0-of (a8 / create-op
+                                                            :name (n8 / name
+                                                                      :op1 "s1-w0-prepare"))
+                                               :measure-of (a2 / m
+                                                               :name (n2 / name
+                                                                         :op1 "0-7%"))
+                                               :name (n15 / name
+                                                          :op1 "agarose"))
+                                    :ARG1 a23)
+                          :site a23
+                          :succ (a11 / create-op
+                                     :name (n11 / name
+                                                :op1 "s4-w0-prepare")
+                                     :ARG0 (a20 / rg
+                                                :modifier-of (a6 / mod
+                                                                 :name (n6 / name
+                                                                           :op1 "s4-w2-appropriate"))
+                                                :name (n20 / name
+                                                           :op1 "dilutions"))
+                                     :ARG1 (a21 / rg
+                                                :modifier-of (a7 / mod
+                                                                 :name (n7 / name
+                                                                           :op1 "s4-w6-appropriate"))
+                                                :name (n21 / name
+                                                           :op1 "marker")))
+                          :ARG0 (a22 / rg
+                                     :name (n22 / name
+                                                :op1 "running-buffer"))
+                          :name (n12 / name
+                                     :op1 "add"))
+               :ARG0 (a23 / rg
+                          :name (n23 / name
+                                     :op1 "cover-gel"))
+               :ARG1 a24)
+     :ARG0 (a24 / rg
+                :name (n24 / name
+                           :op1 "gel"))
+     :succ (a13 / default-op
+                :name (n13 / name
+                           :op1 "run")
+                :setting-of (a5 / m
+                                :name (n5 / name
+                                          :op1 "50v"))
+                :succ (a10 / create-op
+                           :name (n10 / name
+                                      :op1 "s3-w5-prepare")
+                           :ARG0 a18
+                           :ARG1 (a19 / rg
+                                      :measure-of (a3 / m
+                                                      :name (n3 / name
+                                                                :op1 "1-l"))
+                                      :measure-of (a4 / m
+                                                      :name (n4 / name
+                                                                :op1 "10x"))
+                                      :name (n19 / name
+                                                 :op1 "loading-buffer")))
+                :ARG0 (a18 / rg
+                           :name (n18 / name
+                                      :op1 "samples"))
+                :setting-of (a25 / s
+                                 :name (n25 / name
+                                            :op1 "2-4-hours")))
+     :site (a17 / rg
+                :name (n17 / name
+                           :op1 "sybr-gold--bath-"))
+     :setting-of (a26 / s
+                      :name (n26 / name
+                                 :op1 "30-minutes")))

@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_6", "label": "ev_6", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "scraping gently", "label": "scraping gently", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "coverslip", "label": "coverslip", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "four layers", "label": "four layers", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "mesh", "label": "mesh", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Collect", "label": "Collect", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Filter through", "label": "Filter through", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "3 weeks", "label": "3 weeks", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "grow", "label": "grow", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "fresh SNA plates", "label": "fresh SNA plates", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Inoculate", "label": "Inoculate", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Store", "label": "Store", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s7_w9_plate", "label": "s7_w9_plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s3_w1_plate", "label": "s3_w1_plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_4", "label": "ev_4", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(212.0,104.0,243.0)", "border": "black"}, "id": "Harvest", "label": "Harvest", "shape": "square", "title": "remove_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s7_w1_spores", "label": "s7_w1_spores", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_5", "label": "ev_5", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "12/12 h darkness/blacklight", "label": "12/12 h darkness/blacklight", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w3_spores", "label": "s1_w3_spores", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "growth chamber", "label": "growth chamber", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Mycelium", "label": "Mycelium", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "liquid", "label": "liquid", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_6", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w9_plate\u0027}", "to": "scraping gently"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "scraping gently", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s7_w9_plate\u0027}", "to": "Harvest"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "coverslip", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027coverslip\u0027}", "to": "scraping gently"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "four layers", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027four layers\u0027}", "to": "mesh"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "mesh", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027mesh\u0027}", "to": "Filter through"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Collect", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027liquid\u0027}", "to": "Filter through"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "3 weeks", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00273 weeks\u0027}", "to": "grow"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "grow", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w3_spores\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "grow", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w1_plate\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "fresh SNA plates", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027fresh SNA plates\u0027}", "to": "Inoculate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Inoculate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027fresh SNA plates\u0027}", "to": "ev_4"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Store", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w1_plate\u0027}", "to": "grow"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w9_plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s7_w9_plate\u0027}", "to": "ev_6"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w1_plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s3_w1_plate\u0027}", "to": "ev_4"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_4", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w1_plate\u0027}", "to": "Store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Harvest", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w1_spores\u0027}", "to": "Collect"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w1_spores", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s7_w1_spores\u0027}", "to": "ev_5"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_5", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w1_spores\u0027}", "to": "Harvest"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "12/12 h darkness/blacklight", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u002712/12 h darkness/blacklight\u0027}", "to": "Store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w3_spores", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s1_w3_spores\u0027}", "to": "Inoculate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "growth chamber", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027growth chamber\u0027}", "to": "Store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mycelium", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Mycelium\u0027}", "to": "Inoculate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "liquid", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027liquid\u0027}", "to": "Collect"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

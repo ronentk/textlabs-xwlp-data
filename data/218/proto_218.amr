@@ -1,0 +1,92 @@
+(a12 / temp-treat-op
+     :name (n12 / name
+                :op1 "s11-w0-incubate")
+     :succ (a11 / spin-op
+                :name (n11 / name
+                           :op1 "s9-w2-spin-down")
+                :modifier-of (a8 / mod
+                                 :name (n8 / name
+                                           :op1 "s9-w0-quick"))
+                :succ a10
+                :ARG0 a4)
+     :ARG0 (a4 / loc
+               :name (n4 / name
+                         :op1 "s8-w15-reaction-tube")
+               :ARG1-of (a2 / co-ref-of
+                            :succ (a17 / transfer-op
+                                       :site a20
+                                       :ARG0 (a22 / rg
+                                                  :name (n22 / name
+                                                             :op1 "second-enzyme"))
+                                       :name (n17 / name
+                                                  :op1 "add"))
+                            :ARG0 (a20 / rg
+                                       :site-of (a16 / transfer-op
+                                                     :setting-of (a6 / m
+                                                                     :name (n6 / name
+                                                                               :op1 "s6-w3-concentration"))
+                                                     :ARG0 (a21 / rg
+                                                                :name (n21 / name
+                                                                           :op1 "concentrated-salt-solution"))
+                                                     :succ-of a17
+                                                     :name (n16 / name
+                                                                :op1 "adjust")
+                                                     :succ a1)
+                                       :name (n20 / name
+                                                  :op1 "s6-w6-reaction")
+                                       :ARG1-of (a1 / co-ref-of
+                                                    :name (n1 / name
+                                                              :op1 "event")
+                                                    :succ (a15 / temp-treat-op
+                                                               :ARG0 a3
+                                                               :setting-of (a23 / s
+                                                                                :name (n23 / name
+                                                                                           :op1 "s5-w3-1-hour"))
+                                                               :setting-of (a24 / s
+                                                                                :name (n24 / name
+                                                                                           :op1 "s5-w8-the-enzyme-specific-appropriate-temperature"))
+                                                               :name (n15 / name
+                                                                          :op1 "s5-w0-incubate"))
+                                                    :ARG0 (a3 / loc
+                                                              :ARG0-of (a13 / mix-op
+                                                                            :succ-of (a14 / spin-op
+                                                                                          :ARG0 a3
+                                                                                          :succ-of a15
+                                                                                          :name (n14 / name
+                                                                                                     :op1 "s3-w2-spin-down")
+                                                                                          :modifier-of (a7 / mod
+                                                                                                           :name (n7 / name
+                                                                                                                     :op1 "s3-w0-quick")))
+                                                                            :name (n13 / name
+                                                                                       :op1 "s2-w12-flicking")
+                                                                            :succ a0)
+                                                              :name (n3 / name
+                                                                        :op1 "s2-w15-reaction-tube")
+                                                              :ARG1-of (a0 / co-ref-of
+                                                                           :succ (a9 / create-op
+                                                                                     :ARG0 a18
+                                                                                     :ARG1 (a19 / rg
+                                                                                                :name (n19 / name
+                                                                                                           :op1 "restriction-endonuclease"))
+                                                                                     :name (n9 / name
+                                                                                               :op1 "set-up"))
+                                                                           :ARG0 (a18 / rg
+                                                                                      :measure-of (a5 / m
+                                                                                                      :name (n5 / name
+                                                                                                                :op1 "50--l"))
+                                                                                      :name (n18 / name
+                                                                                                 :op1 "s1-w4-reaction"))
+                                                                           :name (n0 / name
+                                                                                     :op1 "event")))))
+                            :succ-of (a10 / mix-op
+                                          :ARG0 a4
+                                          :name (n10 / name
+                                                     :op1 "s8-w12-flicking"))
+                            :name (n2 / name
+                                      :op1 "event")))
+     :setting-of (a25 / s
+                      :name (n25 / name
+                                 :op1 "s11-w3-1-hour"))
+     :setting-of (a26 / s
+                      :name (n26 / name
+                                 :op1 "s11-w8-the-enzyme-specific-appropriate-temperature")))

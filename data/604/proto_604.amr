@@ -1,0 +1,51 @@
+(a12 / default-op
+     :name (n12 / name
+                :op1 "adjust")
+     :usage-of (a0 / d
+                   :name (n0 / name
+                             :op1 "milliq"))
+     :setting-of (a8 / m
+                     :name (n8 / name
+                               :op1 "250ml"))
+     :succ (a11 / transfer-op
+                :name (n11 / name
+                           :op1 "s3-w0-add")
+                :site a1
+                :ARG0 (a15 / rg
+                           :measure-of (a7 / m
+                                           :name (n7 / name
+                                                     :op1 "2-5g"))
+                           :name (n15 / name
+                                      :op1 "sds")))
+     :ARG0 (a1 / loc
+               :name (n1 / name
+                         :op1 "autoclaved-bottle")
+               :site-of (a9 / transfer-op
+                            :ARG0 (a13 / rg
+                                       :measure-of (a2 / m
+                                                       :name (n2 / name
+                                                                 :op1 "2-5ml"))
+                                       :measure-of (a3 / m
+                                                       :name (n3 / name
+                                                                 :op1 "1m"))
+                                       :measure-of (a4 / m
+                                                       :name (n4 / name
+                                                                 :op1 "7-5"))
+                                       :name (n13 / name
+                                                  :op1 "tris-hcl"))
+                            :succ-of (a10 / transfer-op
+                                          :site a1
+                                          :ARG0 (a14 / rg
+                                                     :measure-of (a5 / m
+                                                                     :name (n5 / name
+                                                                               :op1 "1ml"))
+                                                     :measure-of (a6 / m
+                                                                     :name (n6 / name
+                                                                               :op1 "0-5m"))
+                                                     :name (n14 / name
+                                                                :op1 "edta"))
+                                          :succ-of a11
+                                          :name (n10 / name
+                                                     :op1 "s2-w0-add"))
+                            :name (n9 / name
+                                      :op1 "s1-w0-add"))))

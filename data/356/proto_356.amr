@@ -1,0 +1,90 @@
+(a19 / default-op
+     :name (n19 / name
+                :op1 "kept")
+     :succ (a3 / co-ref-of
+               :name (n3 / name
+                         :op1 "event")
+               :succ (a18 / default-op
+                          :succ (a2 / co-ref-of
+                                    :name (n2 / name
+                                              :op1 "event")
+                                    :succ (a16 / wash-op
+                                               :ARG0 a0
+                                               :ARG1 (a22 / rg
+                                                          :measure-of (a8 / m
+                                                                          :name (n8 / name
+                                                                                    :op1 "5-10-ml"))
+                                                          :modifier-of (a12 / mod
+                                                                            :name (n12 / name
+                                                                                       :op1 "s4-w12-sterile"))
+                                                          :name (n22 / name
+                                                                     :op1 "s4-w13-h2o"))
+                                               :succ-of (a17 / destroy-op
+                                                             :ARG0 a22
+                                                             :name (n17 / name
+                                                                        :op1 "discard"))
+                                               :name (n16 / name
+                                                          :op1 "prewet"))
+                                    :ARG0 (a0 / d
+                                              :name (n0 / name
+                                                        :op1 "s4-w5-syringe-filter")
+                                              :measure-of (a7 / m
+                                                              :name (n7 / name
+                                                                        :op1 "s4-w3-0-2--m"))))
+                          :ARG1 (a1 / d
+                                    :name (n1 / name
+                                              :op1 "s5-w9-syringe-filter")
+                                    :measure-of (a9 / m
+                                                    :name (n9 / name
+                                                              :op1 "s5-w7-0-2--m"))
+                                    :ARG1-of a2)
+                          :succ a4
+                          :ARG0 a23
+                          :name (n18 / name
+                                     :op1 "sterilize"))
+               :ARG0 (a23 / rg
+                          :ARG1-of (a4 / co-ref-of
+                                       :name (n4 / name
+                                                 :op1 "event")
+                                       :succ (a15 / default-op
+                                                  :modifier-of (a11 / mod
+                                                                    :name (n11 / name
+                                                                               :op1 "completely"))
+                                                  :succ a14
+                                                  :ARG0 a20
+                                                  :name (n15 / name
+                                                             :op1 "disolve"))
+                                       :ARG0 (a20 / rg
+                                                  :ARG0-of (a13 / measure-op
+                                                                :succ-of (a14 / transfer-op
+                                                                              :site a20
+                                                                              :ARG0 (a21 / rg
+                                                                                         :measure-of (a6 / m
+                                                                                                         :name (n6 / name
+                                                                                                                   :op1 "10-ml"))
+                                                                                         :modifier-of (a10 / mod
+                                                                                                           :name (n10 / name
+                                                                                                                      :op1 "s2-w4-sterile"))
+                                                                                         :name (n21 / name
+                                                                                                    :op1 "s2-w5-h2o"))
+                                                                              :name (n14 / name
+                                                                                         :op1 "add"))
+                                                                :name (n13 / name
+                                                                           :op1 "weigh"))
+                                                  :measure-of (a5 / m
+                                                                  :name (n5 / name
+                                                                            :op1 "0-5-g"))
+                                                  :name (n20 / name
+                                                             :op1 "kanamycin-monosulfate")))
+                          :name (n23 / name
+                                     :op1 "kanamycin-stock"))
+               :ARG1 a24)
+     :ARG0 (a24 / rg
+                :name (n24 / name
+                           :op1 "stock"))
+     :setting-of (a25 / s
+                      :name (n25 / name
+                                 :op1 "-20-c"))
+     :setting-of (a26 / s
+                      :name (n26 / name
+                                 :op1 "1-year")))

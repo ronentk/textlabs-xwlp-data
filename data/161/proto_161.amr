@@ -1,0 +1,107 @@
+(a12 / measure-op
+     :name (n12 / name
+                :op1 "examine")
+     :succ (a1 / co-ref-of
+               :name (n1 / name
+                         :op1 "event")
+               :succ (a11 / time-op
+                          :succ (a15 / remove-op
+                                     :succ (a0 / co-ref-of
+                                               :name (n0 / name
+                                                         :op1 "event")
+                                               :succ (a14 / default-op
+                                                          :ARG0 (a2 / loc
+                                                                    :name (n2 / name
+                                                                              :op1 "electron-microscope-grids")
+                                                                    :modifier-of (a6 / mod
+                                                                                     :name (n6 / name
+                                                                                               :op1 "carbon-formvar-coated")))
+                                                          :setting-of (a29 / s
+                                                                           :name (n29 / name
+                                                                                      :op1 "2-min"))
+                                                          :name (n14 / name
+                                                                     :op1 "absorb"))
+                                               :ARG0 (a20 / rg
+                                                          :ARG2-of (a10 / spin-op
+                                                                        :setting-of (a27 / s
+                                                                                         :name (n27 / name
+                                                                                                    :op1 "10-min"))
+                                                                        :setting-of (a28 / s
+                                                                                         :name (n28 / name
+                                                                                                    :op1 "3000g"))
+                                                                        :succ-of (a13 / transfer-op
+                                                                                      :ARG0 a20
+                                                                                      :succ-of a14
+                                                                                      :name (n13 / name
+                                                                                                 :op1 "spot")
+                                                                                      :site a2)
+                                                                        :name (n10 / name
+                                                                                   :op1 "centrifuge")
+                                                                        :succ (a9 / default-op
+                                                                                  :name (n9 / name
+                                                                                            :op1 "filter")
+                                                                                  :ARG0 a19)
+                                                                        :ARG0 (a19 / rg
+                                                                                   :measure-of (a3 / m
+                                                                                                   :name (n3 / name
+                                                                                                             :op1 "s1-w0-5-l"))
+                                                                                   :name (n19 / name
+                                                                                              :op1 "enrichment-culture")))
+                                                          :name (n20 / name
+                                                                     :op1 "cell-free-supernatant"))
+                                               :ARG1 a21)
+                                     :ARG0 a21
+                                     :name (n15 / name
+                                                :op1 "s3-w0-remove"))
+                          :ARG0 a21
+                          :succ (a18 / remove-op
+                                     :usage-of (a7 / mth
+                                                   :name (n7 / name
+                                                             :op1 "s6-w3-wicking"))
+                                     :succ (a16 / create-op
+                                                :name (n16 / name
+                                                           :op1 "s5-w0-stain")
+                                                :succ (a17 / transfer-op
+                                                           :site a22
+                                                           :ARG0 a23
+                                                           :ARG1 (a24 / rg
+                                                                      :name (n24 / name
+                                                                                 :op1 "phosphotungstate"))
+                                                           :setting-of (a30 / s
+                                                                            :name (n30 / name
+                                                                                       :op1 "15-30-seconds"))
+                                                           :name (n17 / name
+                                                                      :op1 "placing"))
+                                                :ARG1 (a23 / rg
+                                                           :measure-of (a4 / m
+                                                                           :name (n4 / name
+                                                                                     :op1 "s5-w6-5-l"))
+                                                           :measure-of (a5 / m
+                                                                           :name (n5 / name
+                                                                                     :op1 "2%"))
+                                                           :name (n23 / name
+                                                                      :op1 "uranyl-acetate"))
+                                                :site (a22 / rg
+                                                           :name (n22 / name
+                                                                      :op1 "grid"))
+                                                :ARG0 a25)
+                                     :ARG0 (a25 / rg
+                                                :name (n25 / name
+                                                           :op1 "s6-w1-stain"))
+                                     :name (n18 / name
+                                                :op1 "s6-w0-remove"))
+                          :setting-of (a31 / s
+                                           :name (n31 / name
+                                                      :op1 "10-minutes"))
+                          :name (n11 / name
+                                     :op1 "air-dry"))
+               :ARG0 (a21 / rg
+                          :name (n21 / name
+                                     :op1 "s3-w1-sample"))
+               :ARG1 a26)
+     :ARG0 (a26 / rg
+                :name (n26 / name
+                           :op1 "samples"))
+     :usage-of (a8 / mth
+                   :name (n8 / name
+                             :op1 "transmission-electron-microscopy")))

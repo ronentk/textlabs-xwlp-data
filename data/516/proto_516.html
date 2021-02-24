@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "18 h", "label": "18 h", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "standing", "label": "standing", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "oven", "label": "oven", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "dried", "label": "dried", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "running tap water", "label": "running tap water", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "dialyzed", "label": "dialyzed", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s1_w13_100 mL", "label": "s1_w13_100 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "extractant", "label": "extractant", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "volume", "label": "volume", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,203.0)", "border": "black"}, "id": "Measure", "label": "Measure", "shape": "square", "title": "measure_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "weighed", "label": "weighed", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "24 h", "label": "24 h", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "conical flask", "label": "conical flask", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Take", "label": "Take", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "70\u00b0C", "label": "70\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "humus", "label": "humus", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "add", "label": "add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Shake", "label": "Shake", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "dialysis tubes", "label": "dialysis tubes", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s8_w1_beaker", "label": "s8_w1_beaker", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Filter", "label": "Filter", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s7_w16_beaker", "label": "s7_w16_beaker", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s7_w15_100 mL", "label": "s7_w15_100 mL", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "well", "label": "well", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "20 g", "label": "20 g", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "soil", "label": "soil", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "Whatman filter paper no. 1", "label": "Whatman filter paper no. 1", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "known volume", "label": "known volume", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1:5 ratio", "label": "1:5 ratio", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "18 h", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002718 h\u0027}", "to": "standing"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "standing", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027conical flask\u0027}", "to": "Filter"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "oven", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027oven\u0027}", "to": "dried"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "running tap water", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027running tap water\u0027}", "to": "dialyzed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dialyzed", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027humus\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dialyzed", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027dialysis tubes\u0027}", "to": "Measure"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w13_100 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s1_w13_100 mL\u0027}", "to": "extractant"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "extractant", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027extractant\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "volume", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027volume\u0027}", "to": "Measure"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Measure", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027dialysis tubes\u0027}", "to": "weighed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "weighed", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s7_w16_beaker\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "24 h", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002724 h\u0027}", "to": "dialyzed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "conical flask", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027conical flask\u0027}", "to": "Take"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Take", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027conical flask\u0027}", "to": "add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "70\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002770\u00b0C\u0027}", "to": "dried"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "humus", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027humus\u0027}", "to": "dialyzed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027conical flask\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Shake", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027conical flask\u0027}", "to": "standing"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dialysis tubes", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027dialysis tubes\u0027}", "to": "dialyzed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s8_w1_beaker\u0027}", "to": "dried"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s8_w1_beaker", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s8_w1_beaker\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Filter", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027conical flask\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w16_beaker", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027s7_w16_beaker\u0027}", "to": "weighed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w15_100 mL", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s7_w15_100 mL\u0027}", "to": "s7_w16_beaker"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "well", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027well\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 g", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u002720 g\u0027}", "to": "soil"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "soil", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027soil\u0027}", "to": "Take"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Whatman filter paper no. 1", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Whatman filter paper no. 1\u0027}", "to": "Filter"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "known volume", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027known volume\u0027}", "to": "weighed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1:5 ratio", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271:5 ratio\u0027}", "to": "add"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

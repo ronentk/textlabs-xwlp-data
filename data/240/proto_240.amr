@@ -1,0 +1,87 @@
+(a20 / temp-treat-op
+     :name (n20 / name
+                :op1 "place")
+     :site (a0 / d
+               :name (n0 / name
+                         :op1 "freezer"))
+     :succ (a4 / co-ref-of
+               :name (n4 / name
+                         :op1 "event")
+               :ARG1 a9
+               :succ (a19 / mix-op
+                          :usage-of (a14 / mth
+                                         :name (n14 / name
+                                                    :op1 "inversion"))
+                          :succ a18
+                          :ARG0 a8
+                          :name (n19 / name
+                                     :op1 "mix"))
+               :ARG0 (a8 / loc
+                         :ARG0-of (a18 / seal-op
+                                       :ARG1 (a25 / sl
+                                                  :name (n25 / name
+                                                             :op1 "top"))
+                                       :name (n18 / name
+                                                  :op1 "screw")
+                                       :succ a3)
+                         :name (n8 / name
+                                   :op1 "tube")
+                         :ARG1-of (a3 / co-ref-of
+                                      :succ (a17 / transfer-op
+                                                 :succ (a2 / co-ref-of
+                                                           :name (n2 / name
+                                                                     :op1 "event")
+                                                           :ARG1 a7
+                                                           :succ (a16 / transfer-op
+                                                                      :succ (a1 / co-ref-of
+                                                                                :name (n1 / name
+                                                                                          :op1 "event")
+                                                                                :ARG1 a6
+                                                                                :succ (a15 / transfer-op
+                                                                                           :ARG0 (a21 / rg
+                                                                                                      :measure-of (a10 / m
+                                                                                                                       :name (n10 / name
+                                                                                                                                  :op1 "600-ul"))
+                                                                                                      :name (n21 / name
+                                                                                                                 :op1 "inoculated-liquid-culture"))
+                                                                                           :name (n15 / name
+                                                                                                      :op1 "s1-w0-add"))
+                                                                                :ARG0 (a5 / loc
+                                                                                          :measure-of (a11 / m
+                                                                                                           :name (n11 / name
+                                                                                                                      :op1 "2-ml"))
+                                                                                          :site-of a15
+                                                                                          :name (n5 / name
+                                                                                                    :op1 "s1-w14-screw-top-tube")))
+                                                                      :site a6
+                                                                      :ARG0 (a22 / rg
+                                                                                 :measure-of (a12 / m
+                                                                                                  :name (n12 / name
+                                                                                                             :op1 "s2-w2-200-ul"))
+                                                                                 :name (n22 / name
+                                                                                            :op1 "autoclaved-water"))
+                                                                      :name (n16 / name
+                                                                                 :op1 "s2-w0-add"))
+                                                           :ARG0 (a6 / loc
+                                                                     :name (n6 / name
+                                                                               :op1 "s2-w9-screw-top-tube")))
+                                                 :site a7
+                                                 :ARG0 (a23 / rg
+                                                            :measure-of (a13 / m
+                                                                             :name (n13 / name
+                                                                                        :op1 "s3-w2-200-ul"))
+                                                            :name (n23 / name
+                                                                       :op1 "glycerol"))
+                                                 :name (n17 / name
+                                                            :op1 "s3-w0-add"))
+                                      :ARG0 (a7 / loc
+                                                :name (n7 / name
+                                                          :op1 "screw-top-tub"))
+                                      :name (n3 / name
+                                                :op1 "event"))))
+     :ARG0 (a9 / loc
+               :name (n9 / name
+                         :op1 "mixed-screw-top-tube"))
+     :setting-of (a24 / s
+                      :name (n24 / name
+                                 :op1 "-80-c")))

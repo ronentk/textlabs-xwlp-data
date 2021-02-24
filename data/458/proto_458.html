@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "1000 x g", "label": "1000 x g", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,250.0,151.0)", "border": "black"}, "id": "Centrifuge", "label": "Centrifuge", "shape": "square", "title": "spin_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s3_w17_filter plate", "label": "s3_w17_filter plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "filter/filtrate plates", "label": "filter/filtrate plates", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_14", "label": "ev_14", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "wrapped", "label": "wrapped", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Store", "label": "Store", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "s7_w8_covered", "label": "s7_w8_covered", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "store", "label": "store", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(122.0,242.0,0.0)", "border": "black"}, "id": "s10_w6_covered", "label": "s10_w6_covered", "shape": "square", "title": "seal_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "s7_w12_plate lid", "label": "s7_w12_plate lid", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "stacked", "label": "stacked", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "empty", "label": "empty", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "wells", "label": "wells", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_16", "label": "ev_16", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "3 min", "label": "3 min", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "parafilm", "label": "parafilm", "shape": "dot", "title": "seal", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s1_w2_filter plate", "label": "s1_w2_filter plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Place", "label": "Place", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s7_w7_4\u00b0C", "label": "s7_w7_4\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "filtrate plate", "label": "filtrate plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "s9_w8_filter plate", "label": "s9_w8_filter plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_15", "label": "ev_15", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Transfer", "label": "Transfer", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "receiver\u00a096-well plate", "label": "receiver\u00a096-well plate", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "balance", "label": "balance", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "250 \u00b5L", "label": "250 \u00b5L", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "sample", "label": "sample", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,42.0,255.0)", "border": "black"}, "id": "remove", "label": "remove", "shape": "square", "title": "destroy_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "centrifuge", "label": "centrifuge", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s10_w5_4\u00b0C", "label": "s10_w5_4\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(107.0,217.0,0.0)", "border": "black"}, "id": "s10_w10_plate lid", "label": "s10_w10_plate lid", "shape": "dot", "title": "seal", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "1000 x g", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00271000 x g\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Centrifuge", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027centrifuge\u0027}", "to": "balance"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Centrifuge", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w17_filter plate\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s3_w17_filter plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s3_w17_filter plate\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s3_w17_filter plate\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "filter/filtrate plates", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027filter/filtrate plates\u0027}", "to": "ev_14"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_14", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027filter/filtrate plates\u0027}", "to": "s7_w8_covered"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "wrapped", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027filtrate plate\u0027}", "to": "Store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w8_covered", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027filter/filtrate plates\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "store", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027receiver\\xa096-well plate\u0027}", "to": "ev_16"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s10_w6_covered", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027filtrate plate\u0027}", "to": "wrapped"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w12_plate lid", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s7_w12_plate lid\u0027}", "to": "s7_w8_covered"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "stacked", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027stacked\u0027}", "to": "filter/filtrate plates"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "empty", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027empty\u0027}", "to": "wells"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "wells", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027wells\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_16", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027filtrate plate\u0027}", "to": "s10_w6_covered"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "3 min", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u00273 min\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "parafilm", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027parafilm\u0027}", "to": "wrapped"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w2_filter plate", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w2_filter plate\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Place", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w2_filter plate\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Place", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027receiver\\xa096-well plate\u0027}", "to": "ev_14"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s7_w7_4\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s7_w7_4\u00b0C\u0027}", "to": "store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "filtrate plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027filtrate plate\u0027}", "to": "ev_16"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s9_w8_filter plate", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s9_w8_filter plate\u0027}", "to": "ev_15"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_15", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s9_w8_filter plate\u0027}", "to": "remove"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Transfer", "label": "[]", "title": "{}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "receiver\u00a096-well plate", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027receiver\\xa096-well plate\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "250 \u00b5L", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027250 \u00b5L\u0027}", "to": "sample"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sample", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027sample\u0027}", "to": "Transfer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "centrifuge", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027centrifuge\u0027}", "to": "Centrifuge"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s10_w5_4\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s10_w5_4\u00b0C\u0027}", "to": "Store"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s10_w10_plate lid", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s10_w10_plate lid\u0027}", "to": "s10_w6_covered"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

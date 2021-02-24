@@ -1,0 +1,67 @@
+(a9 / temp-treat-op
+    :name (n9 / name
+              :op1 "incubate")
+    :succ (a0 / co-ref-of
+              :name (n0 / name
+                        :op1 "event")
+              :succ (a8 / mix-op
+                        :ARG0 a12
+                        :name (n8 / name
+                                  :op1 "mix"))
+              :ARG0 (a12 / rg
+                         :ARG1-of (a3 / convert-op
+                                      :succ-of (a4 / temp-treat-op
+                                                   :ARG0 (a11 / rg
+                                                              :name (n11 / name
+                                                                         :op1 "s2-w4-reaction"))
+                                                   :setting-of (a15 / s
+                                                                    :name (n15 / name
+                                                                               :op1 "95-c"))
+                                                   :setting-of (a16 / s
+                                                                    :name (n16 / name
+                                                                               :op1 "5-minutes"))
+                                                   :succ-of (a5 / temp-treat-op
+                                                                :ARG0 a12
+                                                                :succ-of (a6 / spin-op
+                                                                             :ARG0 a12
+                                                                             :setting-of (a17 / s
+                                                                                              :name (n17 / name
+                                                                                                         :op1 "10-seconds"))
+                                                                             :succ-of (a7 / transfer-op
+                                                                                          :site a12
+                                                                                          :ARG0 (a13 / rg
+                                                                                                     :measure-of (a2 / m
+                                                                                                                     :name (n2 / name
+                                                                                                                               :op1 "1--l"))
+                                                                                                     :name (n13 / name
+                                                                                                                :op1 "pngase-f"))
+                                                                                          :succ-of a8
+                                                                                          :name (n7 / name
+                                                                                                    :op1 "s6-w0-add"))
+                                                                             :name (n6 / name
+                                                                                       :op1 "centrifuge"))
+                                                                :name (n5 / name
+                                                                          :op1 "chill")
+                                                                :site (a1 / loc
+                                                                          :name (n1 / name
+                                                                                    :op1 "ice")))
+                                                   :name (n4 / name
+                                                             :op1 "heating"))
+                                      :name (n3 / name
+                                                :op1 "denature")
+                                      :ARG0 (a10 / rg
+                                                 :name (n10 / name
+                                                            :op1 "glycoprotein"))
+                                      :site a11)
+                         :name (n12 / name
+                                    :op1 "denatured-glycoprotein"))
+              :ARG1 a14)
+    :ARG0 (a14 / rg
+               :name (n14 / name
+                          :op1 "s8-w1-reaction"))
+    :setting-of (a18 / s
+                     :name (n18 / name
+                                :op1 "37-c"))
+    :setting-of (a19 / s
+                     :name (n19 / name
+                                :op1 "1-hour")))

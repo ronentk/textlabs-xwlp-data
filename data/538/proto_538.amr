@@ -1,0 +1,79 @@
+(a14 / default-op
+     :name (n14 / name
+                :op1 "replace")
+     :succ (a1 / located-at
+               :name (n1 / name
+                         :op1 "event")
+               :ARG1 a20
+               :ARG0 (a21 / rg
+                          :name (n21 / name
+                                     :op1 "antibiotic")))
+     :ARG0 (a20 / rg
+                :name (n20 / name
+                           :op1 "media"))
+     :succ (a13 / time-op
+                :name (n13 / name
+                           :op1 "culture")
+                :ARG0 a4
+                :setting-of (a22 / s
+                                 :name (n22 / name
+                                            :op1 "14-days")))
+     :site (a4 / loc
+               :name (n4 / name
+                         :op1 "plate")
+               :ARG1-of (a0 / located-at
+                            :ARG0 (a19 / rg
+                                       :measure-of (a10 / m
+                                                        :name (n10 / name
+                                                                   :op1 "500--l"))
+                                       :name (n19 / name
+                                                  :op1 "media-+-drug"))
+                            :succ-of (a12 / transfer-op
+                                          :site a4
+                                          :succ (a3 / co-ref-of
+                                                    :name (n3 / name
+                                                              :op1 "event")
+                                                    :succ (a11 / transfer-op
+                                                               :succ (a2 / part-of
+                                                                         :name (n2 / name
+                                                                                   :op1 "event")
+                                                                         :ARG1 a16
+                                                                         :ARG0 (a17 / rg
+                                                                                    :measure-of (a7 / m
+                                                                                                    :name (n7 / name
+                                                                                                              :op1 "10%"))
+                                                                                    :name (n17 / name
+                                                                                               :op1 "fbs-media")))
+                                                               :site a16
+                                                               :setting-of (a5 / m
+                                                                               :name (n5 / name
+                                                                                         :op1 "1-5"))
+                                                               :ARG0 (a15 / rg
+                                                                          :name (n15 / name
+                                                                                     :op1 "non-transduced--confluent-cells"))
+                                                               :name (n11 / name
+                                                                          :op1 "split"))
+                                                    :ARG0 (a16 / rg
+                                                               :measure-of (a6 / m
+                                                                               :name (n6 / name
+                                                                                         :op1 "10-ml"))
+                                                               :name (n16 / name
+                                                                          :op1 "dmem"))
+                                                    :ARG1 a18)
+                                          :ARG0 (a18 / rg
+                                                     :measure-of (a8 / m
+                                                                     :name (n8 / name
+                                                                               :op1 "0-5-ml"))
+                                                     :name (n18 / name
+                                                                :op1 "cell-suspension"))
+                                          :succ-of a13
+                                          :name (n12 / name
+                                                     :op1 "transfer"))
+                            :name (n0 / name
+                                      :op1 "event"))
+               :measure-of (a9 / m
+                               :name (n9 / name
+                                         :op1 "24-well")))
+     :setting-of (a23 / s
+                      :name (n23 / name
+                                 :op1 "every-3-days")))

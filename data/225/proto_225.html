@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "15 minutes", "label": "15 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Incubate", "label": "Incubate", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "T4 DNA Polymerase", "label": "T4 DNA Polymerase", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Add", "label": "Add", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "100 \u03bcM", "label": "100 \u03bcM", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "dNTP", "label": "dNTP", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "10 mM", "label": "10 mM", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "adding", "label": "adding", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "Heat", "label": "Heat", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "12\u00b0C", "label": "12\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "20 minutes", "label": "20 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Supplement", "label": "Supplement", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "each", "label": "each", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "NEBuffer", "label": "NEBuffer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Dissolve", "label": "Dissolve", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1X", "label": "1X", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "75\u00b0C", "label": "75\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "DNA", "label": "DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "EDTA", "label": "EDTA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "1 unit", "label": "1 unit", "shape": "dot", "title": "measurement", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "15 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002715 minutes\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Incubate", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027NEBuffer\u0027}", "to": "adding"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "T4 DNA Polymerase", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027T4 DNA Polymerase\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Add", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027NEBuffer\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "100 \u03bcM", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027100 \u03bcM\u0027}", "to": "dNTP"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "dNTP", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027dNTP\u0027}", "to": "Supplement"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 mM", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710 mM\u0027}", "to": "adding"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "adding", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027NEBuffer\u0027}", "to": "Heat"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "12\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002712\u00b0C\u0027}", "to": "Incubate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002720 minutes\u0027}", "to": "Heat"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Supplement", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027NEBuffer\u0027}", "to": "Add"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "each", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027each\u0027}", "to": "dNTP"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "NEBuffer", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027NEBuffer\u0027}", "to": "Dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Dissolve", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027NEBuffer\u0027}", "to": "Supplement"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1X", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271X\u0027}", "to": "NEBuffer"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "75\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002775\u00b0C\u0027}", "to": "Heat"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "DNA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027DNA\u0027}", "to": "Dissolve"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "EDTA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027EDTA\u0027}", "to": "adding"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "1 unit", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00271 unit\u0027}", "to": "T4 DNA Polymerase"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

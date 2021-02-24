@@ -1,0 +1,81 @@
+(a14 / default-op
+     :name (n14 / name
+                :op1 "proceed")
+     :usage-of (a8 / mth
+                   :name (n8 / name
+                             :op1 "ligation"))
+     :succ (a13 / default-op
+                :name (n13 / name
+                           :op1 "purify")
+                :succ a0
+                :ARG0 a20
+                :usage-of (a7 / mth
+                              :name (n7 / name
+                                        :op1 "gel-purification")))
+     :ARG0 (a20 / rg
+                :name (n20 / name
+                           :op1 "s5-w1-dna")
+                :ARG1-of (a0 / co-ref-of
+                             :name (n0 / name
+                                       :op1 "event")
+                             :succ (a12 / temp-treat-op
+                                        :ARG0 a15
+                                        :setting-of (a23 / s
+                                                         :name (n23 / name
+                                                                    :op1 "s4-w2-37-c"))
+                                        :setting-of (a24 / s
+                                                         :name (n24 / name
+                                                                    :op1 "30-60-minutes"))
+                                        :name (n12 / name
+                                                   :op1 "s4-w0-incubate"))
+                             :ARG0 (a16 / rg
+                                        :ARG0-of (a9 / transfer-op
+                                                     :ARG1 (a17 / rg
+                                                                :measure-of (a3 / m
+                                                                                :name (n3 / name
+                                                                                          :op1 "10x"))
+                                                                :measure-of (a4 / m
+                                                                                :name (n4 / name
+                                                                                          :op1 "2--l"))
+                                                                :name (n17 / name
+                                                                           :op1 "restriction-enzyme-buffer"))
+                                                     :ARG2 (a18 / rg
+                                                                :measure-of (a5 / m
+                                                                                :name (n5 / name
+                                                                                          :op1 "1--l"))
+                                                                :name (n18 / name
+                                                                           :op1 "restriction-endonuclease"))
+                                                     :succ-of (a10 / temp-treat-op
+                                                                   :ARG0 (a15 / rg
+                                                                              :measure-of (a1 / m
+                                                                                              :name (n1 / name
+                                                                                                        :op1 "s1-w9-20--l"))
+                                                                              :name (n15 / name
+                                                                                         :op1 "reaction"))
+                                                                   :setting-of (a21 / s
+                                                                                    :name (n21 / name
+                                                                                               :op1 "s2-w2-37-c"))
+                                                                   :setting-of (a22 / s
+                                                                                    :name (n22 / name
+                                                                                               :op1 "60-minutes"))
+                                                                   :succ-of (a11 / transfer-op
+                                                                                 :site a15
+                                                                                 :ARG0 (a19 / rg
+                                                                                            :measure-of (a6 / m
+                                                                                                            :name (n6 / name
+                                                                                                                      :op1 "1-unit"))
+                                                                                            :name (n19 / name
+                                                                                                       :op1 "cip"))
+                                                                                 :succ-of a12
+                                                                                 :name (n11 / name
+                                                                                            :op1 "add"))
+                                                                   :name (n10 / name
+                                                                              :op1 "s2-w0-incubate"))
+                                                     :name (n9 / name
+                                                               :op1 "digest")
+                                                     :site a15)
+                                        :measure-of (a2 / m
+                                                        :name (n2 / name
+                                                                  :op1 "--1--l"))
+                                        :name (n16 / name
+                                                   :op1 "s1-w13-dna")))))

@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s1_w19_room temperature", "label": "s1_w19_room temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s1_w16_incubated", "label": "s1_w16_incubated", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "70\u00b0C", "label": "70\u00b0C", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "heating", "label": "heating", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "enzyme", "label": "enzyme", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(200.0,28.0,255.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "located_at", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "ligation step", "label": "ligation step", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "Proceed", "label": "Proceed", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "directly", "label": "directly", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "15 minutes", "label": "15 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(167.0,60.0,252.0)", "border": "black"}, "id": "inactivate", "label": "inactivate", "shape": "square", "title": "default_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "microfuge tube", "label": "microfuge tube", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Mix", "label": "Mix", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "s2_w11_room temperature", "label": "s2_w11_room temperature", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,253.0,73.0)", "border": "black"}, "id": "s2_w8_incubated", "label": "s2_w8_incubated", "shape": "square", "title": "temp_treat_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "Immediately", "label": "Immediately", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "PCR products", "label": "PCR products", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "10 minutes", "label": "10 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "sheared/nebulized DNA", "label": "sheared/nebulized DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,48.0,0.0)", "border": "black"}, "id": "blunting reaction", "label": "blunting reaction", "shape": "dot", "title": "method", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(252.0,2.0,250.0)", "border": "black"}, "id": "sterile", "label": "sterile", "shape": "dot", "title": "modifier", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "restriction enzyme digested DNA", "label": "restriction enzyme digested DNA", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "30 minutes", "label": "30 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Quick Ligation Kit", "label": "Quick Ligation Kit", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w19_room temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s1_w19_room temperature\u0027}", "to": "s1_w16_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w16_incubated", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027restriction enzyme digested DNA\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "70\u00b0C", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002770\u00b0C\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "heating", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027microfuge tube\u0027}", "to": "Proceed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "enzyme", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027enzyme\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027enzyme\u0027}", "to": "inactivate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027microfuge tube\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ligation step", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027ligation step\u0027}", "to": "Proceed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "directly", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027directly\u0027}", "to": "Proceed"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "15 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002715 minutes\u0027}", "to": "s1_w16_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "microfuge tube", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027microfuge tube\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Mix", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027microfuge tube\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w11_room temperature", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027s2_w11_room temperature\u0027}", "to": "s2_w8_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w8_incubated", "label": "[\u0027b\u0027, \u0027c\u0027]", "title": "{\u0027b\u0027: \u0027sheared/nebulized DNA\u0027, \u0027c\u0027: \u0027PCR products\u0027}", "to": "Mix"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Immediately", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027Immediately\u0027}", "to": "inactivate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "PCR products", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027PCR products\u0027}", "to": "s2_w8_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "10 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002710 minutes\u0027}", "to": "heating"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sheared/nebulized DNA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027sheared/nebulized DNA\u0027}", "to": "s2_w8_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "blunting reaction", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027blunting reaction\u0027}", "to": "inactivate"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "sterile", "label": "[\u0027modifier_of\u0027]", "title": "{\u0027modifier_of\u0027: \u0027sterile\u0027}", "to": "microfuge tube"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "restriction enzyme digested DNA", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027restriction enzyme digested DNA\u0027}", "to": "s1_w16_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "30 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002730 minutes\u0027}", "to": "s2_w8_incubated"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Quick Ligation Kit", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027Quick Ligation Kit\u0027}", "to": "Proceed"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+(a10 / default-op
+     :name (n10 / name
+                :op1 "proceed-with-ligation")
+     :succ (a9 / temp-treat-op
+               :name (n9 / name
+                         :op1 "heat-inactivate")
+               :ARG0 a12
+               :setting-of (a16 / s
+                                :name (n16 / name
+                                           :op1 "5-minutes"))
+               :setting-of (a17 / s
+                                :name (n17 / name
+                                           :op1 "70-c")))
+     :ARG0 (a12 / rg
+                :measure-of (a2 / m
+                                :name (n2 / name
+                                          :op1 "1-5--g"))
+                :name (n12 / name
+                           :op1 "dna")
+                :site-of (a4 / transfer-op
+                             :ARG0 (a11 / rg
+                                        :measure-of (a0 / m
+                                                        :name (n0 / name
+                                                                  :op1 "1-10-volume"))
+                                        :measure-of (a1 / m
+                                                        :name (n1 / name
+                                                                  :op1 "10x"))
+                                        :name (n11 / name
+                                                   :op1 "antarctic-phosphatase-reaction-buffer"))
+                             :succ-of (a6 / transfer-op
+                                          :site a12
+                                          :ARG0 (a13 / rg
+                                                     :measure-of (a3 / m
+                                                                     :name (n3 / name
+                                                                               :op1 "1--l"))
+                                                     :name (n13 / name
+                                                                :op1 "antarctic-phosphatase"))
+                                          :succ-of (a7 / mix-op
+                                                       :ARG0 a12
+                                                       :succ-of (a8 / temp-treat-op
+                                                                    :ARG0 a12
+                                                                    :setting-of (a14 / s
+                                                                                     :name (n14 / name
+                                                                                                :op1 "15-minutes"))
+                                                                    :setting-of (a15 / s
+                                                                                     :name (n15 / name
+                                                                                                :op1 "37-c"))
+                                                                    :succ-of a9
+                                                                    :name (n8 / name
+                                                                              :op1 "incubate"))
+                                                       :name (n7 / name
+                                                                 :op1 "mix"))
+                                          :name (n6 / name
+                                                    :op1 "s2-w0-add"))
+                             :name (n4 / name
+                                       :op1 "s1-w0-add")
+                             :succ a5)
+                :ARG0-of (a5 / default-op
+                             :name (n5 / name
+                                       :op1 "cut"))))

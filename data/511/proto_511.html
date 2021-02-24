@@ -1,0 +1,77 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000;
+            height: 1000;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "three minutes", "label": "three minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,55.0,57.0)", "border": "black"}, "id": "Let sit", "label": "Let sit", "shape": "square", "title": "time_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "glass pipette", "label": "glass pipette", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,42.0,255.0)", "border": "black"}, "id": "remove", "label": "remove", "shape": "square", "title": "destroy_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "orbital rotator", "label": "orbital rotator", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,92.0,3.0)", "border": "black"}, "id": "Shake", "label": "Shake", "shape": "square", "title": "mix_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "ddH2O", "label": "ddH2O", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "Rinse", "label": "Rinse", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s5_w10_6ml", "label": "s5_w10_6ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Paraformaldehyde", "label": "Paraformaldehyde", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_12", "label": "ev_12", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "Place", "label": "Place", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "150rpm", "label": "150rpm", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_9", "label": "ev_9", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_10", "label": "ev_10", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(254.0,248.0,254.0)", "border": "black"}, "id": "glass vial", "label": "glass vial", "shape": "dot", "title": "location", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(255.0,213.0,2.0)", "border": "black"}, "id": "20 minutes", "label": "20 minutes", "shape": "dot", "title": "setting", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s4_w1_embryos", "label": "s4_w1_embryos", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,81.0,39.0)", "border": "black"}, "id": "place", "label": "place", "shape": "square", "title": "transfer_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_8", "label": "ev_8", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "basket", "label": "basket", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(22.0,249.0,0.0)", "border": "black"}, "id": "ev_11", "label": "ev_11", "shape": "square", "title": "co_ref", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "0.4%", "label": "0.4%", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "pouring", "label": "pouring", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s2_w6_embryos", "label": "s2_w6_embryos", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "bleach", "label": "bleach", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(0.0,31.0,164.0)", "border": "black"}, "id": "Wash", "label": "Wash", "shape": "square", "title": "wash_op", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(148.0,255.0,26.0)", "border": "black"}, "id": "s5_w6_6ml", "label": "s5_w6_6ml", "shape": "dot", "title": "measurement", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "Heptane", "label": "Heptane", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "bottom (parafomaldehyde) layer", "label": "bottom (parafomaldehyde) layer", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(182.0,255.0,56.0)", "border": "black"}, "id": "wash basket", "label": "wash basket", "shape": "dot", "title": "device", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s1_w1_embryos", "label": "s1_w1_embryos", "shape": "dot", "title": "reagent", "x": null, "y": null}, {"borderWidth": 1, "border_color": "black", "color": {"background": "rgb(70.0,221.0,0.0)", "border": "black"}, "id": "s5_w1_embryos", "label": "s5_w1_embryos", "shape": "dot", "title": "reagent", "x": null, "y": null}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "rgb(0,0,0)", "from": "three minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027three minutes\u0027}", "to": "Let sit"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Let sit", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_embryos\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glass pipette", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027glass pipette\u0027}", "to": "remove"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "orbital rotator", "label": "[\u0027usage_of\u0027]", "title": "{\u0027usage_of\u0027: \u0027orbital rotator\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Shake", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027Paraformaldehyde\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ddH2O", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027ddH2O\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Rinse", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w1_embryos\u0027}", "to": "ev_11"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w10_6ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s5_w10_6ml\u0027}", "to": "Paraformaldehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Paraformaldehyde", "label": "[\u0027c\u0027]", "title": "{\u0027c\u0027: \u0027Paraformaldehyde\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_12", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027bottom (parafomaldehyde) layer\u0027}", "to": "remove"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Place", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027glass vial\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "150rpm", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u0027150rpm\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_9", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s4_w1_embryos\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_10", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027basket\u0027}", "to": "Rinse"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "glass vial", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027glass vial\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "20 minutes", "label": "[\u0027setting_of\u0027]", "title": "{\u0027setting_of\u0027: \u002720 minutes\u0027}", "to": "Shake"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s4_w1_embryos", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s4_w1_embryos\u0027}", "to": "ev_9"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "place", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_embryos\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "place", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027wash basket\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_8", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_embryos\u0027}", "to": "pouring"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "basket", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027basket\u0027}", "to": "ev_10"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "ev_11", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s5_w1_embryos\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "0.4%", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u00270.4%\u0027}", "to": "Paraformaldehyde"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "pouring", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s2_w6_embryos\u0027}", "to": "Let sit"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s2_w6_embryos", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s2_w6_embryos\u0027}", "to": "ev_8"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "bleach", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027bleach\u0027}", "to": "pouring"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Wash", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_embryos\u0027}", "to": "place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w6_6ml", "label": "[\u0027measure_of\u0027]", "title": "{\u0027measure_of\u0027: \u0027s5_w6_6ml\u0027}", "to": "Heptane"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "Heptane", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027Heptane\u0027}", "to": "Place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "bottom (parafomaldehyde) layer", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027bottom (parafomaldehyde) layer\u0027}", "to": "ev_12"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "wash basket", "label": "[\u0027site\u0027]", "title": "{\u0027site\u0027: \u0027wash basket\u0027}", "to": "place"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s1_w1_embryos", "label": "[\u0027a\u0027]", "title": "{\u0027a\u0027: \u0027s1_w1_embryos\u0027}", "to": "Wash"}, {"arrows": "to", "color": "rgb(0,0,0)", "from": "s5_w1_embryos", "label": "[\u0027b\u0027]", "title": "{\u0027b\u0027: \u0027s5_w1_embryos\u0027}", "to": "ev_11"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {"nodes": {"physics": false}, "edges": {"color": {"inherit": true}, "smooth": false}, "layout": {"hierarchical": {"enabled": true, "nodeSpacing": 130, "blockShifting": false, "direction": "LR"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0}, "minVelocity": 0.75, "solver": "hierarchicalRepulsion"}};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

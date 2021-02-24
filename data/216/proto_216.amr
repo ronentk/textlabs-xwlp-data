@@ -1,0 +1,193 @@
+(a38 / time-op
+     :name (n38 / name
+                :op1 "wait")
+     :succ (a11 / part-of
+                :name (n11 / name
+                           :op1 "event")
+                :succ (a36 / default-op
+                           :succ a10
+                           :ARG0 a2
+                           :name (n36 / name
+                                      :op1 "select"))
+                :ARG1 a2
+                :succ (a37 / default-op
+                           :ARG0 a5
+                           :name (n37 / name
+                                      :op1 "press"))
+                :ARG0 (a5 / d
+                          :name (n5 / name
+                                    :op1 "start-button")))
+     :ARG0 (a2 / d
+               :site-of (a46 / transfer-op
+                             :succ (a33 / transfer-op
+                                        :name (n33 / name
+                                                   :op1 "placed")
+                                        :ARG0 (a3 / d
+                                                  :name (n3 / name
+                                                            :op1 "sensor"))
+                                        :succ a8
+                                        :site a22)
+                             :ARG0 (a22 / loc
+                                        :name (n22 / name
+                                                   :op1 "flask")
+                                        :ARG1-of (a8 / co-ref-of
+                                                     :succ (a45 / transfer-op
+                                                                :site a30
+                                                                :ARG0 (a49 / rg
+                                                                           :name (n49 / name
+                                                                                      :op1 "di-water"))
+                                                                :name (n45 / name
+                                                                           :op1 "fill"))
+                                                     :ARG0 (a30 / loc
+                                                                :name (n30 / name
+                                                                           :op1 "large-erlenmeyer-flask"))
+                                                     :name (n8 / name
+                                                               :op1 "event")))
+                             :name (n46 / name
+                                        :op1 "c")
+                             :succ-of (a9 / part-of
+                                          :ARG1 a2
+                                          :ARG0 (a52 / sl
+                                                     :name (n52 / name
+                                                                :op1 "autoclave-door"))
+                                          :succ-of (a34 / seal-op
+                                                        :ARG0 a2
+                                                        :ARG1 a52
+                                                        :name (n34 / name
+                                                                   :op1 "close"))
+                                          :name (n9 / name
+                                                    :op1 "event"))
+                             :succ a19)
+               :name (n2 / name
+                         :op1 "s8-w14-autoclave")
+               :ARG1-of (a10 / part-of
+                             :succ (a35 / default-op
+                                        :ARG0 a4
+                                        :name (n35 / name
+                                                   :op1 "pressing"))
+                             :ARG0 (a4 / d
+                                       :name (n4 / name
+                                                 :op1 "button"))
+                             :name (n10 / name
+                                        :op1 "event")
+                             :succ a34)
+               :ARG1-of (a19 / co-ref-of
+                             :succ (a18 / part-of
+                                        :name (n18 / name
+                                                   :op1 "event")
+                                        :ARG1 a29
+                                        :succ (a44 / transfer-op
+                                                   :succ (a16 / located-at
+                                                              :name (n16 / name
+                                                                         :op1 "event")
+                                                              :succ a14
+                                                              :ARG1 a27
+                                                              :succ a15
+                                                              :ARG0 a48)
+                                                   :ARG0 (a27 / loc
+                                                              :name (n27 / name
+                                                                         :op1 "tray")
+                                                              :ARG1-of (a14 / co-ref-of
+                                                                            :succ a42
+                                                                            :ARG0 a26
+                                                                            :succ-of (a15 / co-ref-of
+                                                                                          :ARG0 (a47 / rg
+                                                                                                     :name (n47 / name
+                                                                                                                :op1 "all-items")
+                                                                                                     :ARG1-of (a7 / part-of
+                                                                                                                  :succ-of (a12 / part-of
+                                                                                                                                :ARG1 a47
+                                                                                                                                :succ-of a13
+                                                                                                                                :name (n12 / name
+                                                                                                                                           :op1 "event")
+                                                                                                                                :succ (a6 / part-of
+                                                                                                                                          :name (n6 / name
+                                                                                                                                                    :op1 "event")
+                                                                                                                                          :succ a32
+                                                                                                                                          :ARG1 a0
+                                                                                                                                          :succ (a39 / seal-op
+                                                                                                                                                     :ARG0 a24
+                                                                                                                                                     :ARG1 (a50 / sl
+                                                                                                                                                                :name (n50 / name
+                                                                                                                                                                           :op1 "a-piece-of-autoclave-tape"))
+                                                                                                                                                     :name (n39 / name
+                                                                                                                                                                :op1 "s2-w5-place"))
+                                                                                                                                          :ARG0 (a24 / loc
+                                                                                                                                                     :name (n24 / name
+                                                                                                                                                                :op1 "on-top")))
+                                                                                                                                :ARG0 (a0 / d
+                                                                                                                                          :site-of (a32 / transfer-op
+                                                                                                                                                        :ARG0 (a23 / loc
+                                                                                                                                                                   :name (n23 / name
+                                                                                                                                                                              :op1 "plates"))
+                                                                                                                                                        :name (n32 / name
+                                                                                                                                                                   :op1 "wrap"))
+                                                                                                                                          :name (n0 / name
+                                                                                                                                                    :op1 "foil")))
+                                                                                                                  :name (n7 / name
+                                                                                                                            :op1 "event")
+                                                                                                                  :succ (a31 / transfer-op
+                                                                                                                             :ARG0 (a20 / loc
+                                                                                                                                        :name (n20 / name
+                                                                                                                                                   :op1 "reservoirs"))
+                                                                                                                             :site a21
+                                                                                                                             :name (n31 / name
+                                                                                                                                        :op1 "s1-w0-place"))
+                                                                                                                  :ARG0 (a21 / loc
+                                                                                                                             :name (n21 / name
+                                                                                                                                        :op1 "autoclave-bags"))))
+                                                                                          :ARG1 (a48 / rg
+                                                                                                     :name (n48 / name
+                                                                                                                :op1 "items"))
+                                                                                          :name (n15 / name
+                                                                                                     :op1 "event"))
+                                                                            :name (n14 / name
+                                                                                       :op1 "event")))
+                                                   :site a28
+                                                   :name (n44 / name
+                                                              :op1 "s7-w3-place"))
+                                        :ARG0 (a28 / loc
+                                                   :name (n28 / name
+                                                              :op1 "middle")))
+                             :ARG0 (a29 / loc
+                                        :name (n29 / name
+                                                   :op1 "s7-w12-autoclave")
+                                        :ARG1-of (a17 / co-ref-of
+                                                      :succ (a43 / default-op
+                                                                 :ARG0 a1
+                                                                 :name (n43 / name
+                                                                            :op1 "fill-out"))
+                                                      :ARG0 (a1 / d
+                                                                :ARG1-of (a42 / default-op
+                                                                              :succ (a41 / transfer-op
+                                                                                         :name (n41 / name
+                                                                                                    :op1 "s4-w0-place")
+                                                                                         :succ (a13 / part-of
+                                                                                                    :name (n13 / name
+                                                                                                               :op1 "event")
+                                                                                                    :ARG1 a47
+                                                                                                    :succ (a40 / seal-op
+                                                                                                               :ARG0 a25
+                                                                                                               :ARG1 (a51 / sl
+                                                                                                                          :name (n51 / name
+                                                                                                                                     :op1 "autoclave-tape"))
+                                                                                                               :name (n40 / name
+                                                                                                                          :op1 "s3-w0-place"))
+                                                                                                    :ARG0 (a25 / loc
+                                                                                                               :name (n25 / name
+                                                                                                                          :op1 "pipet-tip-boxes")))
+                                                                                         :ARG0 a47
+                                                                                         :site a26)
+                                                                              :ARG0 (a26 / loc
+                                                                                         :name (n26 / name
+                                                                                                    :op1 "beige-autoclave-tray"))
+                                                                              :succ-of a43
+                                                                              :name (n42 / name
+                                                                                         :op1 "bring"))
+                                                                :name (n1 / name
+                                                                          :op1 "s5-w2-autoclave"))
+                                                      :succ-of a18
+                                                      :name (n17 / name
+                                                                 :op1 "event")))
+                             :name (n19 / name
+                                        :op1 "event"))))
