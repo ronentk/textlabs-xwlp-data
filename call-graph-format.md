@@ -86,7 +86,8 @@ Note that the original WLP dataset uses a finer grained type ontology for entiti
 
 Edges record the routing of arguments between various operations comprising the process. Edges either connect arguments to events, or between two events. Edges contain mapping information in the form of `(argument_type, argument)` pairs, such that for in incoming edge to an event `ev`, `(argument_type, argument)` denotes that `argument`  serves as an input to `ev` of type `argument_type`.
 
-Details of argument types and their syntax can be found in Appendix 3 of the paper. 
+In the call grpah format, argument types are denoted by keys `a`, `b`, `c` corresponding to PropBank `ARG0`, `ARG1`, `ARG2`.
+Further details of argument types and their syntax can be found in Appendix 3 of the paper. 
 
 ### PEG Connectivity
 
